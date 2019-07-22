@@ -16,7 +16,7 @@
             </v-flex>
             <v-flex xs8 class="text-xs-center">
                 <v-btn flat class="nav-link" to="/">
-                    Home
+                    cases
                 </v-btn>
 
                 <v-btn flat class="nav-link" to="/help">

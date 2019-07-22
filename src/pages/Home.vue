@@ -1,8 +1,10 @@
 <template>
     <v-container class="home">
         <v-layout class="bid-cases" row wrap>
-            <v-flex xs12 md12 lg12>
-                <!-- <h2 class="uppercase">Open cases <span class="uppercase c-purple-bright m-l">view selection</span></h2> -->
+            <v-flex xs12 md12 lg12 class="text-xs-center">
+                <v-btn flat outline color="#fff" class="filter-btn">official cases</v-btn>
+                <v-btn flat outline color="#fff" class="filter-btn">new cases</v-btn>
+                <v-btn flat outline color="#fff" class="filter-btn">trending cases</v-btn>
             </v-flex>
             <v-flex xs12 sm4 md3 lg2 class="case pointer m-t-3 m-b-3" v-for="(item, index) in allCases" :key="index" @click="openCase(item)">
                 <h3 class="capitalize t-c">{{item.name}}</h3>
@@ -64,10 +66,11 @@ export default {
         background: #73337a65;
     }
     .bid-cases{
-        h2{
-            span{
-                font-size: 14px;
-            }
+        .filter-btn{
+            width: 230px;
+            height: 60px;
+            font-size: 18px;
+            border-radius: 50px;
         }
         .case{
             min-height: 250px;
