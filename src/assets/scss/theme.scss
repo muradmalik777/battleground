@@ -7,7 +7,7 @@
   box-sizing: border-box !important;
 }
 body{
-  background: $purple-dull !important;
+  background: $dark-back !important;
   font-size: 16px;
    *{
      color: #ffffff;
@@ -25,6 +25,9 @@ body{
 }
 .full-width{
   width: 100%;
+}
+.dark-back{
+  background: $dark-back !important;
 }
 .bg-purple-dull{
   background: $purple-dull !important;

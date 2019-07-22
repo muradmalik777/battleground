@@ -1,13 +1,8 @@
 <template>
-    <v-container class="home spacing">
-        <v-layout>
-            <v-flex class="banner">
-                <h2 class="uppercase t-c">add banner</h2>
-            </v-flex>
-        </v-layout>
+    <v-container class="home">
         <v-layout class="bid-cases" row wrap>
             <v-flex xs12 md12 lg12>
-                <h2 class="uppercase m-t-3">Open cases <span class="uppercase c-purple-bright m-l">view selection</span></h2>
+                <h2 class="uppercase">Open cases <span class="uppercase c-purple-bright m-l">view selection</span></h2>
             </v-flex>
             <v-flex xs12 sm4 md3 lg2 class="case pointer m-t-3 m-b-3" v-for="(item, index) in allCases" :key="index" @click="openCase(item)">
                 <h3 class="capitalize t-c">{{item.name}}</h3>

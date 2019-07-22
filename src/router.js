@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from '@/pages/Home'
-// import CaseCreator from '@/pages/CaseCreator'
+import CaseCreator from '@/pages/CaseCreator'
 import CaseBrowser from '@/pages/CaseBrowser'
 import FAQ from '@/pages/FAQ'
 import TOS from '@/pages/TOS'
@@ -47,7 +47,7 @@ export default new Router({
         { path: '/', component: Home },
         { path: '/login', component: Login },
         { path: '/register', component: Register },
-        // { path: '/caseCreator', component: CaseCreator, beforeEnter: guard },
+        { path: '/caseCreator', component: CaseCreator, beforeEnter: guard },
         { path: '/caseBrowser', component: CaseBrowser },
         { path: '/case/:slug', component: SingleCase },
         { path: '/caseBrowser/:case_id', component: CaseDisplay },

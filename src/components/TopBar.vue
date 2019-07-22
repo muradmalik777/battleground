@@ -1,31 +1,27 @@
 <template>
     <div class="topbar">
-        <v-toolbar flat class="bg-purple-bright">
+        <v-toolbar flat>
             <v-container class="nav">
-                <v-layout justify-end row wrap>
+                <v-layout justify-center row wrap>
                     <v-flex xs2 class="text-xs-left">
                         <router-link to="/"><v-img contain :src="require('@/assets/imgs/logo.png')" class="nav-logo pointer"></v-img></router-link>
                     </v-flex>
-                    <v-flex xs9 class="text-xs-right">
+                    <v-flex xs8 class="text-xs-center">
                         <v-btn flat class="nav-link" to="/">
-                            <v-avatar size="50px">
-                                <v-img contain :src="require('@/assets/imgs/svg/home.svg')" class="menu-btn-icon"></v-img>
-                            </v-avatar>
                             Home
                         </v-btn>
-                        <!-- <v-btn flat class="nav-link" to="/caseCreator">
-                            <v-avatar size="50px">
-                                <v-img contain :src="require('@/assets/imgs/svg/pen.svg')" class="menu-btn-icon"></v-img>
-                            </v-avatar>
-                            Case Creator
-                        </v-btn> -->
-                        <!-- <v-btn flat class="nav-link" to="/casebrowser">
-                            <v-avatar size="50px">
-                                <v-img contain :src="require('@/assets/imgs/svg/box.svg')" class="menu-btn-icon"></v-img>
-                            </v-avatar>
+
+                        <v-btn flat class="nav-link" to="/help">
+                            Support
+                        </v-btn>
+                        <v-btn flat class="nav-link" to="/casebrowser">
                             Case Browser
-                        </v-btn> -->
-                        <!-- <v-btn flat class="c-green-bright nav-link">${{parseFloat($store.state.userData.balance).toFixed(2)}}</v-btn> -->
+                        </v-btn>
+                        <v-btn flat class="nav-link" to="/caseCreator">
+                            Case Creator
+                        </v-btn>
+                    </v-flex>
+                    <v-flex xs2 class="text-xs-right">
                         <v-menu offset-y max-width="200" min-width="150" v-if="$store.state.userData">
                             <template v-slot:activator="{ on }">
                                 <v-btn flat v-on="on" class="nav-link m-0">{{$store.state.userData.user_name}} <span class="verified">[Verified]</span><br></v-btn>
@@ -48,11 +44,8 @@
                                 </v-list-tile>
                             </v-list>
                         </v-menu>
-                        <v-btn flat outline class="nav-link" :to="'/login'" v-else>Login</v-btn>
                         <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
-                    </v-flex>
-                    <v-flex xs1>
-
+                        <v-btn flat outline color="#fff" class="nav-link login-btn" :to="'/login'" v-else>Login</v-btn>
                     </v-flex>
                 </v-layout>
             </v-container>
@@ -107,14 +100,20 @@ export default {
 }
 </script>
 <style lang="scss">
+@import "../assets/scss/variables.scss";
+
 .topbar{
+    .v-toolbar{
+        background-color: transparent !important;
+    }
     .nav{
         max-width: 100%;
+        padding: 20px 100px;
     }
     .nav-logo{
         width: 180px;
         height: auto;
-        margin-left: 2rem;
+        margin-left: 0;
     }
     .v-toolbar{
         width: 100%;
@@ -126,7 +125,7 @@ export default {
     }
     .nav-link{
         color: white;
-        text-transform: capitalize;
+        text-transform: uppercase;
         font-size: 16px;
         height: 50px;
         .menu-btn-icon{
@@ -134,8 +133,16 @@ export default {
             height: 25px;
         }
     }
+    .login-btn{
+        width: 145px;
+        height: 53px;
+    }
     .nav-link.v-btn--active{
-        background: #73337a;
+        color: $red;
+        font-size: 16px;
+        &::before{
+            display: none;
+        }
     }
     .user-menu{
         color: #333333 !important;
