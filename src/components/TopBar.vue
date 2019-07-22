@@ -1,70 +1,80 @@
 <template>
-    <div class="topbar">
-        <v-toolbar flat>
-            <v-container class="nav">
-                <v-layout justify-center row wrap>
-                    <v-flex xs2 class="text-xs-left">
-                        <router-link to="/"><v-img contain :src="require('@/assets/imgs/logo.png')" class="nav-logo pointer"></v-img></router-link>
-                    </v-flex>
-                    <v-flex xs8 class="text-xs-center">
-                        <v-btn flat class="nav-link" to="/">
-                            Home
-                        </v-btn>
+    <v-container class="nav spacing">
+        <v-layout justify-center row wrap class="live-drops" pt-3 pb-3>
+            <v-flex xs12>
+                <h2 class="m-b-2">LIVE DROPS</h2>
+                <carousel :autoplay="true" :dots="false" :nav="false" :autoWidth="true">
+                    <div v-for="image in 35" :key="image" class="case-image-box">
+                        <v-img :src="casePicture(image)" @click="selectPicture(image)" class="case-picture m-t-3"></v-img>
+                    </div>
+                </carousel>
+            </v-flex>
+        </v-layout>
+        <v-layout justify-center row wrap mt-4 mb-4>
+            <v-flex xs2 class="text-xs-left">
+                <router-link to="/"><v-img contain :src="require('@/assets/imgs/logo.png')" class="nav-logo pointer"></v-img></router-link>
+            </v-flex>
+            <v-flex xs8 class="text-xs-center">
+                <v-btn flat class="nav-link" to="/">
+                    Home
+                </v-btn>
 
-                        <v-btn flat class="nav-link" to="/help">
-                            Support
-                        </v-btn>
-                        <v-btn flat class="nav-link" to="/casebrowser">
-                            Case Browser
-                        </v-btn>
-                        <v-btn flat class="nav-link" to="/caseCreator">
-                            Case Creator
-                        </v-btn>
-                    </v-flex>
-                    <v-flex xs2 class="text-xs-right">
-                        <v-menu offset-y max-width="200" min-width="150" v-if="$store.state.userData">
-                            <template v-slot:activator="{ on }">
-                                <v-btn flat v-on="on" class="nav-link m-0">{{$store.state.userData.user_name}} <span class="verified">[Verified]</span><br></v-btn>
-                            </template>
-                            <v-list dark>
-                                <v-list-tile class="user-menu pointer c-purple-bright">
-                                    <v-list-tile-title><p class="c-green-bright amount">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p></v-list-tile-title>
-                                </v-list-tile>
-                                <v-list-tile to="/profile" class="user-menu pointer c-purple-bright">
-                                    <v-list-tile-title>Profile</v-list-tile-title>
-                                </v-list-tile>
-                                <v-list-tile @click="openDialog" class="user-menu pointer c-purple-bright">
-                                    <v-list-tile-title>Add Funds</v-list-tile-title>
-                                </v-list-tile>
-                                <v-list-tile to="/faq" class="user-menu pointer c-purple-bright">
-                                    <v-list-tile-title>Help</v-list-tile-title>
-                                </v-list-tile>
-                                <v-list-tile @click="signout()" class="user-menu pointer">
-                                    <v-list-tile-title>Logout</v-list-tile-title>
-                                </v-list-tile>
-                            </v-list>
-                        </v-menu>
-                        <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
-                        <v-btn flat outline color="#fff" class="nav-link login-btn" :to="'/login'" v-else>Login</v-btn>
-                    </v-flex>
-                </v-layout>
-            </v-container>
-        </v-toolbar>
-    </div>
+                <v-btn flat class="nav-link" to="/help">
+                    Support
+                </v-btn>
+                <v-btn flat class="nav-link" to="/casebrowser">
+                    Case Browser
+                </v-btn>
+                <v-btn flat class="nav-link" to="/caseCreator">
+                    Case Creator
+                </v-btn>
+            </v-flex>
+            <v-flex xs2 class="text-xs-right">
+                <v-menu offset-y max-width="200" min-width="150" v-if="$store.state.userData">
+                    <template v-slot:activator="{ on }">
+                        <v-btn flat v-on="on" class="nav-link m-0">{{$store.state.userData.user_name}} <span class="verified">[Verified]</span><br></v-btn>
+                    </template>
+                    <v-list dark>
+                        <v-list-tile class="user-menu pointer c-purple-bright">
+                            <v-list-tile-title><p class="c-green-bright amount">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p></v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile to="/profile" class="user-menu pointer c-purple-bright">
+                            <v-list-tile-title>Profile</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile @click="openDialog" class="user-menu pointer c-purple-bright">
+                            <v-list-tile-title>Add Funds</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile to="/faq" class="user-menu pointer c-purple-bright">
+                            <v-list-tile-title>Help</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile @click="signout()" class="user-menu pointer">
+                            <v-list-tile-title>Logout</v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
+                <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
+                <v-btn flat outline color="#fff" class="nav-link login-btn" :to="'/login'" v-else>Login</v-btn>
+            </v-flex>
+        </v-layout>
+    </v-container>
 </template>
 <script>
 import Api from '../services/Api.js';
 import DepositDialog from '@/components/DepositDialog'
+import carousel from 'vue-owl-carousel'
+
 
 export default {
     name: 'navbar',
     components: {
-        'deposits': DepositDialog
+        'deposits': DepositDialog,
+        carousel,
     },
     data: function(){
         return{
             drawer: true,
-            showDepositDialog: false
+            showDepositDialog: false,
+            selectedImage: 1,
         }
     },
     mounted: function () {
@@ -95,21 +105,39 @@ export default {
         },
         closeDialog: function(){
             this.showDepositDialog = false
-        }
+        },
+        casePicture: function(image){
+            return require("@/assets/imgs/drop-image.png")
+        },
+        selectPicture: function(image){
+            this.selectedImage = image
+        },
     },
 }
 </script>
 <style lang="scss">
 @import "../assets/scss/variables.scss";
 
-.topbar{
-    .v-toolbar{
-        background-color: transparent !important;
+.nav{
+    max-width: 100%;
+
+    .case-image-box{
+        width: 185px;
+        height: 135px;
+        float: left;
+        background: $dark-back;
+        margin-right: 2rem;
+        border: 1px solid $red;
+
+        .case-picture{
+            width: 102px;
+            height: 102px;
+            cursor: pointer;
+            display: block;
+            margin: 1rem auto;
+        }
     }
-    .nav{
-        max-width: 100%;
-        padding: 20px 100px;
-    }
+
     .nav-logo{
         width: 180px;
         height: auto;

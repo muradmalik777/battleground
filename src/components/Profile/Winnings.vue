@@ -96,11 +96,7 @@ export default {
                     return value._id != oneCase._id;
                 });
             }).catch(() => {
-                let toast = this.$toasted.show("Failed to delete case!", { 
-                    theme: "bubble", 
-                    position: "top-right", 
-                    duration : 5000
-                });
+                this.showMessage("Failed to delete case")
             })
         },
         sellItem: function(item){

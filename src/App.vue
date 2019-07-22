@@ -4,14 +4,12 @@
     <div class="content">
         <router-view></router-view>
     </div>
-    <!-- <foot></foot> -->
     <loader v-if="this.$store.state.loading"></loader>
   </v-app>
 </template>
 
 <script>
 import TopBar from '@/components/TopBar';
-import Foot from '@/components/Foot';
 import Loader from '@/components/Loader';
 
 
@@ -20,7 +18,6 @@ export default {
   components: {
     'topbar': TopBar,
     'loader': Loader,
-    'foot': Foot
   },
   data () {
     return {
