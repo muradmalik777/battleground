@@ -126,6 +126,7 @@ export default {
         background-color: $dark1;
         margin-right: 2rem;
         border: 1px solid #D1415580;
+        transition: background-color 0.35s;
 
         &:hover{
             background-color: $dark3;
