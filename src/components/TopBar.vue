@@ -3,7 +3,7 @@
         <v-layout justify-center row wrap class="live-drops" pt-3 pb-3>
             <v-flex xs12>
                 <h2 class="m-b-2">LIVE DROPS</h2>
-                <carousel :autoplay="true" :loop="true" :dots="false" :nav="false" :autoWidth="true">
+                <carousel :autoplay="true" :loop="true" :rewind="false" :dots="false" :nav="false" :autoWidth="true">
                     <div v-for="image in 25" :key="image" class="drop-box">
                         <v-img :src="dropPicture(image)" class="drop-image m-t-3"></v-img>
                     </div>
@@ -156,15 +156,17 @@ export default {
                 display: none;
             }
         }
-        .menu-btn-icon{
-            width: 22px;
-            height: 25px;
-        }
     }
     .login-btn{
         width: 145px;
         height: 53px;
         margin: 0;
+        &:hover{
+            border-color: $red;
+            &::before{
+                display: none;
+            }
+        }
     }
     .login-btn.v-btn--active{
         color: $red !important;

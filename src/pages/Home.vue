@@ -72,6 +72,12 @@ export default {
             font-size: 18px;
             border-radius: 50px;
             border: 2px solid $white;
+            &:hover{
+                border-color: $red;
+                &::before{
+                    display: none;
+                }
+            }
         }
         .active-btn{
             background-color: $red !important;
@@ -108,6 +114,10 @@ export default {
             border-radius: 50px;
             border: 2px solid $red;
             text-transform: capitalize;
+            &:hover{
+                background-color: $red !important;
+                color: $dark2 !important;
+            }
         }
     }
 }
