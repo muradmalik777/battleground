@@ -5,7 +5,7 @@
                 <h2 class="m-b-2">LIVE DROPS</h2>
                 <carousel :autoplay="true" :loop="true" :dots="false" :nav="false" :autoWidth="true">
                     <div v-for="image in 20" :key="image" class="drop-box">
-                        <v-img :src="casePicture(image)" @click="selectPicture(image)" class="drop-image m-t-3"></v-img>
+                        <v-img :src="dropPicture(image)" class="drop-image m-t-3"></v-img>
                     </div>
                 </carousel>
             </v-flex>
@@ -106,11 +106,8 @@ export default {
         closeDialog: function(){
             this.showDepositDialog = false
         },
-        casePicture: function(image){
+        dropPicture: function(image){
             return require("@/assets/imgs/drop-image.png")
-        },
-        selectPicture: function(image){
-            this.selectedImage = image
         },
     },
 }
@@ -126,9 +123,13 @@ export default {
         width: 185px;
         height: 135px;
         float: left;
-        background: $dark1;
+        background-color: $dark1;
         margin-right: 2rem;
         border: 1px solid #D1415580;
+
+        &:hover{
+            background-color: $dark3;
+        }
 
         .drop-image{
             width: 102px;
@@ -157,6 +158,7 @@ export default {
     .login-btn{
         width: 145px;
         height: 53px;
+        margin: 0;
     }
     .login-btn.v-btn--active{
         color: $red !important;
@@ -181,13 +183,6 @@ export default {
         font-size: 12px;
         color: #bbbbbb !important;
         margin-left: .5rem;
-    }
-    .v-menu__content{
-        background: $dark1 !important;
-        .v-list.menu.theme--light{
-            width: 300px;
-            background: $dark1 !important;
-        }
     }
 }
 </style>

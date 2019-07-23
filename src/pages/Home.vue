@@ -2,9 +2,9 @@
     <v-container grid-list-md class="home">
         <v-layout class="bid-cases" row wrap>
             <v-flex xs12 md12 lg12 mb-5 class="text-xs-center">
-                <v-btn flat outline color="#fff" class="filter-btn">official cases</v-btn>
-                <v-btn flat outline color="#fff" class="filter-btn">new cases</v-btn>
-                <v-btn flat outline color="#fff" class="filter-btn">trending cases</v-btn>
+                <v-btn flat outline color="#fff" :class="{'active-btn': active === 1}" class="filter-btn" @click="filterCases(1)">official cases</v-btn>
+                <v-btn flat outline color="#fff" :class="{'active-btn': active === 2}" class="filter-btn" @click="filterCases(2)">new cases</v-btn>
+                <v-btn flat outline color="#fff" :class="{'active-btn': active === 3}" class="filter-btn" @click="filterCases(3)">trending cases</v-btn>
             </v-flex>
             <v-flex xs12  class="text-xs-center">
                 <div class="case pointer" v-for="(item) in 12" :key="item">
@@ -34,6 +34,7 @@ export default {
             allCases: [],
             currentPage: 1,
             totalCases: null,
+            active: 1
         }
     },
     created: function() {
@@ -53,6 +54,9 @@ export default {
         openCase: function (item) {
             this.$store.commit('addCaseToBeOpened', item)
             this.$router.push('case/' + item.slug);
+        },
+        filterCases: function(num){
+            this.active = num
         }
     }
 
@@ -72,6 +76,9 @@ export default {
             height: 60px;
             font-size: 18px;
             border-radius: 50px;
+        }
+        .active-btn{
+            background-color: $red !important;
         }
         .case{
             width: 200px;
