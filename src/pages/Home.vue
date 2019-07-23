@@ -80,7 +80,7 @@ export default {
             background-color: $dark2;
             margin: 2rem; 
             display: inline-block;
-            transition: background-color .4s;
+            transition: background-color .35s;
 
             &:hover{
                 background-color: $blue;

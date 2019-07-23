@@ -12,7 +12,7 @@
         </v-layout>
         <v-layout justify-center row wrap mt-4 mb-4 pb-3 class="navbar">
             <v-flex xs2 class="text-xs-left">
-                <router-link to="/"><v-img contain :src="require('@/assets/imgs/logo.png')" class="nav-logo pointer"></v-img></router-link>
+                <router-link to="/"><v-img contain :src="require('@/assets/imgs/icon.svg')" class="nav-logo pointer"></v-img></router-link>
             </v-flex>
             <v-flex xs8 class="text-xs-center">
                 <v-btn flat class="nav-link" to="/">
@@ -140,9 +140,9 @@ export default {
     }
 
     .nav-logo{
-        width: 180px;
+        width: 60px;
         height: auto;
-        margin-left: 0;
+        margin: .8rem 0 0 0;
     }
     .nav-link{
         color: white;
