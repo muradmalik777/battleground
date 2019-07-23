@@ -82,18 +82,20 @@ export default {
         .active-btn{
             background-color: $red !important;
             border: 2px solid $red;
+            font-weight: 500;
         }
         .case{
             width: 200px;
             min-height: 250px;
             padding: 15px;
-            background-color: $dark2;
+            background-image: url('../assets/imgs/case-back-dark.png');
+            background-size: cover;
             margin: 2rem; 
             display: inline-block;
-            transition: background-color .35s;
+            transition: background-image .35s;
 
             &:hover{
-                background-color: $blue;
+                background-image: url('../assets/imgs/case-back-light.png');
                 .case-image{
                     width: 160px;
                 }

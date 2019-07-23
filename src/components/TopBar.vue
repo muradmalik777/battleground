@@ -10,7 +10,7 @@
                 </carousel>
             </v-flex>
         </v-layout>
-        <v-layout justify-center row wrap mt-4 mb-4 pb-3 class="navbar">
+        <v-layout justify-center row wrap mt-4 class="navbar">
             <v-flex xs2 class="text-xs-left">
                 <router-link to="/"><v-img contain :src="require('@/assets/imgs/icon.svg')" class="nav-logo pointer"></v-img></router-link>
             </v-flex>
@@ -32,7 +32,7 @@
             <v-flex xs2 class="text-xs-right">
                 <v-menu offset-y max-width="230" min-width="230" v-if="$store.state.userData">
                     <template v-slot:activator="{ on }">
-                        <v-btn flat v-on="on" class="nav-link m-0">{{$store.state.userData.user_name}} <span class="verified">[Verified]</span><br></v-btn>
+                        <v-btn flat v-on="on" class="nav-link m-0">{{$store.state.userData.user_name}}</v-btn>
                     </template>
                     <v-list class="menu" dark>
                         <v-list-tile class="user-menu pointer c-purple-bright">
@@ -53,7 +53,10 @@
                     </v-list>
                 </v-menu>
                 <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
-                <v-btn flat outline color="#fff" class="login-btn" :to="'/login'" v-else>Login</v-btn>
+                <div v-else>
+                    <v-btn flat outline color="#fff" class="login-btn" v-if="$route.path.includes('/register') || !$route.path.includes('/login')" :to="'/login'" >login</v-btn>
+                    <v-btn flat outline color="#fff" class="login-btn" v-if="$route.path.includes('/login')" :to="'/register'" >signup</v-btn>
+                </div>
             </v-flex>
         </v-layout>
     </v-container>
@@ -120,16 +123,12 @@ export default {
     height: 400px !important;
 
     .drop-box{
-        width: 185px;
-        height: 135px;
+        width: 210px;
+        height: 150px;
         float: left;
-        background-color: $dark1;
+        background-image: url('../assets/imgs/drops-back.png');
         margin-right: 2rem;
-        border: 1px solid #D1415580;
-
-        &:hover{
-            background-color: $dark3;
-        }
+        transition: background-color 0.35s;
 
         .drop-image{
             width: 102px;
@@ -166,14 +165,6 @@ export default {
             &::before{
                 display: none;
             }
-        }
-    }
-    .login-btn.v-btn--active{
-        color: $red !important;
-        font-size: 16px;
-        border: 2px solid #D1415570;
-        &::before{
-            display: none;
         }
     }
     .nav-link.v-btn--active{
