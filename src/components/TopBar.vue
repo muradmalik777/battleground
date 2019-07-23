@@ -54,7 +54,7 @@
                 </v-menu>
                 <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
                 <div v-else>
-                    <v-btn flat outline color="#fff" class="login-btn" v-if="$route.path.includes('/register')" :to="'/login'" >login</v-btn>
+                    <v-btn flat outline color="#fff" class="login-btn" v-if="$route.path.includes('/register') || !$route.path.includes('/login')" :to="'/login'" >login</v-btn>
                     <v-btn flat outline color="#fff" class="login-btn" v-if="$route.path.includes('/login')" :to="'/register'" >signup</v-btn>
                 </div>
             </v-flex>

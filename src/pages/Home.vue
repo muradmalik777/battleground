@@ -82,6 +82,7 @@ export default {
         .active-btn{
             background-color: $red !important;
             border: 2px solid $red;
+            font-weight: 500;
         }
         .case{
             width: 200px;
