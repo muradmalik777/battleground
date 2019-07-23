@@ -123,17 +123,12 @@ export default {
     height: 400px !important;
 
     .drop-box{
-        width: 185px;
-        height: 135px;
+        width: 210px;
+        height: 150px;
         float: left;
-        background-color: $dark1;
+        background-image: url('../assets/imgs/drops-back.png');
         margin-right: 2rem;
-        border: 1px solid #D1415580;
         transition: background-color 0.35s;
-
-        &:hover{
-            background-color: $dark3;
-        }
 
         .drop-image{
             width: 102px;
