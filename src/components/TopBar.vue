@@ -4,7 +4,7 @@
             <v-flex xs12>
                 <h2 class="m-b-2">LIVE DROPS</h2>
                 <carousel :autoplay="true" :loop="true" :dots="false" :nav="false" :autoWidth="true">
-                    <div v-for="image in 20" :key="image" class="drop-box">
+                    <div v-for="image in 25" :key="image" class="drop-box">
                         <v-img :src="dropPicture(image)" class="drop-image m-t-3"></v-img>
                     </div>
                 </carousel>

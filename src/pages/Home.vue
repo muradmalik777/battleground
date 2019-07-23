@@ -7,19 +7,14 @@
                 <v-btn flat outline color="#fff" :class="{'active-btn': active === 3}" class="filter-btn" @click="filterCases(3)">trending cases</v-btn>
             </v-flex>
             <v-flex xs12  class="text-xs-center">
-                <div class="case pointer" v-for="(item) in 12" :key="item">
+                <div class="case pointer" v-for="(item) in 18" :key="item">
                     <v-img :src="require('@/assets/imgs/case.png')" class="case-image"></v-img>
                     <h4 class="t-c capitalize price">${{parseFloat(120).toFixed(2)}}</h4>
                     <h3 class="capitalize t-c">case name</h3>
                 </div>
             </v-flex>
-            <v-flex xs12 class="text-xs-center m-t-3" v-if="totalCases && totalCases > 12">
-                <v-pagination
-                v-model="currentPage"
-                :length="Math.ceil(totalCases/12)"
-                :total-visible="10"
-                @input="getAllCases">
-                </v-pagination>
+            <v-flex xs12 class="text-xs-center m-t-3">
+                <v-btn flat outline color="#fff" class="loading-btn" >load more</v-btn>
             </v-flex>
         </v-layout>
     </v-container>
@@ -76,9 +71,11 @@ export default {
             height: 60px;
             font-size: 18px;
             border-radius: 50px;
+            border: 2px solid $white;
         }
         .active-btn{
             background-color: $red !important;
+            border: 2px solid $red;
         }
         .case{
             width: 200px;
@@ -99,6 +96,14 @@ export default {
                 width: 130px;
                 height: 130px;
             }
+        }
+        .loading-btn{
+            width: 230px;
+            height: 60px;
+            font-size: 18px;
+            border-radius: 50px;
+            border: 2px solid $red;
+            text-transform: capitalize;
         }
     }
 }
