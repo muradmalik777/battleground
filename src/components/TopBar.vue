@@ -53,7 +53,7 @@
                     </v-list>
                 </v-menu>
                 <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
-                <v-btn flat outline color="#fff" class="nav-link login-btn" :to="'/login'" v-else>Login</v-btn>
+                <v-btn flat outline color="#fff" class="login-btn" :to="'/login'" v-else>Login</v-btn>
             </v-flex>
         </v-layout>
     </v-container>
@@ -157,6 +157,14 @@ export default {
     .login-btn{
         width: 145px;
         height: 53px;
+    }
+    .login-btn.v-btn--active{
+        color: $red !important;
+        font-size: 16px;
+        border: 2px solid #D1415570;
+        &::before{
+            display: none;
+        }
     }
     .nav-link.v-btn--active{
         color: $red;

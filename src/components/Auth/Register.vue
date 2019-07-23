@@ -1,45 +1,49 @@
 <template>
     <v-container class="register">
-        <v-layout row justify-center mt-5 pt-5>
-            <v-flex xs12 md7 lg5>
+        <v-layout row justify-center>
+            <v-flex xs12 md7 lg4>
                 <v-card class="register-card">
-                    <h2 class="m-b-2">User Signup</h2>
+                    <h2 class="m-b-2">USER REGISTRATION</h2>
                     <v-form ref="form" @keyup.native.enter="submit">
                         <v-text-field
-                        color="#fff"
                         v-model="user.user_name"
                         label="Full Name"
                         type="text"
                         :rules="nameRules"
+                        background-color="#303656"
+                        outline
                         required
                         ></v-text-field>
                         <v-text-field
-                        color="#fff"
                         v-model="user.email"
                         label="Email"
                         type="email"
                         :rules="emailRules"
+                        background-color="#303656"
+                        outline
                         required
                         ></v-text-field>
                         <v-text-field
-                        color="#fff"
                         v-model="user.password"
                         type="password"
                         label="Password"
                         :rules="passwordRules"
+                        background-color="#303656"
+                        outline
                         required
                         ></v-text-field>
                         <v-text-field
-                        color="#fff"
                         @change="matchPassword"
                         v-model="user.confirm_password"
                         type="password"
                         label="Confirm Password"
                         :rules="confirmPasswordRules"
+                        background-color="#303656"
+                        outline
                         required
                         ></v-text-field>
                         <v-btn @click="submit" dark outline :loading="loading" color="#fff" right class="m-t-2 signup-btn">Signup</v-btn>
-                        <p class="c-white">Already have an account <v-btn flat color="#fff" class="login-btn" :to="'/login'">Login</v-btn></p>
+                        <p class="c-white">Already have an account?<v-btn flat color="#fff" class="login-btn" :to="'/login'">Login</v-btn></p>
                     </v-form>
                 </v-card>
             </v-flex>
@@ -89,25 +93,38 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
+@import "../../assets/scss/variables.scss";
+
 .register{
     min-height: 80vh;
 }
 .register-card{
-    background: #73337a99;
+    background: transparent !important;
     min-height: 400px;
     padding: 40px;
+    box-shadow: none !important;
     .login-btn{
+        font-size: 16px;
         text-decoration: underline;
         margin-bottom: 0.6rem;
     }
     .signup-btn{
-        margin-left: 1rem;
+        font-size: 16px;
+        margin-left: 1.3rem;
+        margin-bottom: 2rem;
     }
-}
-.email{
-    label{
-        color: #ffffff;
+    .v-text-field{
+        margin-bottom: .5rem;
+        label{
+            font-size: 14px;
+            color: $white;
+        }
+        input{
+            padding: 1.5rem 0;
+            font-size: 14px;
+            color: $white;
+        }
     }
 }
 </style>

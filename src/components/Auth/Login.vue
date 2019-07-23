@@ -1,29 +1,31 @@
 <template>
     <v-container class="login">
-        <v-layout row justify-center align-center mt-5 pt-5>
-            <v-flex xs12 md7 lg5>
+        <v-layout row justify-center align-center>
+            <v-flex xs12 md7 lg4>
                 <v-card class="login-card">
-                    <h2 class="m-b-2">User Login</h2>
+                    <h2 class="m-b-2">USER LOGIN</h2>
                     <v-form ref="form" id="loginForm" @keyup.native.enter="login">
                         <v-text-field
-                        color="#fff"
                         v-model="user.email"
-                        label="Email"
                         type="email"
                         :rules="emailRules"
+                        background-color="#303656"
+                        label="Email"
+                        outline
                         required
                         ></v-text-field>
                         <v-text-field
                         class="m-t m-b"
-                        color="#fff"
                         v-model="user.password"
-                        label="Password"
                         type="password"
                         :rules="passwordRules"
+                        background-color="#303656"
+                        label="Password"
+                        outline
                         required
                         ></v-text-field>
                         <v-btn @click="login" flat outline :loading="loading" color="#fff" right class="m-t-2 login-btn">Login</v-btn>
-                        <v-btn flat color="#fff" class="signup-btn" :to="'/register'">Create Account</v-btn>
+                        <p class="c-white">New Member?<v-btn flat color="#fff" class="signup-btn" :to="'/register'">Create Account</v-btn></p>
                     </v-form>
                 </v-card>
             </v-flex>
@@ -66,33 +68,38 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
+@import "../../assets/scss/variables.scss";
+
 .login{
-    min-height: 80vh;
+    min-height: 70vh;
 }
 .login-card{
-    background: #73337a99;
+    background: transparent !important;
     min-height: 400px;
     padding: 40px;
+    box-shadow: none !important;
     .login-btn{
-        margin-left: 1rem;
+        font-size: 16px;
+        margin-left: 1.3rem;
+        margin-bottom: 2rem;
     }
     .signup-btn{
+        font-size: 16px;
         text-decoration: underline;
-        margin-top: 2rem;
+        margin-bottom: 0.6rem;
     }
-    .steam{
-        margin-top: 2rem;
-        float: left;
-        width: 220px;
-        height: 35px;
-        box-shadow: 0px 1px 2px rgb(27, 27, 27);
-        border-radius: 4px;
-    }
-}
-.email{
-    label{
-        color: #ffffff;
+    .v-text-field{
+        margin-bottom: .5rem;
+        label{
+            font-size: 14px;
+            color: $white;
+        }
+        input{
+            padding: 1.5rem 0;
+            font-size: 14px;
+            color: $white;
+        }
     }
 }
 </style>
