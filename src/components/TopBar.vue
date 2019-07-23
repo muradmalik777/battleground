@@ -32,7 +32,7 @@
             <v-flex xs2 class="text-xs-right">
                 <v-menu offset-y max-width="230" min-width="230" v-if="$store.state.userData">
                     <template v-slot:activator="{ on }">
-                        <v-btn flat v-on="on" class="nav-link m-0">{{$store.state.userData.user_name}} <span class="verified">[Verified]</span><br></v-btn>
+                        <v-btn flat v-on="on" class="nav-link m-0">{{$store.state.userData.user_name}}</v-btn>
                     </template>
                     <v-list class="menu" dark>
                         <v-list-tile class="user-menu pointer c-purple-bright">
