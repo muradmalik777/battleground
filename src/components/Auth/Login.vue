@@ -1,7 +1,7 @@
 <template>
     <v-container class="login">
         <v-layout row justify-center align-center>
-            <v-flex xs12 md7 lg4>
+            <v-flex xs12 md5 lg3>
                 <v-card class="login-card">
                     <h2 class="m-b-2">USER LOGIN</h2>
                     <v-form ref="form" id="loginForm" @keyup.native.enter="login">
@@ -25,7 +25,7 @@
                         required
                         ></v-text-field>
                         <v-btn @click="login" flat outline :loading="loading" color="#fff" right class="m-t login-btn">Login</v-btn>
-                        <p class="c-white">New Member?<v-btn flat color="#fff" class="signup-btn" :to="'/register'">Create Account</v-btn></p>
+                        <v-btn flat color="#fff" class="signup-btn" :to="'/reset/password'">Forgot Password?</v-btn>
                     </v-form>
                 </v-card>
             </v-flex>
@@ -77,17 +77,19 @@ export default {
 .login-card{
     background: transparent !important;
     min-height: 400px;
-    padding: 40px;
+    padding: 10px;
     box-shadow: none !important;
     .login-btn{
         font-size: 16px;
         margin-left: 1.3rem;
         margin-bottom: 2rem;
+        height: 55px;
+        width: 150px;
     }
     .signup-btn{
         font-size: 16px;
-        text-decoration: underline;
-        margin-bottom: 0.6rem;
+        margin-bottom: 0rem;
+        text-transform: capitalize;
     }
     .v-text-field{
         margin-bottom: .5rem;

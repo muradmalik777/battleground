@@ -10,7 +10,7 @@
                 </carousel>
             </v-flex>
         </v-layout>
-        <v-layout justify-center row wrap mt-4 mb-4 pb-3 class="navbar">
+        <v-layout justify-center row wrap mt-4 class="navbar">
             <v-flex xs2 class="text-xs-left">
                 <router-link to="/"><v-img contain :src="require('@/assets/imgs/icon.svg')" class="nav-logo pointer"></v-img></router-link>
             </v-flex>
@@ -53,7 +53,10 @@
                     </v-list>
                 </v-menu>
                 <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
-                <v-btn flat outline color="#fff" class="login-btn" :to="'/login'" v-else>Login</v-btn>
+                <div v-else>
+                    <v-btn flat outline color="#fff" class="login-btn" v-if="$route.path.includes('/register')" :to="'/login'" >login</v-btn>
+                    <v-btn flat outline color="#fff" class="login-btn" v-if="$route.path.includes('/login')" :to="'/register'" >signup</v-btn>
+                </div>
             </v-flex>
         </v-layout>
     </v-container>
@@ -167,14 +170,6 @@ export default {
             &::before{
                 display: none;
             }
-        }
-    }
-    .login-btn.v-btn--active{
-        color: $red !important;
-        font-size: 16px;
-        border: 2px solid #D1415570;
-        &::before{
-            display: none;
         }
     }
     .nav-link.v-btn--active{
