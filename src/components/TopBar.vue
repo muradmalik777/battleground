@@ -1,16 +1,16 @@
 <template>
-    <v-container class="nav spacing">
+    <v-container class="topbar spacing">
         <v-layout justify-center row wrap class="live-drops" pt-3 pb-3>
             <v-flex xs12>
                 <h2 class="m-b-2">LIVE DROPS</h2>
-                <carousel :autoplay="true" :dots="false" :nav="false" :autoWidth="true">
-                    <div v-for="image in 35" :key="image" class="case-image-box">
-                        <v-img :src="casePicture(image)" @click="selectPicture(image)" class="case-picture m-t-3"></v-img>
+                <carousel :autoplay="true" :loop="true" :dots="false" :nav="false" :autoWidth="true">
+                    <div v-for="image in 20" :key="image" class="drop-box">
+                        <v-img :src="casePicture(image)" @click="selectPicture(image)" class="drop-image m-t-3"></v-img>
                     </div>
                 </carousel>
             </v-flex>
         </v-layout>
-        <v-layout justify-center row wrap mt-4 mb-4>
+        <v-layout justify-center row wrap mt-4 mb-4 pb-3 class="navbar">
             <v-flex xs2 class="text-xs-left">
                 <router-link to="/"><v-img contain :src="require('@/assets/imgs/logo.png')" class="nav-logo pointer"></v-img></router-link>
             </v-flex>
@@ -19,22 +19,22 @@
                     cases
                 </v-btn>
 
-                <v-btn flat class="nav-link" to="/help">
-                    Support
+                <v-btn flat class="nav-link" to="/about">
+                    rewards
                 </v-btn>
-                <v-btn flat class="nav-link" to="/casebrowser">
-                    Case Browser
+                <v-btn flat class="nav-link" to="/faq">
+                    support
                 </v-btn>
-                <v-btn flat class="nav-link" to="/caseCreator">
-                    Case Creator
+                <v-btn flat class="nav-link" to="/upgrades">
+                    upgrades
                 </v-btn>
             </v-flex>
             <v-flex xs2 class="text-xs-right">
-                <v-menu offset-y max-width="200" min-width="150" v-if="$store.state.userData">
+                <v-menu offset-y max-width="230" min-width="230" v-if="$store.state.userData">
                     <template v-slot:activator="{ on }">
                         <v-btn flat v-on="on" class="nav-link m-0">{{$store.state.userData.user_name}} <span class="verified">[Verified]</span><br></v-btn>
                     </template>
-                    <v-list dark>
+                    <v-list class="menu" dark>
                         <v-list-tile class="user-menu pointer c-purple-bright">
                             <v-list-tile-title><p class="c-green-bright amount">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p></v-list-tile-title>
                         </v-list-tile>
@@ -118,18 +118,19 @@ export default {
 <style lang="scss">
 @import "../assets/scss/variables.scss";
 
-.nav{
+.topbar{
     max-width: 100%;
+    height: 400px !important;
 
-    .case-image-box{
+    .drop-box{
         width: 185px;
         height: 135px;
         float: left;
-        background: $dark-back;
+        background: $dark1;
         margin-right: 2rem;
-        border: 1px solid $red;
+        border: 1px solid #D1415580;
 
-        .case-picture{
+        .drop-image{
             width: 102px;
             height: 102px;
             cursor: pointer;
@@ -142,14 +143,6 @@ export default {
         width: 180px;
         height: auto;
         margin-left: 0;
-    }
-    .v-toolbar{
-        width: 100%;
-        height: 100px;
-        z-index: 200;
-    }
-    .v-toolbar__content{
-        padding: 0px 0px !important;
     }
     .nav-link{
         color: white;
@@ -168,6 +161,7 @@ export default {
     .nav-link.v-btn--active{
         color: $red;
         font-size: 16px;
+        border-bottom: 2px solid #D1415570;
         &::before{
             display: none;
         }
@@ -179,6 +173,13 @@ export default {
         font-size: 12px;
         color: #bbbbbb !important;
         margin-left: .5rem;
+    }
+    .v-menu__content{
+        background: $dark1 !important;
+        .v-list.menu.theme--light{
+            width: 300px;
+            background: $dark1 !important;
+        }
     }
 }
 </style>

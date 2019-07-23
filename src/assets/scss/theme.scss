@@ -7,19 +7,19 @@
   box-sizing: border-box !important;
 }
 body{
-  background: $dark-back !important;
+  background: $dark1 !important;
   font-size: 16px;
    *{
      color: #ffffff;
-     font-family: 'jujucase-medium';
+     font-family: 'hypercase-medium';
      letter-spacing: 0.05rem;
    }
    h1,h2,h3,h4,h5,h6{
-     font-family: 'jujucase-semibold';
+     font-family: 'hypercase-semibold';
      font-weight: 600;
    }
    p{
-     font-family: 'jujucase-medium';
+     font-family: 'hypercase-medium';
      font-size: 18px;
    }
 }
@@ -27,7 +27,7 @@ body{
   width: 100%;
 }
 .dark-back{
-  background: $dark-back !important;
+  background: $dark1 !important;
 }
 .bg-purple-dull{
   background: $purple-dull !important;

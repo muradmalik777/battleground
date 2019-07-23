@@ -1,15 +1,17 @@
 <template>
-    <v-container class="home">
+    <v-container grid-list-md class="home">
         <v-layout class="bid-cases" row wrap>
-            <v-flex xs12 md12 lg12 class="text-xs-center">
+            <v-flex xs12 md12 lg12 mb-5 class="text-xs-center">
                 <v-btn flat outline color="#fff" class="filter-btn">official cases</v-btn>
                 <v-btn flat outline color="#fff" class="filter-btn">new cases</v-btn>
                 <v-btn flat outline color="#fff" class="filter-btn">trending cases</v-btn>
             </v-flex>
-            <v-flex xs12 sm4 md3 lg2 class="case pointer m-t-3 m-b-3" v-for="(item, index) in allCases" :key="index" @click="openCase(item)">
-                <h3 class="capitalize t-c">{{item.name}}</h3>
-                <v-img :src="require('@/assets/imgs/cases/' + item.case_image)" class="case-image"></v-img>
-                <h4 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h4>
+            <v-flex xs12  class="text-xs-center">
+                <div class="case pointer" v-for="(item) in 12" :key="item">
+                    <v-img :src="require('@/assets/imgs/case.png')" class="case-image"></v-img>
+                    <h4 class="t-c capitalize price">${{parseFloat(120).toFixed(2)}}</h4>
+                    <h3 class="capitalize t-c">case name</h3>
+                </div>
             </v-flex>
             <v-flex xs12 class="text-xs-center m-t-3" v-if="totalCases && totalCases > 12">
                 <v-pagination
@@ -57,14 +59,13 @@ export default {
 }
 </script>
 <style lang="scss">
+@import "../assets/scss/variables.scss";
+
 .home{
     max-width: 90%;
     overflow: auto;
     min-height: 100vh;
-    .banner{
-        padding: 35px;
-        background: #73337a65;
-    }
+    
     .bid-cases{
         .filter-btn{
             width: 230px;
@@ -73,20 +74,23 @@ export default {
             border-radius: 50px;
         }
         .case{
+            width: 200px;
             min-height: 250px;
             padding: 15px;
+            background-color: $dark2;
+            margin: 2rem; 
+            display: inline-block;
+            transition: background-color .4s;
+
             &:hover{
-                background: #00cf2099;
+                background-color: $blue;
             }
-            .coins{
-                color: gold;
-                margin-left: 10px;
-            }
+
             .case-image{
                 display: block;
                 margin: 2rem auto;
-                width: 150px;
-                height: auto;
+                width: 130px;
+                height: 130px;
             }
         }
     }
