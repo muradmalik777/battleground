@@ -1,17 +1,15 @@
 <template>
-  <v-app>
+  <v-app class="app">
     <topbar></topbar>
     <div class="content">
         <router-view></router-view>
     </div>
-    <foot></foot>
     <loader v-if="this.$store.state.loading"></loader>
   </v-app>
 </template>
 
 <script>
 import TopBar from '@/components/TopBar';
-import Foot from '@/components/Foot';
 import Loader from '@/components/Loader';
 
 
@@ -20,7 +18,6 @@ export default {
   components: {
     'topbar': TopBar,
     'loader': Loader,
-    'foot': Foot
   },
   data () {
     return {
@@ -30,10 +27,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.content{
-    background-image: url('assets/imgs/svg/41.svg');
-    background-size: cover;
-    padding-bottom: 100px;
+.app{
+  background-image: url('assets/imgs/back.png');
+  background-size: cover;
+  padding-bottom: 100px;
+  background-color: #1F2034;
 }
+.content{}
 </style>
 

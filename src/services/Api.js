@@ -7,7 +7,7 @@ class Api {
         this.base_url = 'http://127.0.0.1:8081';
         break;
       default:
-        this.base_url = 'https://api.jujucase.com';
+        this.base_url = 'https://api.hypercase.com';
     }
     this.endpoint = endpoint
     let user = this.getLoggedInUser()

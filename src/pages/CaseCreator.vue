@@ -169,7 +169,6 @@ export default {
                     var totalOdds = 0
                     for(let a = 0; a < this.itemOdds.length; a++){
                         totalOdds += parseFloat(this.itemOdds[a])
-                        console.log(totalOdds)
                     }
                     if(totalOdds > 0 && totalOdds <= 100){
                         let $cases = new Api('/cases');

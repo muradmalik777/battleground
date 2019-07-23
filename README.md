@@ -1,4 +1,4 @@
-# jujucase
+# hypercase
 
 ## Project setup
 ```

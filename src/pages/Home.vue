@@ -1,26 +1,20 @@
 <template>
-    <v-container class="home spacing">
-        <v-layout>
-            <v-flex class="banner">
-                <h2 class="uppercase t-c">add banner</h2>
-            </v-flex>
-        </v-layout>
+    <v-container grid-list-md class="home">
         <v-layout class="bid-cases" row wrap>
-            <v-flex xs12 md12 lg12>
-                <h2 class="uppercase m-t-3">Open cases <span class="uppercase c-purple-bright m-l">view selection</span></h2>
+            <v-flex xs12 md12 lg12 mb-5 class="text-xs-center">
+                <v-btn flat outline color="#fff" :class="{'active-btn': active === 1}" class="filter-btn" @click="filterCases(1)">official cases</v-btn>
+                <v-btn flat outline color="#fff" :class="{'active-btn': active === 2}" class="filter-btn" @click="filterCases(2)">new cases</v-btn>
+                <v-btn flat outline color="#fff" :class="{'active-btn': active === 3}" class="filter-btn" @click="filterCases(3)">trending cases</v-btn>
             </v-flex>
-            <v-flex xs12 sm4 md3 lg2 class="case pointer m-t-3 m-b-3" v-for="(item, index) in allCases" :key="index" @click="openCase(item)">
-                <h3 class="capitalize t-c">{{item.name}}</h3>
-                <v-img :src="require('@/assets/imgs/cases/' + item.case_image)" class="case-image"></v-img>
-                <h4 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h4>
+            <v-flex xs12  class="text-xs-center">
+                <div class="case pointer" v-for="(item) in 18" :key="item">
+                    <v-img :src="require('@/assets/imgs/case.png')" class="case-image"></v-img>
+                    <h4 class="t-c capitalize price">${{parseFloat(120).toFixed(2)}}</h4>
+                    <h3 class="capitalize t-c">case name</h3>
+                </div>
             </v-flex>
-            <v-flex xs12 class="text-xs-center m-t-3" v-if="totalCases && totalCases > 12">
-                <v-pagination
-                v-model="currentPage"
-                :length="Math.ceil(totalCases/12)"
-                :total-visible="10"
-                @input="getAllCases">
-                </v-pagination>
+            <v-flex xs12 class="text-xs-center m-t-3">
+                <v-btn flat outline color="#fff" :loading="loading" class="loading-btn" >load more</v-btn>
             </v-flex>
         </v-layout>
     </v-container>
@@ -34,7 +28,8 @@ export default {
         return {
             allCases: [],
             currentPage: 1,
-            totalCases: null,
+            active: 1,
+            loading: false
         }
     },
     created: function() {
@@ -54,41 +49,74 @@ export default {
         openCase: function (item) {
             this.$store.commit('addCaseToBeOpened', item)
             this.$router.push('case/' + item.slug);
+        },
+        filterCases: function(num){
+            this.active = num
         }
     }
 
 }
 </script>
 <style lang="scss">
+@import "../assets/scss/variables.scss";
+
 .home{
     max-width: 90%;
     overflow: auto;
     min-height: 100vh;
-    .banner{
-        padding: 35px;
-        background: #73337a65;
-    }
+    
     .bid-cases{
-        h2{
-            span{
-                font-size: 14px;
+        .filter-btn{
+            width: 230px;
+            height: 60px;
+            font-size: 18px;
+            border-radius: 50px;
+            border: 2px solid $white;
+            &:hover{
+                border-color: $red;
+                &::before{
+                    display: none;
+                }
             }
         }
+        .active-btn{
+            background-color: $red !important;
+            border: 2px solid $red;
+        }
         .case{
+            width: 200px;
             min-height: 250px;
             padding: 15px;
+            background-color: $dark2;
+            margin: 2rem; 
+            display: inline-block;
+            transition: background-color .35s;
+
             &:hover{
-                background: #00cf2099;
+                background-color: $blue;
+                .case-image{
+                    width: 160px;
+                }
             }
-            .coins{
-                color: gold;
-                margin-left: 10px;
-            }
+
             .case-image{
                 display: block;
                 margin: 2rem auto;
-                width: 150px;
-                height: auto;
+                width: 130px;
+                height: 130px;
+                transition: width 0.35s;
+            }
+        }
+        .loading-btn{
+            width: 230px;
+            height: 60px;
+            font-size: 18px;
+            border-radius: 50px;
+            border: 2px solid $red;
+            text-transform: capitalize;
+            &:hover{
+                background-color: $red !important;
+                color: $dark2 !important;
             }
         }
     }

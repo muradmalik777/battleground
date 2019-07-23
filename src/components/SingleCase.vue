@@ -23,7 +23,7 @@
             </div>
             <div class="spinner-controls">
                 <v-btn class="button green-btn" @click.stop="showDialog = true">Open Case</v-btn>
-                <v-btn color="button" class="button spin-button" id="spin">Test Spin</v-btn>
+                <v-btn color="button" class="button spin-button" id="spin" @click="mixItems">Test Spin</v-btn>
             </div>
         </div>
 
@@ -213,6 +213,9 @@ export default {
     },
     closeWinningDialog: function(){
       this.showWinningDialog = false
+    },
+    mixItems: function(){
+      this.spinnerItems = this.shuffleItems(this.createCaseItems(this.oneCase.items));
     }
   }
 };
