@@ -42,7 +42,7 @@ export default {
                 email: "",
                 password: ""
             },
-            passwordRules: [v => !!v || "The input is required"],
+            passwordRules: [v => !!v || "Password is required"],
             emailRules: [
                 v => !!v || "E-mail is required",
                 v => /.+@.+/.test(v) || "E-mail must be valid"

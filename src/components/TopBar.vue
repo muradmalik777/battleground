@@ -150,6 +150,12 @@ export default {
         text-transform: uppercase;
         font-size: 16px;
         height: 50px;
+        &:hover{
+            color: $red;
+            &::before{
+                display: none;
+            }
+        }
         .menu-btn-icon{
             width: 22px;
             height: 25px;

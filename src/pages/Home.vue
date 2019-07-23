@@ -14,7 +14,7 @@
                 </div>
             </v-flex>
             <v-flex xs12 class="text-xs-center m-t-3">
-                <v-btn flat outline color="#fff" class="loading-btn" >load more</v-btn>
+                <v-btn flat outline color="#fff" :loading="loading" class="loading-btn" >load more</v-btn>
             </v-flex>
         </v-layout>
     </v-container>
@@ -28,8 +28,8 @@ export default {
         return {
             allCases: [],
             currentPage: 1,
-            totalCases: null,
-            active: 1
+            active: 1,
+            loading: false
         }
     },
     created: function() {
@@ -88,6 +88,9 @@ export default {
 
             &:hover{
                 background-color: $blue;
+                .case-image{
+                    width: 160px;
+                }
             }
 
             .case-image{
