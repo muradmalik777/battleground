@@ -24,7 +24,7 @@
                         outline
                         required
                         ></v-text-field>
-                        <v-btn @click="login" flat outline :loading="loading" color="#fff" right class="m-t-2 login-btn">Login</v-btn>
+                        <v-btn @click="login" flat outline :loading="loading" color="#fff" right class="m-t login-btn">Login</v-btn>
                         <p class="c-white">New Member?<v-btn flat color="#fff" class="signup-btn" :to="'/register'">Create Account</v-btn></p>
                     </v-form>
                 </v-card>
