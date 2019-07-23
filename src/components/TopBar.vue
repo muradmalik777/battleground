@@ -6,6 +6,7 @@
                 <carousel :autoplay="true" :loop="true" :rewind="false" :dots="false" :nav="false" :autoWidth="true">
                     <div v-for="image in 25" :key="image" class="drop-box">
                         <v-img :src="dropPicture(image)" class="drop-image m-t-3"></v-img>
+                        <h6 class="t-c">Tec-g Red Quartz</h6>
                     </div>
                 </carousel>
             </v-flex>
@@ -123,19 +124,20 @@ export default {
     height: 400px !important;
 
     .drop-box{
-        width: 210px;
-        height: 150px;
+        width: 220px;
+        height: 152px;
         float: left;
         background-image: url('../assets/imgs/drops-back.png');
-        margin-right: 2rem;
+        background-size: cover;
+        margin-right: 1rem;
         transition: background-color 0.35s;
 
         .drop-image{
-            width: 102px;
-            height: 102px;
+            width: 85px;
+            height: 85px;
             cursor: pointer;
             display: block;
-            margin: 1rem auto;
+            margin: .85rem auto;
         }
     }
 
