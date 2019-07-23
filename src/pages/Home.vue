@@ -98,6 +98,7 @@ export default {
                 margin: 2rem auto;
                 width: 130px;
                 height: 130px;
+                transition: width 0.35s;
             }
         }
         .loading-btn{
