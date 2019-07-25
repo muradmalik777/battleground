@@ -3,9 +3,9 @@
         <v-dialog
         v-model="val"
         persistent
-        width="700">
+        width="800">
 
-            <v-card class="bg-purple-dull">
+            <v-card class="deposit-funds">
                 <v-form ref="form">
                     <v-card-title class="headline" primary-title>Deposit Funds to your Account</v-card-title>
                     <v-card-text>
@@ -23,8 +23,9 @@
                     </v-card-text>
                     <v-card-actions>
                         <v-flex xs12 class="text-xs-center">
-                            <v-btn class="confirm" flat @click="confirmDeposit" :loading="loading">Confirm</v-btn>
-                            <v-btn class="close" flat @click="closeDialog">Close</v-btn>
+                            <v-btn class="confirm-btn" flat @click="confirmDeposit" :loading="loading">Confirm</v-btn>
+                            <v-btn class="close-btn" flat @click="closeDialog">Close</v-btn>
+                            <v-btn class="custom-btn" flat @click="closeDialog">Custom Value</v-btn>
                         </v-flex>
                     </v-card-actions>
                 </v-form>
@@ -81,33 +82,45 @@ export default {
 }
 </script>
 <style lang="scss">
-.v-card{
+@import "../assets/scss/variables.scss";
+
+.v-card.deposit-funds{
     padding: 20px;
-}
-.confirm{
-    background: #4caf50 !important;
-    color: #000 !important;
-    float: right !important;
-}
-.close{
-    color: #ffffff !important;
-    float: right !important;
-    margin-right: 1rem !important;
-}
-.amount-btn{
-    background: #261132 !important;
-    color: #ffffff !important;
-    font-size: 18px;
-}
-.active-btn{
-    background: #03b309 !important;
-    color: #06000a !important;
-    font-weight: 600;
-    font-size: 18px;
-}
-.email{
-    input{
-        margin-top: 10px !important;
+    background: $dark3;
+
+    .confirm-btn{
+        background: $red !important;
+        color: $white !important;
+        height: 50px;
+        width: 130px;
+        font-weight: 600;
+        float: left !important;
+        margin: 2rem 1rem 0 1rem;
+    }
+    .close-btn{
+        color: #ffffff !important;
+        margin-right: 1rem !important;
+        height: 50px;
+        float: left !important;
+        margin-top: 2rem;
+    }
+    .custom-btn{
+        color: $green !important;
+        float: right !important;
+        margin-right: 1rem !important;
+        height: 50px;
+        margin-top: 2rem;
+    }
+    .amount-btn{
+        background: $green !important;
+        color: $dark2 !important;
+        font-size: 18px;
+    }
+    .active-btn{
+        background: $red !important;
+        color: $white !important;
+        font-weight: 600;
+        font-size: 18px;
     }
 }
 </style>

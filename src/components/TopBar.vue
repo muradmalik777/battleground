@@ -121,12 +121,12 @@ export default {
 
 .topbar{
     max-width: 100%;
-    height: 400px !important;
 
     .drop-box{
         width: 220px;
         height: 152px;
         float: left;
+        cursor: pointer;
         background-image: url('../assets/imgs/drops-back.png');
         background-size: cover;
         margin-right: 1rem;
@@ -135,7 +135,6 @@ export default {
         .drop-image{
             width: 85px;
             height: 85px;
-            cursor: pointer;
             display: block;
             margin: .85rem auto;
         }
@@ -179,6 +178,7 @@ export default {
     }
     .user-menu{
         color: #333333 !important;
+        background: $dark2 !important;
     }
     .verified{
         font-size: 12px;
