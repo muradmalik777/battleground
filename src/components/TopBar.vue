@@ -117,7 +117,7 @@ export default {
 
 .topbar{
     max-width: 100%;
-    max-height: 400px;
+    max-height: 350px;
     margin: 0 auto;
 
     .drop-box{

@@ -118,7 +118,7 @@ export default {
             text-transform: capitalize;
             &:hover{
                 background-color: $red !important;
-                color: $dark2 !important;
+                color: $white !important;
             }
         }
     }

@@ -3,7 +3,7 @@
         <v-layout row justify-center align-center>
             <v-flex xs12 md5 lg4>
                 <v-card class="login-card">
-                    <h2 class="m-b-2">USER LOGIN</h2>
+                    <h2 class="m-b-2">User Login</h2>
                     <v-form ref="form" id="loginForm" @keyup.native.enter="login">
                         <v-text-field
                         v-model="user.email"
@@ -25,7 +25,7 @@
                         required
                         ></v-text-field>
                         <v-btn @click="login" flat :loading="loading" color="#fff" right class="m-t login-btn">Login</v-btn>
-                        <v-btn @click="login" flat outline :loading="loading" color="#fff" right class="m-t signup-btn" to="/register">Create Account</v-btn>
+                        <v-btn @click="login" flat outline :loading="loading" color="#fff" right class="m-t signup-btn m-l" to="/register">Create Account</v-btn>
                         <p><v-btn flat color="#fff" class="forgot-btn" :to="'/reset/password'">Forgot Password?</v-btn></p>
                     </v-form>
                 </v-card>
@@ -87,6 +87,7 @@ export default {
         height: 55px;
         width: 150px;
         background: $red !important;
+        text-transform: capitalize;
     }
     .signup-btn{
         height: 53px;

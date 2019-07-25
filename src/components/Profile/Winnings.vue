@@ -2,7 +2,7 @@
     <v-container grid-list-xs fluid class="spacing">
         <v-layout mb-5 row wrap class="section-container">
             <v-flex xs12>
-                <h3 class="uppercase">Unsold Items</h3>
+                <h2 class="uppercase">Unsold Items</h2>
             </v-flex>
             <v-flex xs12>
                 <div class="unsold m-r-2 m-b-5" v-for="(item, index) in itemsAvailable" :key="index">
@@ -16,7 +16,7 @@
 
         <v-layout mt-5 row wrap class="section-container">
             <v-flex xs12>
-                <h3 class="uppercase">Sold Items</h3>
+                <h2 class="uppercase">Sold Items</h2>
             </v-flex>
             <v-flex xs12>
                 <div class="sold m-r-2 m-b-5" v-for="(item, index) in itemsSold" :key="index">
@@ -28,7 +28,7 @@
 
         <v-layout mt-5 row wrap class="section-container">
             <v-flex xs12>
-                <h3 class="uppercase">Withdrawn Items</h3>
+                <h2 class="uppercase">Withdrawn Items</h2>
             </v-flex>
             <v-flex xs12>
                 <div class="sold m-r-2 m-b-5" v-for="(item, index) in itemsWithdrawn" :key="index">
@@ -37,19 +37,6 @@
                 </div>
             </v-flex>
         </v-layout>
-        <!-- <v-layout row wrap class="section-container">
-            <v-flex xs12>
-                <h3 class="uppercase">My Cases</h3>
-            </v-flex>
-            <v-flex xs12 md4 lg3  v-for="i in myCases" :key="i._id">
-                <v-card class="case m-t-2">
-                <h6 class="case-name">{{i.name}}</h6>
-                <v-img contain :src="require('@/assets/imgs/cases/' + i.case_image)" class="case-img m-a m-t-2 m-b-2"></v-img>
-                <h5 class="case-price">${{i.price}}<v-img contain :src="require('@/assets/imgs/svg/coins.svg')" class="coins"></v-img></h5>
-                <v-img contain :src="require('@/assets/imgs/svg/waste-bin.svg')" class="case-delete m-a" @click="deleteCase(i)"></v-img>
-                </v-card>
-            </v-flex>
-        </v-layout> -->
     </v-container>
 </template>
 <script>

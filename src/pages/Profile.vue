@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container class="profile">
         <v-layout row wrap justify-center>
         <v-flex xs3>
             <div class="profile-overview">
@@ -32,7 +32,7 @@
         </v-flex>
         </v-layout>
 
-        <v-layout row>
+        <v-layout row mt-5>
             <router-view></router-view>
         </v-layout>
     </v-container>
@@ -54,24 +54,27 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../assets/scss/variables.scss';
 
+.profile{
+    margin: 0 auto;
+    padding: 0;
+}
 .profile-overview {
-    padding: 1rem;
-    .avatar {
-        width: 55px;
-        height: auto;
-        margin-right: 2rem;
-        display: inline-block;
-        vertical-align: middle;
-    }
+    height: 120px;
+    width: 80%;
+    background: $dark3;
+    padding: 10px 25px;
+    border-radius: 5px;
+
     .stats {
         display: inline-block;
         vertical-align: middle;
         .name {
             font-size: 1.5rem;
             font-weight: 600;
+            margin-top: 1rem;
         }
         .balance {
             font-weight: 600;
@@ -81,20 +84,22 @@ export default {
     }
 }
 .selector {
-    width: 90%;
-    height: 100px;
-    background-color: $dark3;
+    width: 80%;
+    height: 120px;
+    background-color: $blue2;
     display: inline-block;
     padding: 10px 25px;
+    border-radius: 5px;
     p {
         display: inline-block;
         font-weight: 600;
-        width: 50%;
+        width: 70%;
         text-align: left;
+        margin-top: 2.3rem;
     }
     .icon-container {
         display: inline-block;
-        width: 50%;
+        width: 30%;
         .icon {
             width: 50px;
             height: 75px;

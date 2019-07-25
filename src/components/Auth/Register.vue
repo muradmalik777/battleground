@@ -3,7 +3,7 @@
         <v-layout row justify-center>
             <v-flex xs12 md5 lg4>
                 <v-card class="register-card">
-                    <h2 class="m-b-2">USER REGISTRATION</h2>
+                    <h2 class="m-b-2">User Registration</h2>
                     <v-form ref="form" @keyup.native.enter="submit">
                         <v-text-field
                         v-model="user.user_name"
@@ -42,8 +42,8 @@
                         outline
                         required
                         ></v-text-field>
-                        <v-btn @click="submit" dark :loading="loading" color="#fff" right class="m-t signup-btn">Signup</v-btn>
-                        <p class="c-white already">Already have an account?<v-btn flat class="login-btn" color="#00cf20" :to="'/login'">Login</v-btn></p>
+                        <v-btn @click="submit" dark :loading="loading" color="#fff" right class="m-t signup-btn">Sign Up</v-btn>
+                        <p class="c-white already">Already have an account?<v-btn flat class="login-btn capitalize" color="#00cf20" :to="'/login'">Login</v-btn></p>
                     </v-form>
                 </v-card>
             </v-flex>
@@ -111,6 +111,11 @@ export default {
         height: 55px;
         width: 150px;
         background: $red !important;
+        text-transform: capitalize;
+    }
+    .login-btn{
+        font-size: 18px;
+        margin-bottom: .7rem;
     }
     .already{
         width: calc(100%-200px);
