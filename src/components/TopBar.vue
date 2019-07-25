@@ -31,14 +31,11 @@
                 </v-btn>
             </v-flex>
             <v-flex xs2 class="text-xs-right">
-                <v-menu offset-y max-width="230" min-width="230" v-if="$store.state.userData">
-                    <template v-slot:activator="{ on }">
-                        <v-btn flat v-on="on" class="nav-link m-0">{{$store.state.userData.user_name}}</v-btn>
-                    </template>
-                    <v-list class="menu" dark>
-                        <v-list-tile class="user-menu pointer c-purple-bright">
-                            <v-list-tile-title><p class="c-green-bright amount">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p></v-list-tile-title>
-                        </v-list-tile>
+                <v-btn flat @click.stop="drawer = !drawer" class="nav-link m-0">{{$store.state.userData.user_name}}</v-btn>          
+                <v-navigation-drawer width="250" v-model="drawer" absolute right temporary>
+                    <h3 class="t-c m-t-3 m-b">{{$store.state.userData.user_name}}</h3>
+                    <p class="c-green-bright t-c amount m-b-2">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p>
+                    <v-list class="dropdown">
                         <v-list-tile to="/profile" class="user-menu pointer c-purple-bright">
                             <v-list-tile-title>Profile</v-list-tile-title>
                         </v-list-tile>
@@ -52,7 +49,7 @@
                             <v-list-tile-title>Logout</v-list-tile-title>
                         </v-list-tile>
                     </v-list>
-                </v-menu>
+                </v-navigation-drawer>
                 <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
                 <div v-else>
                     <v-btn flat outline color="#fff" class="login-btn" v-if="$route.path.includes('/register') || !$route.path.includes('/login')" :to="'/login'" >login</v-btn>
@@ -76,7 +73,7 @@ export default {
     },
     data: function(){
         return{
-            drawer: true,
+            drawer: false,
             showDepositDialog: false,
             selectedImage: 1,
         }
@@ -176,9 +173,16 @@ export default {
             display: none;
         }
     }
-    .user-menu{
-        color: #333333 !important;
+    .v-navigation-drawer{
         background: $dark2 !important;
+    }
+    .user-menu{
+        &:hover{
+            background: $red;
+        }
+        div{
+            text-align: center !important;
+        }
     }
     .verified{
         font-size: 12px;
