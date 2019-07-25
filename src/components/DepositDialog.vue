@@ -100,7 +100,6 @@ export default {
     }
     .close-btn{
         color: #ffffff !important;
-        margin-right: 1rem !important;
         height: 50px;
         float: left !important;
         margin-top: 2rem;
@@ -108,7 +107,6 @@ export default {
     .custom-btn{
         color: $green !important;
         float: right !important;
-        margin-right: 1rem !important;
         height: 50px;
         margin-top: 2rem;
     }
