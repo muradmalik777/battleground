@@ -19,6 +19,7 @@
                             <v-btn @click="deposit.amount = 100" :class="{'active-btn': deposit.amount == 100}" class="amount-btn">$100</v-btn>
                             <v-btn @click="deposit.amount = 200" :class="{'active-btn': deposit.amount == 200}" class="amount-btn">$200</v-btn>
                             <v-btn @click="deposit.amount = 500" :class="{'active-btn': deposit.amount == 500}" class="amount-btn">$500</v-btn>
+                            <v-btn @click="deposit.amount = 1000" :class="{'active-btn': deposit.amount == 1000}" class="amount-btn">$1000</v-btn>
                         </v-flex>
                     </v-card-text>
                     <v-card-actions>
