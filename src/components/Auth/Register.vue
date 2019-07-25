@@ -1,7 +1,7 @@
 <template>
     <v-container class="register">
         <v-layout row justify-center>
-            <v-flex xs12 md5 lg3>
+            <v-flex xs12 md5 lg4>
                 <v-card class="register-card">
                     <h2 class="m-b-2">USER REGISTRATION</h2>
                     <v-form ref="form" @keyup.native.enter="submit">
@@ -42,8 +42,8 @@
                         outline
                         required
                         ></v-text-field>
-                        <v-btn @click="submit" dark outline :loading="loading" color="#fff" right class="m-t signup-btn">Signup</v-btn>
-                        <!-- <v-btn class="c-white">Already have an account?<v-btn flat color="#fff" class="login-btn" :to="'/login'">Login</v-btn></p> -->
+                        <v-btn @click="submit" dark :loading="loading" color="#fff" right class="m-t signup-btn">Signup</v-btn>
+                        <p class="c-white already">Already have an account?<v-btn flat class="login-btn" color="#00cf20" :to="'/login'">Login</v-btn></p>
                     </v-form>
                 </v-card>
             </v-flex>
@@ -110,6 +110,12 @@ export default {
         margin-bottom: 2rem;
         height: 55px;
         width: 150px;
+        background: $red !important;
+    }
+    .already{
+        width: calc(100%-200px);
+        float: right;
+        margin-top: 2rem;
     }
     .v-text-field{
         margin-bottom: .5rem;

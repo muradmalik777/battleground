@@ -13,8 +13,6 @@
                         <td>{{ props.item.case._id }}</td>
                         <td>{{ props.item.case.name }}</td>
                         <td>{{ props.item.case.price }}</td>
-                        <!-- <td>{{ props.item.case_content }}</td>
-                        <td>{{ props.item.case_percentage }}</td> -->
                     </template>
                 </v-data-table>
             </v-flex>
@@ -57,20 +55,6 @@ export default {
                     sortable: false,
                     width: '15%'
                 },
-                // {
-                //     text: 'Case Content',
-                //     value: 'case_content',
-                //     align: 'left',
-                //     sortable: false,
-                //     width: '10%'
-                // },
-                // {
-                //     text: 'Case Percentage',
-                //     value: 'case_percentage',
-                //     align: 'left',
-                //     sortable: false,
-                //     width: '15%'
-                // }
             ],
         }
     },

@@ -1,7 +1,7 @@
 <template>
     <v-container class="login">
         <v-layout row justify-center align-center>
-            <v-flex xs12 md5 lg3>
+            <v-flex xs12 md5 lg4>
                 <v-card class="login-card">
                     <h2 class="m-b-2">USER LOGIN</h2>
                     <v-form ref="form" id="loginForm" @keyup.native.enter="login">
@@ -24,8 +24,9 @@
                         outline
                         required
                         ></v-text-field>
-                        <v-btn @click="login" flat outline :loading="loading" color="#fff" right class="m-t login-btn">Login</v-btn>
-                        <v-btn flat color="#fff" class="signup-btn" :to="'/reset/password'">Forgot Password?</v-btn>
+                        <v-btn @click="login" flat :loading="loading" color="#fff" right class="m-t login-btn">Login</v-btn>
+                        <v-btn @click="login" flat outline :loading="loading" color="#fff" right class="m-t signup-btn" to="/register">Create Account</v-btn>
+                        <p><v-btn flat color="#fff" class="forgot-btn" :to="'/reset/password'">Forgot Password?</v-btn></p>
                     </v-form>
                 </v-card>
             </v-flex>
@@ -85,10 +86,21 @@ export default {
         margin-bottom: 2rem;
         height: 55px;
         width: 150px;
+        background: $red !important;
     }
     .signup-btn{
+        height: 53px;
+        width: 150px;
         font-size: 16px;
-        margin-bottom: 0rem;
+        margin-bottom: 2rem;
+        text-transform: capitalize;
+    }
+    .forgot-btn{
+        height: 40px;
+        width: 150px;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0rem;
         text-transform: capitalize;
     }
     .v-text-field{

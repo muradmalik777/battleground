@@ -31,10 +31,12 @@
                 </v-btn>
             </v-flex>
             <v-flex xs2 class="text-xs-right">
-                <v-btn flat @click.stop="drawer = !drawer" class="nav-link m-0">{{$store.state.userData.user_name}}</v-btn>          
+                <div v-if="$store.state.userData">
+                    <v-btn flat @click.stop="drawer = !drawer" class="nav-link m-0">{{$store.state.userData.user_name}}</v-btn>
+                </div>
                 <v-navigation-drawer width="250" v-model="drawer" absolute right temporary>
-                    <h3 class="t-c m-t-3 m-b">{{$store.state.userData.user_name}}</h3>
-                    <p class="c-green-bright t-c amount m-b-2">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p>
+                    <h3 v-if="$store.state.userData" class="t-c m-t-3 m-b">{{$store.state.userData.user_name}}</h3>
+                    <p v-if="$store.state.userData" class="c-green-bright t-c amount m-b-2">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p>
                     <v-list class="dropdown">
                         <v-list-tile to="/profile" class="user-menu pointer">
                             <v-list-tile-title>Profile</v-list-tile-title>
@@ -51,10 +53,7 @@
                     </v-list>
                 </v-navigation-drawer>
                 <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
-                <div v-else>
-                    <v-btn flat outline color="#fff" class="login-btn" v-if="$route.path.includes('/register') || !$route.path.includes('/login')" :to="'/login'" >login</v-btn>
-                    <v-btn flat outline color="#fff" class="login-btn" v-if="$route.path.includes('/login')" :to="'/register'" >signup</v-btn>
-                </div>
+                <v-btn flat outline color="#fff" class="login-btn" :to="'/login'" v-else>login</v-btn>
             </v-flex>
         </v-layout>
     </v-container>
@@ -167,10 +166,19 @@ export default {
             }
         }
     }
+    .login-btn.v-btn--active{
+        color: $red;
+        font-size: 16px;
+        border: 2px solid #D1415570;
+        &::before{
+            display: none;
+        }
+    }
+
     .nav-link.v-btn--active{
         color: $red;
         font-size: 16px;
-        border-bottom: 2px solid #D1415570;
+        border-bottom: 2px solid $red;
         &::before{
             display: none;
         }
