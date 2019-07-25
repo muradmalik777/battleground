@@ -1,53 +1,41 @@
 <template>
-    <div class="profile spacing">
-        <v-container grid-list-xl text-xs-center>
-            <v-layout row wrap>
-            <v-flex xs3>
-                <div class="profile-overview">
-                    <v-img contain :src="user.avatar" class="avatar"></v-img>
-                    <div class="stats">
-                        <p class="name">{{user.user_name}}</p>
-                        <p class="name c-green">${{parseFloat(user.balance).toFixed(2)}}</p>
+    <v-container>
+        <v-layout row wrap justify-center>
+        <v-flex xs3>
+            <div class="profile-overview">
+                <!-- <v-img contain :src="require('@/assets/imgs/icon.svg')" class="avatar"></v-img> -->
+                <div class="stats">
+                    <h3 class="name">{{user.user_name}}</h3>
+                    <h4 class="balance c-green">${{parseFloat(user.balance).toFixed(2)}}</h4>
+                </div>
+            </div>
+        </v-flex>
+        <v-flex xs3>
+            <router-link to="cases" class="selector" :class="{'active': this.$route.path.includes('/profile/cases')}">
+                <div>
+                    <p>Winnings</p>
+                    <div class="icon-container">
+                        <v-img contain :src="require('@/assets/imgs/svg/' + 'purse' + '.svg')" class="icon"></v-img>
                     </div>
                 </div>
-            </v-flex>
-            <v-flex xs3>
-                <router-link to="cases" class="selector" :class="{'active': this.$route.path.includes('/profile/cases')}">
-                    <div>
-                        <p>Winnings</p>
-                        <div class="icon-container">
-                            <v-img contain :src="require('@/assets/imgs/svg/' + 'purse' + '.svg')" class="icon"></v-img>
-                        </div>
+            </router-link>
+        </v-flex>
+        <v-flex xs3>
+            <router-link to="transactions" class="selector" :class="{'active': this.$route.path.includes('/profile/transactions')}">
+                <div>
+                    <p>Transactions</p>
+                    <div class="icon-container">
+                        <v-img contain :src="require('@/assets/imgs/svg/' + 'money' + '.svg')" class="icon"></v-img>
                     </div>
-                </router-link>
-            </v-flex>
-            <!-- <v-flex xs3>
-                <router-link to="trades" class="selector" :class="{'active': this.$route.path.includes('/profile/trades')}">
-                    <div>
-                        <p>Trades</p>
-                        <div class="icon-container">
-                            <v-img contain :src="require('@/assets/imgs/svg/' + 'support' + '.svg')" class="icon"></v-img>
-                        </div>
-                    </div>
-                </router-link>
-            </v-flex> -->
-            <v-flex xs3>
-                <router-link to="transactions" class="selector" :class="{'active': this.$route.path.includes('/profile/transactions')}">
-                    <div>
-                        <p>Transactions</p>
-                        <div class="icon-container">
-                            <v-img contain :src="require('@/assets/imgs/svg/' + 'money' + '.svg')" class="icon"></v-img>
-                        </div>
-                    </div>
-                </router-link>
-            </v-flex>
-            </v-layout>
+                </div>
+            </router-link>
+        </v-flex>
+        </v-layout>
 
-            <v-layout row>
-                <router-view></router-view>
-            </v-layout>
-        </v-container>
-    </div>
+        <v-layout row>
+            <router-view></router-view>
+        </v-layout>
+    </v-container>
 </template>
 <script>
 export default {
@@ -70,31 +58,32 @@ export default {
 @import '../assets/scss/variables.scss';
 
 .profile-overview {
-    display: inline-block;
-    height: 100px;
+    padding: 1rem;
     .avatar {
-        width: 100px;
+        width: 55px;
         height: auto;
+        margin-right: 2rem;
         display: inline-block;
         vertical-align: middle;
     }
     .stats {
         display: inline-block;
         vertical-align: middle;
-        p {
-            margin: 0px;
-            text-align: left;
-        }
         .name {
             font-size: 1.5rem;
             font-weight: 600;
+        }
+        .balance {
+            font-weight: 600;
+            text-align: left !important;
+            margin-top: .5rem;
         }
     }
 }
 .selector {
     width: 90%;
     height: 100px;
-    background-color: $purple-bright;
+    background-color: $dark3;
     display: inline-block;
     padding: 10px 25px;
     p {

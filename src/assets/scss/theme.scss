@@ -22,6 +22,9 @@ body{
      font-family: 'hypercase-medium';
      font-size: 18px;
    }
+   .v-btn{
+     font-weight: 600;
+   }
 }
 .full-width{
   width: 100%;
@@ -102,7 +105,7 @@ body{
 
 .trades-table {
   .v-table {
-    background-color: $purple-dull;
+    background-color: $dark3;
     thead tr:first-child, tbody tr:not(:last-child) {
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }

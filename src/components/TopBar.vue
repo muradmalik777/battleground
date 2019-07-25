@@ -1,16 +1,17 @@
 <template>
-    <v-container class="topbar spacing">
-        <v-layout justify-center row wrap class="live-drops" pt-3 pb-3>
+    <v-container class="topbar spacing" fluid>
+        <v-layout justify-center row wrap class="live-drops" pb-2>
             <v-flex xs12>
-                <h2 class="m-b-2">LIVE DROPS</h2>
+                <h2 class="m-b">LIVE DROPS</h2>
                 <carousel :autoplay="true" :loop="true" :rewind="false" :dots="false" :nav="false" :autoWidth="true">
                     <div v-for="image in 25" :key="image" class="drop-box">
                         <v-img :src="dropPicture(image)" class="drop-image m-t-3"></v-img>
+                        <h6 class="t-c">Tec-g Red Quartz</h6>
                     </div>
                 </carousel>
             </v-flex>
         </v-layout>
-        <v-layout justify-center row wrap mt-4 class="navbar">
+        <v-layout justify-center row wrap mt-2 class="navbar">
             <v-flex xs2 class="text-xs-left">
                 <router-link to="/"><v-img contain :src="require('@/assets/imgs/icon.svg')" class="nav-logo pointer"></v-img></router-link>
             </v-flex>
@@ -30,15 +31,12 @@
                 </v-btn>
             </v-flex>
             <v-flex xs2 class="text-xs-right">
-                <v-menu offset-y max-width="230" min-width="230" v-if="$store.state.userData">
-                    <template v-slot:activator="{ on }">
-                        <v-btn flat v-on="on" class="nav-link m-0">{{$store.state.userData.user_name}}</v-btn>
-                    </template>
-                    <v-list class="menu" dark>
-                        <v-list-tile class="user-menu pointer c-purple-bright">
-                            <v-list-tile-title><p class="c-green-bright amount">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p></v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile to="/profile" class="user-menu pointer c-purple-bright">
+                <v-btn flat @click.stop="drawer = !drawer" class="nav-link m-0">{{$store.state.userData.user_name}}</v-btn>          
+                <v-navigation-drawer width="250" v-model="drawer" absolute right temporary>
+                    <h3 class="t-c m-t-3 m-b">{{$store.state.userData.user_name}}</h3>
+                    <p class="c-green-bright t-c amount m-b-2">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p>
+                    <v-list class="dropdown">
+                        <v-list-tile to="/profile" class="user-menu pointer">
                             <v-list-tile-title>Profile</v-list-tile-title>
                         </v-list-tile>
                         <v-list-tile @click="openDialog" class="user-menu pointer c-purple-bright">
@@ -51,7 +49,7 @@
                             <v-list-tile-title>Logout</v-list-tile-title>
                         </v-list-tile>
                     </v-list>
-                </v-menu>
+                </v-navigation-drawer>
                 <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
                 <div v-else>
                     <v-btn flat outline color="#fff" class="login-btn" v-if="$route.path.includes('/register') || !$route.path.includes('/login')" :to="'/login'" >login</v-btn>
@@ -75,7 +73,7 @@ export default {
     },
     data: function(){
         return{
-            drawer: true,
+            drawer: false,
             showDepositDialog: false,
             selectedImage: 1,
         }
@@ -120,22 +118,24 @@ export default {
 
 .topbar{
     max-width: 100%;
-    height: 400px !important;
+    max-height: 400px;
+    margin: 0 auto;
 
     .drop-box{
         width: 210px;
-        height: 150px;
+        height: 170px;
         float: left;
+        cursor: pointer;
         background-image: url('../assets/imgs/drops-back.png');
-        margin-right: 2rem;
+        background-size: cover;
+        margin-right: 1rem;
         transition: background-color 0.35s;
 
         .drop-image{
-            width: 102px;
-            height: 102px;
-            cursor: pointer;
+            width: 85px;
+            height: 85px;
             display: block;
-            margin: 1rem auto;
+            margin: .85rem auto;
         }
     }
 
@@ -175,8 +175,24 @@ export default {
             display: none;
         }
     }
+    .v-navigation-drawer{
+        background: $dark2 !important;
+    }
     .user-menu{
-        color: #333333 !important;
+        &:hover{
+            background: $red;
+        }
+        div{
+            text-align: center !important;
+            font-size: 16px !important;
+            font-weight: 600;
+        }
+    }
+    .v-list__tile--active{
+        color: $red !important;
+        &:hover{
+            color: $white !important;
+        }
     }
     .verified{
         font-size: 12px;

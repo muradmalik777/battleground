@@ -28,6 +28,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .app{
+  padding: 0;
   background-image: url('assets/imgs/back.png');
   background-size: cover;
   padding-bottom: 100px;

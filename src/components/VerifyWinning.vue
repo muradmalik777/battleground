@@ -1,21 +1,21 @@
 <template>
     <v-container grid-list-xl class="verify-winning spacing">
         <v-layout row wrap justify-center>
-            <v-flex xs12 md7 lg5 class="verify-form">
+            <v-flex xs12 md7 lg5 class="verify-form text-xs-left">
                 <h2 class="uppercase m-b-2">verify your result</h2>
                 <v-form ref="verifyForm">
                     <label>Case</label>
-                    <v-text-field color="#fff" v-model="box.name" background-color="#67266e" readonly :rules="dataRules" required></v-text-field>
+                    <v-text-field color="#fff" v-model="box.name" background-color="#303656" readonly :rules="dataRules" required></v-text-field>
                     <label>Client Hash</label>
-                    <v-text-field color="#fff" v-model="verify.clientHash" background-color="#67266e" :rules="dataRules" required></v-text-field>
+                    <v-text-field color="#fff" v-model="verify.clientHash" background-color="#303656" :rules="dataRules" required></v-text-field>
                     <label>Round Secret</label>
-                    <v-textarea color="#fff" background-color="#67266e" no-resize :rules="dataRules" v-model="verify.roundSecret"></v-textarea>
+                    <v-textarea color="#fff" background-color="#303656" no-resize :rules="dataRules" v-model="verify.roundSecret"></v-textarea>
 
                     <v-btn :loading="loading" @click="verifyWinning" class="verify" flat>Verify</v-btn>
                 </v-form>
             </v-flex>
             <v-flex xs12 md5 lg4>
-                <v-card class="bg-purple-dull m-t-6 result">
+                <v-card class="m-t-6 result">
                     <v-card-text>
                         <v-layout row>
                             <v-flex xs12>
@@ -67,15 +67,11 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "../assets/scss/variables.scss";
+
 .verify-winning {
   min-height: 90vh;
 
-  .win-image {
-    width: 180px;
-    height: auto;
-    display: block;
-    margin: 1rem auto;
-  }
   .v-text-field__slot {
     padding: 0.5rem 1rem;
     textarea {
@@ -86,16 +82,19 @@ export default {
     text-transform: capitalize;
   }
   .verify {
-    background: #4caf50 !important;
-    color: #000 !important;
+    background: $green !important;
+    color: $dark2 !important;
     width: 120px;
+    height: 50px;
     margin: 0;
     margin-top: 1rem;
+    float: left !important;
   }
   .result {
     margin-left: 50px;
     margin-top: 7rem;
     min-height: 340px;
+    background-color: $dark3;
 
     h4{
         color: #dddddd;
