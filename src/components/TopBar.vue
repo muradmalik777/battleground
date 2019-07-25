@@ -1,8 +1,8 @@
 <template>
-    <v-container class="topbar spacing">
-        <v-layout justify-center row wrap class="live-drops" pt-3 pb-3>
+    <v-container class="topbar spacing" fluid>
+        <v-layout justify-center row wrap class="live-drops" pb-2>
             <v-flex xs12>
-                <h2 class="m-b-2">LIVE DROPS</h2>
+                <h2 class="m-b">LIVE DROPS</h2>
                 <carousel :autoplay="true" :loop="true" :rewind="false" :dots="false" :nav="false" :autoWidth="true">
                     <div v-for="image in 25" :key="image" class="drop-box">
                         <v-img :src="dropPicture(image)" class="drop-image m-t-3"></v-img>
@@ -11,7 +11,7 @@
                 </carousel>
             </v-flex>
         </v-layout>
-        <v-layout justify-center row wrap mt-4 class="navbar">
+        <v-layout justify-center row wrap mt-2 class="navbar">
             <v-flex xs2 class="text-xs-left">
                 <router-link to="/"><v-img contain :src="require('@/assets/imgs/icon.svg')" class="nav-logo pointer"></v-img></router-link>
             </v-flex>
@@ -118,10 +118,12 @@ export default {
 
 .topbar{
     max-width: 100%;
+    max-height: 400px;
+    margin: 0 auto;
 
     .drop-box{
-        width: 220px;
-        height: 152px;
+        width: 210px;
+        height: 170px;
         float: left;
         cursor: pointer;
         background-image: url('../assets/imgs/drops-back.png');
