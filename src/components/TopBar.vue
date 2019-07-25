@@ -36,7 +36,7 @@
                     <h3 class="t-c m-t-3 m-b">{{$store.state.userData.user_name}}</h3>
                     <p class="c-green-bright t-c amount m-b-2">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p>
                     <v-list class="dropdown">
-                        <v-list-tile to="/profile" class="user-menu pointer c-purple-bright">
+                        <v-list-tile to="/profile" class="user-menu pointer">
                             <v-list-tile-title>Profile</v-list-tile-title>
                         </v-list-tile>
                         <v-list-tile @click="openDialog" class="user-menu pointer c-purple-bright">
@@ -184,6 +184,14 @@ export default {
         }
         div{
             text-align: center !important;
+            font-size: 16px !important;
+            font-weight: 600;
+        }
+    }
+    .v-list__tile--active{
+        color: $red !important;
+        &:hover{
+            color: $white !important;
         }
     }
     .verified{
