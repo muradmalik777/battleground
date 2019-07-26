@@ -1,17 +1,17 @@
 <template>
     <v-container class="topbar spacing" fluid>
-        <v-layout justify-center row wrap class="live-drops" pb-2>
+        <v-layout justify-center row wrap class="live-drops" mb-2>
             <v-flex xs12>
-                <h2 class="m-b">LIVE DROPS</h2>
                 <carousel :autoplay="true" :loop="true" :rewind="false" :dots="false" :nav="false" :autoWidth="true">
                     <div v-for="image in 25" :key="image" class="drop-box">
-                        <v-img :src="dropPicture(image)" class="drop-image m-t-3"></v-img>
+                        <v-img :src="dropPicture(image)" class="drop-image m-t-2"></v-img>
                         <h6 class="t-c">Tec-g Red Quartz</h6>
+                        <v-btn flat class="open-btn">Open $0.20</v-btn>
                     </div>
                 </carousel>
             </v-flex>
         </v-layout>
-        <v-layout justify-center row wrap mt-2 class="navbar">
+        <v-layout justify-center row wrap class="navbar">
             <v-flex xs2 class="text-xs-left">
                 <router-link to="/"><v-img contain :src="require('@/assets/imgs/icon.svg')" class="nav-logo pointer"></v-img></router-link>
             </v-flex>
@@ -135,12 +135,32 @@ export default {
         background-size: cover;
         margin-right: 1rem;
         transition: background-color 0.35s;
+        position: relative;
+
+        &:hover{
+            .drop-image{
+                opacity: 0.4;
+            }
+            .open-btn{
+                display: block;
+            }
+        }
 
         .drop-image{
             width: 85px;
             height: 85px;
             display: block;
             margin: .85rem auto;
+        }
+        .open-btn{
+            height: 35px;
+            color: $white !important;
+            background: $red !important;
+            border-radius: 50px;
+            position: absolute;
+            top: calc(55% - 45px);
+            left: 23%;
+            display: none;
         }
     }
 
