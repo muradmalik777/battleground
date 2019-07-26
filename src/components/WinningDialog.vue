@@ -23,9 +23,9 @@
                 </v-card-text>
                 <v-card-actions class="m-t">
                     <v-flex xs12 class="text-xs-center">
-                        <v-btn :loading="loading" @click="sellItem($store.state.winningItem)" class="sell-btn" flat>Sell this item for ${{$store.state.winningItem.item.price}}</v-btn>
-                        <v-btn @click="$router.push('/verifyWinning')" class="verify-btn" flat>Verify Winning</v-btn>
-                        <v-btn class="later-btn" outline flat @click="closeDialog">Later</v-btn>
+                        <v-btn :loading="loading" @click="sellItem($store.state.winningItem)" class="sell-btn btn" flat>Sell this item for ${{$store.state.winningItem.item.price}}</v-btn>
+                        <v-btn @click="$router.push('/verifyWinning')" class="verify-btn btn" flat>Verify Winning</v-btn>
+                        <v-btn class="later-btn btn" outline flat @click="closeDialog">Later</v-btn>
                     </v-flex>
                 </v-card-actions>
             </v-card>
@@ -84,29 +84,22 @@ export default {
     height: auto;
     margin-top: 3rem;
   }
-  .sell-btn {
-    background: $red !important;
+  .btn{
     color: $white !important;
     float: right !important;
     margin-right: 1rem !important;
     border-radius: 50px;
     height: 45px;
+    min-width: 120px;
+  }
+  .sell-btn {
+    background: $red !important;
   }
   .verify-btn {
     background: $green !important;
-    color: $white !important;
-    float: right !important;
-    margin-right: 1rem !important;
-    border-radius: 50px;
-    height: 45px;
   }
   .later-btn {
-    color: #ffffff !important;
-    float: right !important;
-    margin-right: 1rem !important;
-    border-radius: 50px;
-    width: 120px;
-    height: 45px;
+    color: $white !important;
   }
 }
 </style>

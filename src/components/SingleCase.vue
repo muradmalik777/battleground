@@ -29,10 +29,10 @@
         <v-container grid-list-lg fluid class="case-container">
             <v-layout row wrap>
                 <v-flex xs12>
-                    <h3 class="uppercase">This Case Contains</h3>
+                    <h3 class="uppercase t-c">This Case Contains</h3>
                 </v-flex>
-                <v-flex xs12 md4 lg3 v-for="(item, index) in oneCase.items" :key="index">
-                    <div class="skin">
+                <v-flex xs12 class="text-xs-center">
+                    <div class="skin" v-for="(item, index) in oneCase.items" :key="index">
                         <div class="price">
                             <h4 class="t-c capitalize">${{item.price}} <i class="fas fa-coins coins"></i></h4>
                         </div>
@@ -41,20 +41,11 @@
                             <h4>{{item.marketHashName}}</h4>
                         </div>
                         <div class="action">
-                            <p>{{item.odds}}%</p>
+                            <p>Odds: {{item.odds}}%</p>
                         </div>
                     </div>
                 </v-flex>
             </v-layout>
-        </v-container>
-
-        <v-container grid-list-md class="section-container">
-            <h3 class="uppercase">Recent Winnings</h3>
-            <div class="p-2">
-                <div class="winn m" v-for="(item, index) in itemsWon" :key="index">
-                    <v-img contain :src="item.item.iconUrl" class="winning-img"></v-img>
-                </div>
-            </div>
         </v-container>
 
         <v-dialog width="800px" persistent v-model="showDialog">
@@ -85,6 +76,7 @@
         </v-dialog>
         
         <win v-if="showWinningDialog" :dialog="showWinningDialog" @closeDialog="closeWinningDialog"></win>
+
     </div>
 </template>
 <script>
@@ -374,31 +366,34 @@ export default {
 }
 
 .skin {
-  min-height: 370px;
-  background: $dark3;
+  width: 270px;
+  min-height: 340px;
+  padding: 0px;
+  background-image: url('../assets/imgs/case-back-dark.png');
+  background-size: cover;
+  margin: 2rem; 
+  display: inline-block;
+  transition: background-image .35s;
   position: relative;
   overflow-y: auto;
+
+  &:hover{
+    background-image: url('../assets/imgs/case-back-light.png');
+  }
   .price {
-    background: $dark3;
     padding: 20px 10px;
   }
   .skin-image {
     display: block;
-    margin: 20px auto;
-    width: 200px;
-    height: 200px;
+    margin: 1rem auto;
+    width: 130px;
+    height: 130px;
+    transition: width 0.35s;
   }
   .name {
-    width: 80%;
-    float: left;
+    width: 100%;
     padding: 10px;
     cursor: pointer;
-  }
-  .action {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    padding: 10px 20px;
   }
 }
 
