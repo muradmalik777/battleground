@@ -86,7 +86,7 @@ export default {
 .selector {
     width: 80%;
     height: 120px;
-    background-color: $blue2;
+    background-color: $dark3;
     display: inline-block;
     padding: 10px 25px;
     border-radius: 5px;

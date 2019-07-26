@@ -85,7 +85,7 @@ export default {
     background: $green !important;
     color: $dark2 !important;
     width: 120px;
-    height: 50px;
+    height: 45px;
     margin: 0;
     margin-top: 1rem;
     float: left !important;

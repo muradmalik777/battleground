@@ -7,10 +7,10 @@
                 <v-btn flat outline color="#fff" :class="{'active-btn': active === 3}" class="filter-btn" @click="filterCases(3)">trending cases</v-btn>
             </v-flex>
             <v-flex xs12  class="text-xs-center">
-                <div class="case pointer" v-for="(item) in 18" :key="item">
+                <div class="case pointer" v-for="(item, i) in allCases" :key="i" @click="openCase(item)">
                     <v-img :src="require('@/assets/imgs/case.png')" class="case-image"></v-img>
-                    <h4 class="t-c capitalize price">${{parseFloat(120).toFixed(2)}}</h4>
-                    <h3 class="capitalize t-c">case name</h3>
+                    <h4 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h4>
+                    <h3 class="capitalize t-c">{{item.name}}</h3>
                 </div>
             </v-flex>
             <v-flex xs12 class="text-xs-center m-t-3">
@@ -33,9 +33,7 @@ export default {
         }
     },
     created: function() {
-        if(!this.$store.state.allCases){
-            this.getAllCases()
-        }
+        this.getAllCases()
     },
     methods: {
         getAllCases: function(){
