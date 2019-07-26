@@ -3,12 +3,13 @@
         <v-dialog
         v-model="val"
         persistent
-        width="800">
+        class="win-dialog"
+        width="900">
 
-            <v-card class="bg-purple-dull">
+            <v-card class="win-dialog">
                 <v-card-text>
                     <v-layout row>
-                        <v-flex xs3>
+                        <v-flex xs3 class="image-side">
                             <v-img class="win-image" contain :src="$store.state.winningItem.item.iconUrl"></v-img>
                         </v-flex>
                         <v-flex xs9>
@@ -20,11 +21,11 @@
                         </v-flex>
                     </v-layout>
                 </v-card-text>
-                <v-card-actions>
+                <v-card-actions class="m-t">
                     <v-flex xs12 class="text-xs-center">
-                        <v-btn :loading="loading" @click="sellItem($store.state.winningItem)" class="confirm" flat>Sell this item for ${{$store.state.winningItem.item.price}}</v-btn>
-                        <v-btn @click="$router.push('/verifyWinning')" class="verify" flat>Verify Winning</v-btn>
-                        <v-btn class="close" flat @click="closeDialog">Later</v-btn>
+                        <v-btn :loading="loading" @click="sellItem($store.state.winningItem)" class="sell-btn" flat>Sell this item for ${{$store.state.winningItem.item.price}}</v-btn>
+                        <v-btn @click="$router.push('/verifyWinning')" class="verify-btn" flat>Verify Winning</v-btn>
+                        <v-btn class="later-btn" outline flat @click="closeDialog">Later</v-btn>
                     </v-flex>
                 </v-card-actions>
             </v-card>
@@ -72,25 +73,40 @@ export default {
 };
 </script>
 <style lang="scss">
-.win-image{
+@import '../assets/scss/variables.scss';
+
+.win-dialog{
+  background: $dark3 !important;
+  padding: 2rem 3rem;
+
+  .win-image{
     width: 150px;
     height: auto;
-}
-.confirm {
-  background: linear-gradient(to right, #00cf20 0%,#4caf50 100%) !important;
-  color: #000 !important;
-  float: right !important;
-  margin-right: 1rem !important;
-}
-.verify {
-  background: linear-gradient(to right, rgb(84, 224, 218) 0%,rgb(1, 154, 151) 100%) !important;
-  color: #000 !important;
-  float: right !important;
-  margin-right: 1rem !important;
-}
-.close {
-  color: #ffffff !important;
-  float: right !important;
-  margin-right: 1rem !important;
+    margin-top: 3rem;
+  }
+  .sell-btn {
+    background: $red !important;
+    color: $white !important;
+    float: right !important;
+    margin-right: 1rem !important;
+    border-radius: 50px;
+    height: 45px;
+  }
+  .verify-btn {
+    background: $green !important;
+    color: $white !important;
+    float: right !important;
+    margin-right: 1rem !important;
+    border-radius: 50px;
+    height: 45px;
+  }
+  .later-btn {
+    color: #ffffff !important;
+    float: right !important;
+    margin-right: 1rem !important;
+    border-radius: 50px;
+    width: 120px;
+    height: 45px;
+  }
 }
 </style>

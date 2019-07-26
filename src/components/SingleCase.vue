@@ -3,7 +3,6 @@
         <div>
             <div class="name-wrapper">
                 <h2 class="uppercase heading">{{oneCase.name}}</h2>
-                <p class="red-text">{{oneCase.creator}}</p>
             </div>
             <div class="price-wrapper">
                 <h1 class="price">${{parseFloat(oneCase.price).toFixed(2)}}</h1>
@@ -22,8 +21,8 @@
                 </div>
             </div>
             <div class="spinner-controls">
-                <v-btn class="button green-btn" @click.stop="showDialog = true">Open Case</v-btn>
-                <v-btn color="button" class="button spin-button" id="spin" @click="mixItems">Test Spin</v-btn>
+                <v-btn class="open-btn btn" @click.stop="showDialog = true">Open Case</v-btn>
+                <v-btn outline class="btn spin-btn spin-button" id="spin" @click="mixItems">Test Spin</v-btn>
             </div>
         </div>
 
@@ -52,50 +51,40 @@
         <v-container grid-list-md class="section-container">
             <h3 class="uppercase">Recent Winnings</h3>
             <div class="p-2">
-                <div class="winning m" v-for="(item, index) in itemsWon" :key="index">
+                <div class="winn m" v-for="(item, index) in itemsWon" :key="index">
                     <v-img contain :src="item.item.iconUrl" class="winning-img"></v-img>
                 </div>
             </div>
         </v-container>
 
         <v-dialog width="800px" persistent v-model="showDialog">
-            <v-card class="dialog">
-                <h2 class="t-c">Confirm Order</h2>
-                <v-img contain :src="require('@/assets/imgs/cases/' + this.oneCase.case_image)" class="case-open-img"></v-img>
-                <div class="case-name">
-                    <div class="left-wrapper">
-                        <p class="bold">Case Name:</p>
-                    </div>
-                    <div class="right-wrapper">
-                        <h4>{{oneCase.name}}</h4>
-                    </div>
-                </div>
-                <div class="case-prices">
-                    <div class="left-wrapper">
-                        <p class="bold">Case Price:</p>
-                    </div>
-                     <div class="right-wrapper">
-                        <h4>${{oneCase.price}}</h4>
-                    </div>
-                </div>
-                <div class="case-hash">
-                    <div class="left-wrapper">
-                        <p class="bold">Case Hash #:</p>
-                    </div>
-                    <div class="right-wrapper">
-                        <p>{{clientHash}}</p>
-                    </div>
-                </div>
+            <v-card class="buy-dialog">
+              <v-card-text>
+                <v-layout row>
+                    <v-flex xs4 class="image-side text-xs-left">
+                        <v-img class="case-image" contain :src="require('@/assets/imgs/case.png')"></v-img>
+                    </v-flex>
+                    <v-flex xs8>
+                        <h2 class="m-b uppercase">Confirm Order</h2>
+                        <h4>Case Name: {{this.oneCase.name}}</h4>
+                        <h4>Case Name: {{this.oneCase.price}}</h4>
+                        <h4>Case Hash # {{this.clientHash}}</h4>
 
-                <div class="case-buttons">
-                    <v-btn class="button" @click="showDialog = false">Close</v-btn>
-                    <v-btn color="button" :loading="hashLoading" @click="getClientHash()">New Hash</v-btn>
-                    <v-btn class="button green-btn" :loading="purchaseLoading"  @click="buyCase()">Buy Case</v-btn>
-                </div>
+                    </v-flex>
+                </v-layout>
+              </v-card-text>
+              <v-card-actions class="m-t">
+                <v-flex xs12 class="text-xs-center">
+                  <v-btn class="buy-btn btn" :loading="purchaseLoading"  @click="buyCase()">Buy Case</v-btn>
+                  <v-btn color="hash-btn btn" :loading="hashLoading" @click="getClientHash()">New Hash</v-btn>
+                  <v-btn class="close-btn btn" outline @click="showDialog = false">Close</v-btn>
+                  <v-btn class="buy-button" id="buy" style="visibility:hidden"></v-btn>
+                </v-flex>
+              </v-card-actions>
             </v-card>
         </v-dialog>
         
-        <win :dialog="showWinningDialog" @closeDialog="closeWinningDialog"></win>
+        <win v-if="showWinningDialog" :dialog="showWinningDialog" @closeDialog="closeWinningDialog"></win>
     </div>
 </template>
 <script>
@@ -145,10 +134,29 @@ export default {
         9000
       );
     });
+
+    $(".buy-button").click(function() {
+      $(".window").css({
+        right: "0"
+      });
+      $(".list li").css({
+        border: "4px solid transparent"
+      });
+      $(".window").animate(
+        {
+          right: 135 * 135
+        },
+        9000
+      );
+    });
   },
   methods: {
     buyCase: function() {
       if(this.$store.state.userData){
+        $(".window").css({
+          right: "0"
+        });
+        this.mixItems()
         this.purchaseLoading = true;
         let $purchase = new Api("/purchases");
         let data = {
@@ -157,20 +165,20 @@ export default {
           hash: this.clientHash
         }
         $purchase.post(data).then(response => {
-            if (response.purchased) {
-              this.$store.commit("addUser", response.user);
-              this.purchaseLoading = false;
-              this.showDialog = false;
-              let item = this.oneCase.items.find(item => (item.marketHashName === response.winning.winningItem))
-              this.$store.commit('refreshWinningItem', response.winning)
-              this.spinnerItems[124] = item;
-              var spin = document.getElementById("spin");
-              spin.click();
-              this.$store.commit('refreshLastCaseOpened', this.$store.state.caseBeingOpened)
-              setTimeout(function(){
-                this.showWinningDialog = true
-              }.bind(this), 9000);
-            }
+          if (response.purchased) {
+            this.$store.commit("addUser", response.user);
+            this.purchaseLoading = false;
+            this.showDialog = false;
+            this.$store.commit('refreshWinningItem', response.winning)
+            this.spinnerItems[124] = response.winning.item;
+            var spin = document.getElementById("buy");
+            this.getClientHash()
+            spin.click();
+            this.$store.commit('refreshLastCaseOpened', this.$store.state.caseBeingOpened)
+            setTimeout(function(){
+              this.showWinningDialog = true
+            }.bind(this), 9000);
+          }
         }).catch(error => {
           this.purchaseLoading = false;
           this.showMessage(error.response.data.message)
@@ -215,7 +223,7 @@ export default {
       this.showWinningDialog = false
     },
     mixItems: function(){
-      this.spinnerItems = this.shuffleItems(this.createCaseItems(this.oneCase.items));
+      this.spinnerItems = this.shuffleItems(this.spinnerItems);
     }
   }
 };
@@ -224,43 +232,28 @@ export default {
 @import "../assets/scss/variables.scss";
 @import "../assets/scss/util.scss";
 
-.dialog {
-  background-color: $purple-dull;
+.buy-dialog {
+  background-color: $dark3;
   padding: 2rem;
-  .case-open-img {
-    width: 15rem;
+  .case-image {
+    width: 150px;
     height: auto;
     display: block;
-    margin: 2rem auto;
+    margin: 1rem auto;
   }
-  .case-name,
-  .case-prices,
-  .case-hash {
-    padding: 1rem;
-    border-top: 1px solid rgba(#fff, 0.15);
+  .btn{
+    color: $white !important;
+    float: right !important;
+    margin-right: 1rem !important;
+    border-radius: 50px;
+    width: 140px;
+    height: 45px;
   }
-  .left-wrapper {
-    width: 25%;
-    display: inline-block;
+  .hash-btn {
+    background: $red !important;
   }
-  .right-wrapper {
-    width: 75%;
-    display: inline-block;
-    p {
-      vertical-align: top;
-    }
-  }
-  p {
-    font-size: 1rem;
-    display: inline-block;
-  }
-  .case-hash {
-    border-bottom: 1px solid rgba(#fff, 0.15);
-  }
-  .case-buttons {
-    margin-top: 1rem;
-    width: fit-content;
-    margin: 1rem auto 1rem auto;
+  .buy-btn {
+    background: $green !important;
   }
 }
 .skin-image {
@@ -286,7 +279,7 @@ export default {
   .spinner {
     width: 100%;
     height: 163px;
-    background: #73337a77;
+    background: $dark3;
     li {
       list-style: none;
       display: inline-block;
@@ -316,7 +309,7 @@ export default {
       position: absolute;
       top: 0;
       left: 50%;
-      border: 2px solid #4caf50;
+      border: 2px solid $green;
     }
 
     .list {
@@ -338,24 +331,22 @@ export default {
     display: block;
     width: fit-content;
     margin: 2rem auto;
+
+    .open-btn{
+      background: $red !important;
+    }
+    .btn{
+      color: $white !important;
+      margin-right: 1rem !important;
+      border-radius: 50px;
+      width: 140px;
+      height: 45px;
+    }
   }
 }
 
 .heading {
   display: inline-block;
-}
-.speaker-icon {
-  width: 50px;
-  height: auto;
-  display: inline-block;
-  vertical-align: middle;
-  color: #fff !important;
-}
-
-.red-text {
-  color: $red;
-  margin: 0px;
-  font-size: 0.75rem;
 }
 
 .case-container {
@@ -365,7 +356,8 @@ export default {
   }
 }
 .section-container {
-  .winning {
+  background: transparent;
+  .winn {
     padding-left: 10px;
     padding-top: 25px; 
     display: block;
@@ -380,38 +372,15 @@ export default {
     }
   }
 }
-.button {
-  background-color: $purple-bright-extra !important;
-  color: #fff;
-  border-radius: 0px;
-  font-weight: 600;
-  min-height: 50px;
-}
 
-.green-btn {
-  background-color: $green-dull !important;
-}
-
-.number-input {
-  background-color: #fff;
-  color: $purple-dark;
-  padding: 0px 0px 0px 10px;
-  min-height: 50px;
-  width: 50px;
-  margin: 0px 8px;
-}
 .skin {
   min-height: 370px;
-  background: #67266e77;
+  background: $dark3;
   position: relative;
   overflow-y: auto;
   .price {
-    background: #73337a77;
+    background: $dark3;
     padding: 20px 10px;
-
-    .coins {
-      color: gold;
-    }
   }
   .skin-image {
     display: block;
