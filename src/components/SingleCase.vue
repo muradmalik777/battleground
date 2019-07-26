@@ -220,7 +220,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
-@import "../assets/scss/util.scss";
 
 .buy-dialog {
   background-color: $dark3;
@@ -265,7 +264,7 @@ export default {
 }
 
 .spinner-wrapper {
-  margin: 4rem 0px;
+  margin: 2rem 0px;
   .spinner {
     width: 100%;
     height: 163px;

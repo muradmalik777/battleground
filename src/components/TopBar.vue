@@ -20,7 +20,7 @@
                     cases
                 </v-btn>
 
-                <v-btn flat class="nav-link" to="/about">
+                <v-btn flat class="nav-link" to="/rewards">
                     rewards
                 </v-btn>
                 <v-btn flat class="nav-link" to="/faq">
@@ -46,6 +46,12 @@
                         </v-list-tile>
                         <v-list-tile to="/faq" class="user-menu pointer c-purple-bright">
                             <v-list-tile-title>Help</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile to="/about" class="user-menu pointer c-purple-bright">
+                            <v-list-tile-title>About</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile to="/tos" class="user-menu pointer c-purple-bright">
+                            <v-list-tile-title>Terms of Service</v-list-tile-title>
                         </v-list-tile>
                         <v-list-tile @click="signout()" class="user-menu pointer">
                             <v-list-tile-title>Logout</v-list-tile-title>
