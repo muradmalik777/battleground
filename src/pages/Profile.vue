@@ -1,9 +1,8 @@
 <template>
     <v-container class="profile">
         <v-layout row wrap justify-center>
-        <v-flex xs3>
+        <v-flex xs3 class="text-xs-center">
             <div class="profile-overview">
-                <!-- <v-img contain :src="require('@/assets/imgs/icon.svg')" class="avatar"></v-img> -->
                 <div class="stats">
                     <h3 class="name">{{user.user_name}}</h3>
                     <h4 class="balance c-green">${{parseFloat(user.balance).toFixed(2)}}</h4>
@@ -58,6 +57,7 @@ export default {
 @import '../assets/scss/variables.scss';
 
 .profile{
+    max-width: 100%;
     margin: 0 auto;
     padding: 0;
 }

@@ -20,8 +20,8 @@
                     cases
                 </v-btn>
 
-                <v-btn flat class="nav-link" to="/rewards">
-                    rewards
+                <v-btn flat class="nav-link" to="/caseBrowser">
+                    case browser
                 </v-btn>
                 <v-btn flat class="nav-link" to="/faq">
                     support
@@ -123,7 +123,7 @@ export default {
 
 .topbar{
     max-width: 100%;
-    max-height: 350px;
+    max-height: 300px;
     margin: 0 auto;
 
     .drop-box{
