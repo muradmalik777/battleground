@@ -34,14 +34,12 @@
                 <v-flex xs12 class="text-xs-center">
                     <div class="skin" v-for="(item, index) in oneCase.items" :key="index">
                         <div class="price">
-                            <h4 class="t-c capitalize">${{item.price}} <i class="fas fa-coins coins"></i></h4>
+                          <h4 class="t-c capitalize">${{item.price}} <i class="fas fa-coins coins"></i></h4>
+                          <p>odds: {{item.odds}}%</p>
                         </div>
                         <v-img contain :src="item.iconUrl" class="skin-image"></v-img>
                         <div class="name">
                             <h4>{{item.marketHashName}}</h4>
-                        </div>
-                        <div class="action">
-                            <p>Odds: {{item.odds}}%</p>
                         </div>
                     </div>
                 </v-flex>
