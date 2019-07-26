@@ -1,20 +1,19 @@
 <template>
-    <v-container fluit grid-list-xl class="spacing">
-        <v-layout row wrap>
-            <v-flex>
+    <v-container grid-list-xl class="spacing">
+        <v-layout row wrap >
+            <v-flex xs12>
                 <h1>{{$store.state.caseBeingBrowsed.name}}</h1>
                 <h3 class="capitalize price m-b-2">Price: ${{$store.state.caseBeingBrowsed.price}} <i class="fas fa-coins coins"></i></h3>
             </v-flex>
-        </v-layout>
-        <v-layout row wrap mt-3>
-            <v-flex xs12 md4 lg3 v-for="(item, index) in $store.state.caseBeingBrowsed.items" :key="index" class="case-item">
-                <div class="skin">
+            <v-flex xs12>
+                <div class="skin m-r-2 m-b-2" v-for="(item, index) in $store.state.caseBeingBrowsed.items" :key="index">
                     <div class="price">
                         <h4 class="t-c capitalize">${{item.price}} <i class="fas fa-coins coins"></i></h4>
+                        <p class="t-c">odds: {{item.odds}}%</p>
                     </div>
                     <v-img contain :src="item.iconUrl" class="skin-image"></v-img>
                     <div class="name">
-                        <h4>{{item.marketHashName}}</h4>
+                        <h4 class="t-c">{{item.marketHashName}}</h4>
                     </div>
                 </div>
             </v-flex>
@@ -32,48 +31,37 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.skin{
-    min-height: 370px;
-    background: #67266e77;
-    position: relative;
-    overflow-y: auto;
-    .price{
-        background: #73337a77;
-        padding: 20px 10px;
+@import "../assets/scss/variables.scss";
 
-        .coins{
-            color: gold;
-        }
-    }
-    .skin-image{
-        display: block;
-        margin: 20px auto;
-        width: 200px;
-        height: 200px;
-    }
-    .name{
-        width: 100%;
-        float: left;
-        padding: 10px;
-        cursor: pointer;
-    }
-    .action{
-        position: absolute;
-        bottom: 0px;
-        right: 0px;
-        padding: 10px 20px;
-        background: #99999967;
-        cursor: pointer;
+.skin {
+  width: 270px;
+  min-height: 340px;
+  padding: 0px;
+  background-image: url('../assets/imgs/case-back-dark.png');
+  background-size: cover;
+  margin: 2rem; 
+  display: inline-block;
+  transition: background-image .35s;
+  position: relative;
+  overflow-y: auto;
 
-        &:hover{
-            background: #99999911;
-        }
-
-        .delete-icon{
-            width: 20px;
-            height: 30px;
-            display: block;
-        }
-    }
+  &:hover{
+    background-image: url('../assets/imgs/case-back-light.png');
+  }
+  .price {
+    padding: 20px 10px;
+  }
+  .skin-image {
+    display: block;
+    margin: 1rem auto;
+    width: 130px;
+    height: 130px;
+    transition: width 0.35s;
+  }
+  .name {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+  }
 }
 </style>

@@ -26,13 +26,17 @@
                 <v-btn flat class="nav-link" to="/faq">
                     support
                 </v-btn>
+                <v-btn flat class="nav-link" to="/about">
+                    about
+                </v-btn>
                 <v-btn flat class="nav-link" to="/upgrades">
                     upgrades
                 </v-btn>
             </v-flex>
             <v-flex xs2 class="text-xs-right">
                 <div v-if="$store.state.userData">
-                    <v-btn flat @click.stop="drawer = !drawer" class="nav-link m-0">{{$store.state.userData.user_name}}</v-btn>
+                    <v-btn @click="openDialog" flat class="nav-link m-0">Add Funds</v-btn>
+                    <v-btn flat @click.stop="drawer = !drawer" class="nav-link user-name m-0">{{$store.state.userData.user_name}}</v-btn>
                 </div>
                 <v-navigation-drawer width="250" v-model="drawer" absolute right temporary>
                     <h3 v-if="$store.state.userData" class="t-c m-t-3 m-b">{{$store.state.userData.user_name}}</h3>
@@ -41,14 +45,8 @@
                         <v-list-tile to="/profile" class="user-menu pointer">
                             <v-list-tile-title>Profile</v-list-tile-title>
                         </v-list-tile>
-                        <v-list-tile @click="openDialog" class="user-menu pointer c-purple-bright">
-                            <v-list-tile-title>Add Funds</v-list-tile-title>
-                        </v-list-tile>
                         <v-list-tile to="/faq" class="user-menu pointer c-purple-bright">
                             <v-list-tile-title>Help</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile to="/about" class="user-menu pointer c-purple-bright">
-                            <v-list-tile-title>About</v-list-tile-title>
                         </v-list-tile>
                         <v-list-tile to="/tos" class="user-menu pointer c-purple-bright">
                             <v-list-tile-title>Terms of Service</v-list-tile-title>
@@ -168,6 +166,10 @@ export default {
         width: 60px;
         height: auto;
         margin: .8rem 0 0 0;
+    }
+    .user-name{
+        color: $red !important;
+        text-transform: capitalize;
     }
     .nav-link{
         color: white;
