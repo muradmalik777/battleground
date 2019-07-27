@@ -1,17 +1,17 @@
 <template>
     <v-container class="topbar spacing" fluid>
-        <v-layout justify-center row wrap class="live-drops" pb-2>
+        <v-layout justify-center row wrap class="live-drops" mb-2>
             <v-flex xs12>
-                <h2 class="m-b">LIVE DROPS</h2>
                 <carousel :autoplay="true" :loop="true" :rewind="false" :dots="false" :nav="false" :autoWidth="true">
                     <div v-for="image in 25" :key="image" class="drop-box">
-                        <v-img :src="dropPicture(image)" class="drop-image m-t-3"></v-img>
+                        <v-img :src="dropPicture(image)" class="drop-image m-t-2"></v-img>
                         <h6 class="t-c">Tec-g Red Quartz</h6>
+                        <v-btn flat class="open-btn">Open $0.20</v-btn>
                     </div>
                 </carousel>
             </v-flex>
         </v-layout>
-        <v-layout justify-center row wrap mt-2 class="navbar">
+        <v-layout justify-center row wrap class="navbar">
             <v-flex xs2 class="text-xs-left">
                 <router-link to="/"><v-img contain :src="require('@/assets/imgs/icon.svg')" class="nav-logo pointer"></v-img></router-link>
             </v-flex>
@@ -20,45 +20,46 @@
                     cases
                 </v-btn>
 
-                <v-btn flat class="nav-link" to="/rewards">
-                    rewards
+                <v-btn flat class="nav-link" to="/caseBrowser">
+                    case browser
                 </v-btn>
                 <v-btn flat class="nav-link" to="/faq">
                     support
+                </v-btn>
+                <v-btn flat class="nav-link" to="/about">
+                    about
                 </v-btn>
                 <v-btn flat class="nav-link" to="/upgrades">
                     upgrades
                 </v-btn>
             </v-flex>
             <v-flex xs2 class="text-xs-right">
-                <div v-if="$store.state.userData">
-                    <v-btn flat @click.stop="drawer = !drawer" class="nav-link m-0">{{$store.state.userData.user_name}}</v-btn>
+                <div v-if="$store.state.userData" class="menu-box">
+                    <v-btn flat @click="drawer = !drawer" class="nav-link user-name">{{$store.state.userData.user_name}}</v-btn>
+                    <div v-if="drawer" class="menu">
+                        <v-list class="dropdown">
+                            <v-list-tile class="user-menu pointer">
+                                <v-list-tile-title class="c-green-bright pointer">${{parseFloat($store.state.userData.balance).toFixed(2)}}</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile @click="openDialog" class="user-menu pointer">
+                                <v-list-tile-title>Add Funds</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile @click="drawer = false" to="/profile" class="user-menu pointer">
+                                <v-list-tile-title>Profile</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile @click="drawer = false" to="/faq" class="user-menu pointer c-purple-bright">
+                                <v-list-tile-title>Help</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile @click="drawer = false" to="/tos" class="user-menu pointer c-purple-bright">
+                                <v-list-tile-title>Terms of Service</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile  @click="signout()" class="user-menu pointer">
+                                <v-list-tile-title>Logout</v-list-tile-title>
+                            </v-list-tile>
+                        </v-list>
+                    </div>
+                    <deposits :dialog="showDepositDialog" @close="closeDialog"></deposits>
                 </div>
-                <v-navigation-drawer width="250" v-model="drawer" absolute right temporary>
-                    <h3 v-if="$store.state.userData" class="t-c m-t-3 m-b">{{$store.state.userData.user_name}}</h3>
-                    <p v-if="$store.state.userData" class="c-green-bright t-c amount m-b-2">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p>
-                    <v-list class="dropdown">
-                        <v-list-tile to="/profile" class="user-menu pointer">
-                            <v-list-tile-title>Profile</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile @click="openDialog" class="user-menu pointer c-purple-bright">
-                            <v-list-tile-title>Add Funds</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile to="/faq" class="user-menu pointer c-purple-bright">
-                            <v-list-tile-title>Help</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile to="/about" class="user-menu pointer c-purple-bright">
-                            <v-list-tile-title>About</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile to="/tos" class="user-menu pointer c-purple-bright">
-                            <v-list-tile-title>Terms of Service</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile @click="signout()" class="user-menu pointer">
-                            <v-list-tile-title>Logout</v-list-tile-title>
-                        </v-list-tile>
-                    </v-list>
-                </v-navigation-drawer>
-                <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
                 <v-btn flat outline color="#fff" class="login-btn" :to="'/login'" v-else>login</v-btn>
             </v-flex>
         </v-layout>
@@ -104,10 +105,12 @@ export default {
         },
         signout: function(){
             this.user = null
+            this.drawer = false
             this.logout()
         },
         openDialog: function(){
             this.showDepositDialog = true
+            this.drawer = false
         },
         closeDialog: function(){
             this.showDepositDialog = false
@@ -123,7 +126,7 @@ export default {
 
 .topbar{
     max-width: 100%;
-    max-height: 350px;
+    max-height: 300px;
     margin: 0 auto;
 
     .drop-box{
@@ -135,6 +138,16 @@ export default {
         background-size: cover;
         margin-right: 1rem;
         transition: background-color 0.35s;
+        position: relative;
+
+        &:hover{
+            .drop-image{
+                opacity: 0.4;
+            }
+            .open-btn{
+                display: block;
+            }
+        }
 
         .drop-image{
             width: 85px;
@@ -142,12 +155,26 @@ export default {
             display: block;
             margin: .85rem auto;
         }
+        .open-btn{
+            height: 35px;
+            color: $white !important;
+            background: $red !important;
+            border-radius: 50px;
+            position: absolute;
+            top: calc(55% - 45px);
+            left: 23%;
+            display: none;
+        }
     }
 
     .nav-logo{
         width: 60px;
         height: auto;
         margin: .8rem 0 0 0;
+    }
+    .user-name{
+        color: $red !important;
+        text-transform: capitalize;
     }
     .nav-link{
         color: white;
@@ -189,17 +216,31 @@ export default {
             display: none;
         }
     }
-    .v-navigation-drawer{
-        background: $dark2 !important;
-    }
-    .user-menu{
-        &:hover{
-            background: $red;
-        }
-        div{
-            text-align: center !important;
-            font-size: 16px !important;
-            font-weight: 600;
+    .menu-box{
+        position: relative;
+
+        .menu{
+            position: absolute;
+            top: 100%;
+            bottom: 0;
+            left: 35%;
+            width: 210px;
+            background-color: $dark3;
+            .dropdown{
+                background-color: $dark3;
+                padding: 0;
+            }
+
+            .user-menu{
+                &:hover{
+                    background: $red;
+                }
+                div{
+                    text-align: left !important;
+                    font-size: 16px !important;
+                    font-weight: 600;
+                }
+            }
         }
     }
     .v-list__tile--active{

@@ -127,6 +127,7 @@ export default {
         background-size: 200px;
         width: 200px;
         min-height: 200px;
+        transition: background-image .35s;
         &:hover{
             background-image: url('../../assets/imgs/case-back-light.png');
             .winning-img{
@@ -154,6 +155,7 @@ export default {
             display: none;
             border-radius: 50px;
             background: $green;
+            transition: display .35s;
         }
         .withdraw-btn{
             color: $white;
@@ -165,6 +167,7 @@ export default {
             display: none;
             border-radius: 50px;
             background: $red;
+            transition: display .35s;
         }
     }
     .sold {
@@ -177,6 +180,8 @@ export default {
         background-size: 200px;
         width: 200px;
         min-height: 200px;
+        transition: background-image .35s;
+        
         &:hover{
             background-image: url('../../assets/imgs/case-back-light.png');
         }

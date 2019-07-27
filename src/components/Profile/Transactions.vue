@@ -1,8 +1,7 @@
 <template>
-    <v-container fluid grid-list-xs class="transaction spacing">
-        <v-layout row wrap justify-start>
-            <v-flex xs12>
-                <h2 class="uppercase m-b-2">transactions</h2>
+    <v-container class="transactions spacing">
+        <v-layout row wrap>
+            <v-flex xs12 class="text-xs-center">
                 <v-data-table
                     :headers="headers"
                     :items="data"
@@ -72,6 +71,14 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
-
+<style lang="scss">
+.transactions{
+    max-width: 100%;
+    margin: 0 auto;
+    
+    .trades-table{
+        width: 70%;
+        margin: auto;
+    }
+}
 </style>

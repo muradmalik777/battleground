@@ -14,7 +14,7 @@
                 </div>
             </v-flex>
             <v-flex xs12 class="text-xs-center m-t-3">
-                <v-btn flat outline color="#fff" :loading="loading" class="loading-btn" >load more</v-btn>
+                <v-btn flat outline color="#fff" :loading="loading" class="loading-btn">load more</v-btn>
             </v-flex>
         </v-layout>
     </v-container>
@@ -85,7 +85,6 @@ export default {
         .case{
             width: 200px;
             min-height: 250px;
-            padding: 15px;
             background-image: url('../assets/imgs/case-back-dark.png');
             background-size: cover;
             margin: 2rem; 
