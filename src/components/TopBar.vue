@@ -244,15 +244,38 @@ export default {
         }
     }
     .v-list__tile--active{
-        color: $red !important;
+        background: $red !important;
+        color: $white !important;
         &:hover{
             color: $white !important;
         }
     }
-    .verified{
-        font-size: 12px;
-        color: #bbbbbb !important;
-        margin-left: .5rem;
+}
+@media only screen and (min-width: 1366px) and (max-width: 1440px) {
+    .topbar{
+        .menu-box{
+            .menu{
+                left: 10%;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1441px) and (max-width: 1920px) {
+    .topbar{
+        .menu-box{
+            .menu{
+                left: 35%;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1921px) and (max-width: 2560px) {
+    .topbar{
+        .menu-box{
+            .menu{
+                left: 50%;
+            }
+        }
     }
 }
 </style>
