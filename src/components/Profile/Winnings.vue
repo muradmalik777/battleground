@@ -180,6 +180,8 @@ export default {
         background-size: 200px;
         width: 200px;
         min-height: 200px;
+        transition: background-image .35s;
+        
         &:hover{
             background-image: url('../../assets/imgs/case-back-light.png');
         }

@@ -34,29 +34,32 @@
                 </v-btn>
             </v-flex>
             <v-flex xs2 class="text-xs-right">
-                <div v-if="$store.state.userData">
-                    <v-btn @click="openDialog" flat class="nav-link m-0">Add Funds</v-btn>
-                    <v-btn flat @click.stop="drawer = !drawer" class="nav-link user-name m-0">{{$store.state.userData.user_name}}</v-btn>
+                <div v-if="$store.state.userData" class="menu-box">
+                    <v-btn flat @click="drawer = !drawer" class="nav-link user-name m-0">{{$store.state.userData.user_name}}</v-btn>
+                    <div v-if="drawer" class="menu">
+                        <v-list class="dropdown">
+                            <v-list-tile class="user-menu pointer">
+                                <v-list-tile-title class="c-green-bright">${{parseFloat($store.state.userData.balance).toFixed(2)}}</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile @click="openDialog" class="user-menu pointer">
+                                <v-list-tile-title>Add Funds</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile @click="drawer = false" to="/profile" class="user-menu pointer">
+                                <v-list-tile-title>Profile</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile @click="drawer = false" to="/faq" class="user-menu pointer c-purple-bright">
+                                <v-list-tile-title>Help</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile @click="drawer = false" to="/tos" class="user-menu pointer c-purple-bright">
+                                <v-list-tile-title>Terms of Service</v-list-tile-title>
+                            </v-list-tile>
+                            <v-list-tile  @click="signout()" class="user-menu pointer">
+                                <v-list-tile-title>Logout</v-list-tile-title>
+                            </v-list-tile>
+                        </v-list>
+                    </div>
+                    <deposits :dialog="showDepositDialog" @close="closeDialog"></deposits>
                 </div>
-                <v-navigation-drawer width="250" v-model="drawer" absolute right temporary>
-                    <h3 v-if="$store.state.userData" class="t-c m-t-3 m-b">{{$store.state.userData.user_name}}</h3>
-                    <p v-if="$store.state.userData" class="c-green-bright t-c amount m-b-2">${{parseFloat($store.state.userData.balance).toFixed(2)}}</p>
-                    <v-list class="dropdown">
-                        <v-list-tile to="/profile" class="user-menu pointer">
-                            <v-list-tile-title>Profile</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile to="/faq" class="user-menu pointer c-purple-bright">
-                            <v-list-tile-title>Help</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile to="/tos" class="user-menu pointer c-purple-bright">
-                            <v-list-tile-title>Terms of Service</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile @click="signout()" class="user-menu pointer">
-                            <v-list-tile-title>Logout</v-list-tile-title>
-                        </v-list-tile>
-                    </v-list>
-                </v-navigation-drawer>
-                <deposits :dialog="showDepositDialog" @close="closeDialog" v-if="$store.state.userData"></deposits>
                 <v-btn flat outline color="#fff" class="login-btn" :to="'/login'" v-else>login</v-btn>
             </v-flex>
         </v-layout>
@@ -102,10 +105,12 @@ export default {
         },
         signout: function(){
             this.user = null
+            this.drawer = false
             this.logout()
         },
         openDialog: function(){
             this.showDepositDialog = true
+            this.drawer = false
         },
         closeDialog: function(){
             this.showDepositDialog = false
@@ -211,17 +216,31 @@ export default {
             display: none;
         }
     }
-    .v-navigation-drawer{
-        background: $dark2 !important;
-    }
-    .user-menu{
-        &:hover{
-            background: $red;
-        }
-        div{
-            text-align: center !important;
-            font-size: 16px !important;
-            font-weight: 600;
+    .menu-box{
+        position: relative;
+
+        .menu{
+            position: absolute;
+            top: 100%;
+            bottom: 0;
+            left: 40%;
+            width: 210px;
+            background-color: $dark3;
+            .dropdown{
+                background-color: $dark3;
+                padding: 0;
+            }
+
+            .user-menu{
+                &:hover{
+                    background: $red;
+                }
+                div{
+                    text-align: left !important;
+                    font-size: 16px !important;
+                    font-weight: 600;
+                }
+            }
         }
     }
     .v-list__tile--active{
