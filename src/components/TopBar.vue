@@ -35,11 +35,11 @@
             </v-flex>
             <v-flex xs2 class="text-xs-right">
                 <div v-if="$store.state.userData" class="menu-box">
-                    <v-btn flat @click="drawer = !drawer" class="nav-link user-name m-0">{{$store.state.userData.user_name}}</v-btn>
+                    <v-btn flat @click="drawer = !drawer" class="nav-link user-name">{{$store.state.userData.user_name}}</v-btn>
                     <div v-if="drawer" class="menu">
                         <v-list class="dropdown">
                             <v-list-tile class="user-menu pointer">
-                                <v-list-tile-title class="c-green-bright">${{parseFloat($store.state.userData.balance).toFixed(2)}}</v-list-tile-title>
+                                <v-list-tile-title class="c-green-bright pointer">${{parseFloat($store.state.userData.balance).toFixed(2)}}</v-list-tile-title>
                             </v-list-tile>
                             <v-list-tile @click="openDialog" class="user-menu pointer">
                                 <v-list-tile-title>Add Funds</v-list-tile-title>
@@ -223,7 +223,7 @@ export default {
             position: absolute;
             top: 100%;
             bottom: 0;
-            left: 40%;
+            left: 35%;
             width: 210px;
             background-color: $dark3;
             .dropdown{
