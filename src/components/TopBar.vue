@@ -35,8 +35,9 @@
             </v-flex>
             <v-flex xs3 class="text-xs-right">
                 <div v-if="$store.state.userData" class="menu-box">
-                    <v-btn flat class="nav-link">Add Funds</v-btn>
+                    <v-btn flat @click="openDialog" class="nav-link">Add Funds</v-btn>
                     <v-btn flat @click="drawer = !drawer" class="nav-link user-name">{{$store.state.userData.user_name}}</v-btn>
+                    <deposits :dialog="showDepositDialog" @close="closeDialog"></deposits>
                     <div v-if="drawer" class="menu">
                         <v-list class="dropdown">
                             <v-list-tile class="user-menu pointer">
@@ -59,7 +60,6 @@
                             </v-list-tile>
                         </v-list>
                     </div>
-                    <deposits :dialog="showDepositDialog" @close="closeDialog"></deposits>
                 </div>
                 <v-btn flat outline color="#fff" class="login-btn" :to="'/login'" v-else>login</v-btn>
             </v-flex>

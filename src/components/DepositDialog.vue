@@ -21,12 +21,23 @@
                             <v-btn @click="deposit.amount = 500" :class="{'active-btn': deposit.amount == 500}" class="amount-btn">$500</v-btn>
                             <v-btn @click="deposit.amount = 1000" :class="{'active-btn': deposit.amount == 1000}" class="amount-btn">$1000</v-btn>
                         </v-flex>
+                        <v-flex xs12 mt-4>
+                            <v-text-field
+                            v-if="custom"
+                            v-model="deposit.amount"
+                            type="text"
+                            :rules="fieldRules"
+                            background-color="#1F2034"
+                            outline
+                            required
+                            ></v-text-field>
+                        </v-flex>
                     </v-card-text>
                     <v-card-actions>
                         <v-flex xs12 class="text-xs-center">
                             <v-btn class="confirm-btn" flat @click="confirmDeposit" :loading="loading">Confirm</v-btn>
                             <v-btn class="close-btn" flat @click="closeDialog">Close</v-btn>
-                            <v-btn class="custom-btn" flat @click="closeDialog">Custom Value</v-btn>
+                            <v-btn class="custom-btn" flat @click="custom = !custom">Custom Value</v-btn>
                         </v-flex>
                     </v-card-actions>
                 </v-form>
@@ -49,11 +60,13 @@ export default {
             deposit: {
                 amount: 10,
             },
+            fieldRules: [v => !!v || "field is required"],
             emailRules: [
                 v => !!v || "E-mail is required",
                 v => /.+@.+/.test(v) || "E-mail must be valid"
             ],
-            loading: false
+            loading: false,
+            custom: false
         }
     },
     watch: {
