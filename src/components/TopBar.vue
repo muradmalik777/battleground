@@ -12,10 +12,10 @@
             </v-flex>
         </v-layout>
         <v-layout justify-center row wrap class="navbar">
-            <v-flex xs2 class="text-xs-left">
+            <v-flex xs3 class="text-xs-left">
                 <router-link to="/"><v-img contain :src="require('@/assets/imgs/icon.svg')" class="nav-logo pointer"></v-img></router-link>
             </v-flex>
-            <v-flex xs8 class="text-xs-center">
+            <v-flex xs6 class="text-xs-center">
                 <v-btn flat class="nav-link" to="/">
                     cases
                 </v-btn>
@@ -33,8 +33,9 @@
                     upgrades
                 </v-btn>
             </v-flex>
-            <v-flex xs2 class="text-xs-right">
+            <v-flex xs3 class="text-xs-right">
                 <div v-if="$store.state.userData" class="menu-box">
+                    <v-btn flat class="nav-link">Add Funds</v-btn>
                     <v-btn flat @click="drawer = !drawer" class="nav-link user-name">{{$store.state.userData.user_name}}</v-btn>
                     <div v-if="drawer" class="menu">
                         <v-list class="dropdown">
@@ -181,6 +182,8 @@ export default {
         text-transform: uppercase;
         font-size: 16px;
         height: 50px;
+        padding: 0;
+        margin: 0 0 0 2rem;
         &:hover{
             color: $red;
             &::before{
@@ -223,7 +226,6 @@ export default {
             position: absolute;
             top: 100%;
             bottom: 0;
-            left: 35%;
             width: 210px;
             background-color: $dark3;
             .dropdown{
@@ -255,16 +257,20 @@ export default {
     .topbar{
         .menu-box{
             .menu{
-                left: 10%;
+                left: 45%;
             }
         }
+    }
+    .nav-link{
+        padding: 0;
+        font-size: 14px;
     }
 }
 @media only screen and (min-width: 1441px) and (max-width: 1920px) {
     .topbar{
         .menu-box{
             .menu{
-                left: 35%;
+                left: 60%;
             }
         }
     }
@@ -273,7 +279,7 @@ export default {
     .topbar{
         .menu-box{
             .menu{
-                left: 50%;
+                left: 70%;
             }
         }
     }
