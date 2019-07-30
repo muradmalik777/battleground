@@ -169,9 +169,9 @@ export default {
     }
 
     .nav-logo{
-        width: 60px;
+        width: 50px;
         height: auto;
-        margin: .8rem 0 0 0;
+        margin: 0;
     }
     .user-name{
         color: $red !important;
@@ -183,7 +183,7 @@ export default {
         font-size: 16px;
         height: 50px;
         padding: 0;
-        margin: 0 0 0 2rem;
+        margin: 1rem 0 0 2rem;
         &:hover{
             color: $red;
             &::before{
@@ -264,6 +264,7 @@ export default {
     .nav-link{
         padding: 0;
         font-size: 14px;
+        margin: 8px !important;
     }
 }
 @media only screen and (min-width: 1441px) and (max-width: 1920px) {
