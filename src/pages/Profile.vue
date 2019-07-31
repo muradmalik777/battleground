@@ -1,7 +1,7 @@
 <template>
-    <v-container class="profile">
-        <v-layout row wrap justify-center>
-        <v-flex xs3 class="text-xs-center">
+    <v-container class="profile spacing m-t-2">
+        <v-layout row wrap justify-start>
+        <v-flex xs3 class="text-xs-left">
             <div class="profile-overview">
                 <div class="stats">
                     <h3 class="name">{{user.user_name}}</h3>
@@ -23,6 +23,17 @@
             <router-link to="transactions" class="selector" :class="{'active': this.$route.path.includes('/profile/transactions')}">
                 <div>
                     <p>Transactions</p>
+                    <div class="icon-container">
+                        <v-img contain :src="require('@/assets/imgs/svg/' + 'money' + '.svg')" class="icon"></v-img>
+                    </div>
+                </div>
+            </router-link>
+        </v-flex>
+
+        <v-flex xs3>
+            <router-link to="withdrawl" class="selector" :class="{'active': this.$route.path.includes('/profile/withdrawl')}">
+                <div>
+                    <p>Withdrawls</p>
                     <div class="icon-container">
                         <v-img contain :src="require('@/assets/imgs/svg/' + 'money' + '.svg')" class="icon"></v-img>
                     </div>
@@ -59,7 +70,6 @@ export default {
 .profile{
     max-width: 100%;
     margin: 0 auto;
-    padding: 0;
 }
 .profile-overview {
     height: 120px;
@@ -75,6 +85,7 @@ export default {
             font-size: 1.5rem;
             font-weight: 600;
             margin-top: 1rem;
+            color: $red;
         }
         .balance {
             font-weight: 600;
@@ -108,7 +119,7 @@ export default {
         }
     }
     &.active {
-        background-color: $red;
+        background-image: $gradient;
     }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="about spacing">
+    <div class="about spacing m-t-3">
         <div class="m-b-4">
             <h1 class="m-b">What is this website?</h1>
             <div class="section para-padding">

@@ -1,5 +1,5 @@
 <template>
-    <v-container grid-list-xs fluid class="spacing">
+    <v-container grid-list-xs class="winnings">
         <v-layout mb-5 row wrap class="section-container">
             <v-flex xs12>
                 <h2 class="uppercase m-b">Unsold Items</h2>
@@ -114,6 +114,11 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/scss/variables.scss';
 
+.winnings{
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
 .section-container {
     text-align: left !important;
     
@@ -123,13 +128,28 @@ export default {
         padding-top: 25px; 
         display: block;
         float: left;
-        background-image: url('../../assets/imgs/case-back-red.png');
+        background-image: url('../../assets/imgs/case-back-dark.svg');
         background-size: 200px;
         width: 200px;
         min-height: 200px;
         transition: background-image .35s;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            display: none;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            z-index: -1px;
+            opacity: .45;
+            background: linear-gradient(to bottom, $red, $orange);
+        }
         &:hover{
-            background-image: url('../../assets/imgs/case-back-light.png');
+            &:before{
+                display: block;
+            }
             .winning-img{
                 opacity: .35;
             }
@@ -176,14 +196,29 @@ export default {
         padding-top: 25px; 
         display: block;
         float: left;
-        background-image: url('../../assets/imgs/case-back-red.png');
+        background-image: url('../../assets/imgs/case-back-dark.svg');
         background-size: 200px;
         width: 200px;
         min-height: 200px;
         transition: background-image .35s;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            display: none;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            z-index: -1px;
+            opacity: .45;
+            background: linear-gradient(to bottom, $red, $orange);
+        }
         
         &:hover{
-            background-image: url('../../assets/imgs/case-back-light.png');
+            &:before{
+                display: block;
+            }
         }
         p{
             color: $red;

@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1558" height="505" viewBox="0 0 1558 505">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_334" data-name="Rectangle 334" width="1484" height="431" transform="translate(74 3101)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <filter id="Rectangle_316" x="738.624" y="-147.92" width="299.72" height="299.72" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_317" x="737.917" y="-148.627" width="301.135" height="301.135" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-2"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_318" x="787.41" y="-99.134" width="202.148" height="202.148" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-3"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_319" x="-368.15" y="392.24" width="299.72" height="299.72" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-4"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_320" x="-368.857" y="391.533" width="301.135" height="301.135" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-5"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_321" x="-319.363" y="441.026" width="202.147" height="202.148" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-6"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-6"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="-0.207" y1="0.5" x2="1.207" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff8e43"/>
+      <stop offset="1" stop-color="#d14155"/>
+    </linearGradient>
+    <filter id="Rectangle_322" x="892.042" y="-81.545" width="527.905" height="527.905" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-7"/>
+      <feFlood flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur-7"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_323" x="-62.857" y="241.873" width="502.449" height="502.449" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-8"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-8"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_324" x="424.295" y="-236.972" width="485.479" height="485.479" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-9"/>
+      <feFlood flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur-9"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-4" x1="-0.367" y1="0.442" x2="1.048" y2="0.442" xlink:href="#linear-gradient"/>
+    <filter id="Rectangle_325" x="1054.815" y="257.869" width="675.959" height="675.959" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-10"/>
+      <feFlood flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur-10"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_326" x="1071.363" y="-555" width="576.345" height="576.346" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-11"/>
+      <feFlood flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur-11"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_327" x="933.129" y="769.734" width="576.345" height="576.345" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-12"/>
+      <feFlood flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur-12"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-5" x1="0.5" y1="0" x2="0.5" y2="1" xlink:href="#linear-gradient"/>
+    <filter id="Rectangle_329" x="-637.647" y="25.329" width="891.622" height="891.622" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-13"/>
+      <feFlood flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur-13"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_330" x="1342.824" y="0.6" width="647.799" height="647.799" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-14"/>
+      <feFlood flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur-14"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_331" x="1342.117" y="-0.107" width="649.214" height="649.214" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-15"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-15"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_332" x="1456.936" y="114.712" width="419.577" height="419.576" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-16"/>
+      <feFlood flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-16"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-6" x1="0.944" y1="-0.03" x2="0.103" y2="0.896" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff8e43"/>
+      <stop offset="0.389" stop-color="#d14155"/>
+      <stop offset="0.661" stop-color="#ff8e43"/>
+      <stop offset="1" stop-color="#d14155"/>
+    </linearGradient>
+    <filter id="Rectangle_355" x="0" y="0" width="1558" height="505" filterUnits="userSpaceOnUse">
+      <feOffset dy="14" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12.5" result="blur-17"/>
+      <feFlood flood-opacity="0.4"/>
+      <feComposite operator="in" in2="blur-17"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_1888" data-name="Group 1888" transform="translate(3380.5 840.5)">
+    <g id="Mask_Group_26" data-name="Mask Group 26" transform="translate(-3418 -3918)" opacity="0.4" clip-path="url(#clip-path)">
+      <g id="Group_1468" data-name="Group 1468" transform="translate(-187 -152)">
+        <rect id="Rectangle_300" data-name="Rectangle 300" width="979.781" height="979.781" transform="translate(1170.934 3611) rotate(-45)" fill="rgba(0,0,0,0)" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="8"/>
+        <rect id="Rectangle_301" data-name="Rectangle 301" width="979.781" height="979.781" transform="translate(1170.934 3611) rotate(-45)" fill="rgba(0,0,0,0)" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="8"/>
+        <rect id="Rectangle_302" data-name="Rectangle 302" width="596.025" height="596.025" transform="translate(332.586 4137.054) rotate(-45)" fill="rgba(0,0,0,0)" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="8"/>
+        <rect id="Rectangle_303" data-name="Rectangle 303" width="596.025" height="596.025" transform="translate(332.586 4137.054) rotate(-45)" fill="none" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="8"/>
+        <rect id="Rectangle_304" data-name="Rectangle 304" width="979.781" height="979.781" transform="translate(717.837 3611) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <rect id="Rectangle_305" data-name="Rectangle 305" width="979.781" height="979.781" transform="translate(676.877 3611) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <rect id="Rectangle_306" data-name="Rectangle 306" width="979.781" height="979.781" transform="translate(635.917 3611) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <rect id="Rectangle_307" data-name="Rectangle 307" width="979.781" height="979.781" transform="translate(594.957 3611) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <rect id="Rectangle_308" data-name="Rectangle 308" width="979.781" height="979.781" transform="translate(886.797 3611) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <rect id="Rectangle_309" data-name="Rectangle 309" width="979.781" height="979.781" transform="translate(845.837 3611) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <rect id="Rectangle_310" data-name="Rectangle 310" width="979.781" height="979.781" transform="translate(804.877 3611) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <rect id="Rectangle_311" data-name="Rectangle 311" width="979.781" height="979.781" transform="translate(763.917 3611) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <rect id="Rectangle_312" data-name="Rectangle 312" width="979.781" height="979.781" transform="translate(1444.877 3608.44) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <rect id="Rectangle_313" data-name="Rectangle 313" width="979.781" height="979.781" transform="translate(1403.917 3608.44) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <rect id="Rectangle_314" data-name="Rectangle 314" width="979.781" height="979.781" transform="translate(1362.957 3608.44) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <rect id="Rectangle_315" data-name="Rectangle 315" width="979.781" height="979.781" transform="translate(1321.997 3608.44) rotate(-45)" fill="none" stroke="#707070" stroke-miterlimit="10" stroke-width="1"/>
+        <g id="Group_1465" data-name="Group 1465" transform="translate(974.124 3092.58)">
+          <g transform="matrix(1, 0, 0, 1, -749.62, 136.92)" filter="url(#Rectangle_316)">
+            <rect id="Rectangle_316-2" data-name="Rectangle 316" width="186.478" height="186.478" transform="translate(749.62 -5.06) rotate(-45)" fill="#252a44"/>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, -749.62, 136.92)" filter="url(#Rectangle_317)">
+            <rect id="Rectangle_317-2" data-name="Rectangle 317" width="186.478" height="186.478" transform="translate(749.62 -5.06) rotate(-45)" fill="none" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="1"/>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, -749.62, 136.92)" filter="url(#Rectangle_318)">
+            <rect id="Rectangle_318-2" data-name="Rectangle 318" width="116.484" height="116.484" transform="matrix(0.71, -0.71, 0.71, 0.71, 799.12, -5.06)" fill="none" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="1"/>
+          </g>
+        </g>
+        <g id="Group_1466" data-name="Group 1466" transform="translate(-132.65 3632.74)">
+          <g transform="matrix(1, 0, 0, 1, 357.15, -403.24)" filter="url(#Rectangle_319)">
+            <rect id="Rectangle_319-2" data-name="Rectangle 319" width="186.479" height="186.479" transform="translate(-357.15 535.1) rotate(-45)" fill="#252a44"/>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, 357.15, -403.24)" filter="url(#Rectangle_320)">
+            <rect id="Rectangle_320-2" data-name="Rectangle 320" width="186.479" height="186.479" transform="translate(-357.15 535.1) rotate(-45)" fill="none" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="1"/>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, 357.15, -403.24)" filter="url(#Rectangle_321)">
+            <rect id="Rectangle_321-2" data-name="Rectangle 321" width="116.484" height="116.484" transform="translate(-307.66 535.1) rotate(-45)" fill="none" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="1"/>
+          </g>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 224.5, 3229.5)" filter="url(#Rectangle_322)">
+          <rect id="Rectangle_322-2" data-name="Rectangle 322" width="71.83" height="71.83" transform="translate(1098.2 175.41) rotate(-45)" opacity="0.73" fill="url(#linear-gradient)"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 224.5, 3229.5)" filter="url(#Rectangle_323)">
+          <rect id="Rectangle_323-2" data-name="Rectangle 323" width="71.83" height="71.83" transform="translate(130.58 486.1) rotate(-45)" opacity="0.72" fill="url(#linear-gradient)"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 224.5, 3229.5)" filter="url(#Rectangle_324)">
+          <rect id="Rectangle_324-2" data-name="Rectangle 324" width="71.83" height="71.83" transform="translate(609.24 -1.23) rotate(-45)" fill="url(#linear-gradient)"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 224.5, 3229.5)" filter="url(#Rectangle_325)">
+          <rect id="Rectangle_325-2" data-name="Rectangle 325" width="176.519" height="176.519" transform="matrix(0.71, 0.71, -0.71, 0.71, 1385.79, 464.03)" opacity="0.2" fill="url(#linear-gradient-4)"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 224.5, 3229.5)" filter="url(#Rectangle_326)">
+          <rect id="Rectangle_326-2" data-name="Rectangle 326" width="382.082" height="382.082" transform="translate(1082.36 -273.83) rotate(-45)" fill="#252a44"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 224.5, 3229.5)" filter="url(#Rectangle_327)">
+          <rect id="Rectangle_327-2" data-name="Rectangle 327" width="382.082" height="382.082" transform="translate(944.13 1050.91) rotate(-45)" fill="#252a44"/>
+        </g>
+        <rect id="Rectangle_328" data-name="Rectangle 328" width="596.025" height="596.025" transform="translate(-171.734 2932.934) rotate(-45)" fill="none" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="2"/>
+        <g transform="matrix(1, 0, 0, 1, 224.5, 3229.5)" filter="url(#Rectangle_329)">
+          <rect id="Rectangle_329-2" data-name="Rectangle 329" width="353.016" height="353.016" transform="translate(-448.46 464.14) rotate(-45)" opacity="0.61" fill="url(#linear-gradient-5)"/>
+        </g>
+        <g id="Group_1467" data-name="Group 1467" transform="translate(1578.324 3241.1)">
+          <g transform="matrix(1, 0, 0, 1, -1353.82, -11.6)" filter="url(#Rectangle_330)">
+            <rect id="Rectangle_330-2" data-name="Rectangle 330" width="432.608" height="432.608" transform="translate(1353.82 317.5) rotate(-45)" fill="#252a44"/>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, -1353.82, -11.6)" filter="url(#Rectangle_331)">
+            <rect id="Rectangle_331-2" data-name="Rectangle 331" width="432.608" height="432.608" transform="translate(1353.82 317.5) rotate(-45)" fill="none" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="1"/>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, -1353.82, -11.6)" filter="url(#Rectangle_332)">
+            <rect id="Rectangle_332-2" data-name="Rectangle 332" width="270.23" height="270.23" transform="translate(1468.64 317.5) rotate(-45)" fill="none" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="1"/>
+          </g>
+        </g>
+        <rect id="Rectangle_333" data-name="Rectangle 333" width="596.025" height="596.025" transform="translate(-171.734 2932.934) rotate(-45)" fill="none" stroke="#ff8e43" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -3380.5, -840.5)" filter="url(#Rectangle_355)">
+      <rect id="Rectangle_355-2" data-name="Rectangle 355" width="1483" height="430" rx="9" transform="translate(37.5 23.5)" opacity="0.1" fill="url(#linear-gradient-6)"/>
+    </g>
+  </g>
+</svg>

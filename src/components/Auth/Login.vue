@@ -86,7 +86,7 @@ export default {
         margin-bottom: 2rem;
         height: 55px;
         width: 150px;
-        background: $red !important;
+        background-image: $gradient !important;
         text-transform: capitalize;
     }
     .signup-btn{

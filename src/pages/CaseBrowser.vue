@@ -1,11 +1,11 @@
 <template>
-    <v-container class="case-browser spacing">
+    <v-container class="case-browser spacing m-t-2">
         <v-layout row wrap>
             <v-flex xs12>
                 <div class="case pointer" v-for="item in cases" :key="item._id" @click="browseCase(item)">
-                    <v-img contain :src="require('@/assets/imgs/case.png')" class="case-image"></v-img>
-                    <h4 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h4>
-                    <h4 class="case-name t-c">{{item.name}}</h4>
+                    <v-img contain :src="require('@/assets/imgs/newcase.svg')" class="case-image"></v-img>
+                    <h3 class="case-namecapitalize t-c">{{item.name}}</h3>
+                    <h3 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h3>
                 </div>
             </v-flex>
             <v-flex xs12 class="text-xs-center m-t-3" v-if="totalCases && totalCases > 12">
@@ -63,6 +63,8 @@ export default {
 }
 </script>
 <style lang="scss">
+@import "../assets/scss/variables.scss";
+
 .case-browser{
     max-width: 100% !important;
     margin: 0 auto;
@@ -76,26 +78,41 @@ export default {
         }
     }
     .case{
-        width: 200px;
-        min-height: 250px;
-        background-image: url('../assets/imgs/case-back-dark.png');
+        width: 280px;
+        min-height: 340px;
+        background-image: url('../assets/imgs/case-back-dark.svg');
         background-size: cover;
         margin: 2rem 2rem 2rem 0; 
         display: inline-block;
         transition: background-image .35s;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            display: none;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            z-index: -1px;
+            opacity: .45;
+            background: linear-gradient(to bottom, $red, $orange);
+        }
 
         &:hover{
-            background-image: url('../assets/imgs/case-back-light.png');
-            .case-image{
-                width: 160px;
+            &:before{
+                display: block;
             }
+        }
+        .price{
+            color: $orange;
         }
 
         .case-image{
             display: block;
             margin: 2rem auto;
-            width: 130px;
-            height: 130px;
+            width: 280px;
+            height: auto;
             transition: width 0.35s;
         }
     }
