@@ -207,7 +207,7 @@ export default {
         margin: 1rem 0 0 2rem;
         font-weight: 600;
         &:hover{
-            color: $orange;
+            border-bottom: 2px solid $orange;
             &::before{
                 display: none;
             }
@@ -247,9 +247,9 @@ export default {
             top: 100%;
             bottom: 0;
             width: 210px;
-            background-color: $dark3;
+            background-color: $darkest;
             .dropdown{
-                background-color: $dark3;
+                background-color: $darkest;
                 padding: 0;
             }
 

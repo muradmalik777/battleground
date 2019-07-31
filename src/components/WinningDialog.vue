@@ -76,7 +76,7 @@ export default {
 @import '../assets/scss/variables.scss';
 
 .win-dialog{
-  background: $dark3 !important;
+  background: $darkest !important;
   padding: 2rem 3rem;
 
   .win-image{

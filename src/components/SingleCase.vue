@@ -222,7 +222,7 @@ export default {
 @import "../assets/scss/variables.scss";
 
 .buy-dialog {
-  background-color: $dark3;
+  background-color: $darkest;
   padding: 2rem;
   .case-image {
     width: 150px;

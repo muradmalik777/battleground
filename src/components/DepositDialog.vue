@@ -100,7 +100,7 @@ export default {
 
 .v-card.deposit-funds{
     padding: 20px;
-    background: $dark3;
+    background: $darkest;
 
     .confirm-btn{
         background-image: $gradient !important;
