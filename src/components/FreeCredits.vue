@@ -1,5 +1,5 @@
 <template>
-    <v-container class="free-credits spacing" mt-3>
+    <v-container class="free-credits spacing" mt-1>
         <v-layout row wrap>
             <v-flex xs9 class="credit">
                 <div class="left">
@@ -7,7 +7,7 @@
                     <v-btn class="learn-btn">learn more</v-btn>
                 </div>
                 <div class="right">
-                    <v-img :src="require('@/assets/imgs/case.png')" class="case-image"></v-img>
+                    <v-img :src="require('@/assets/imgs/newcase.svg')" class="case-image"></v-img>
                 </div>
             </v-flex>
             <v-flex xs3 class="tags">
@@ -69,10 +69,12 @@ export default {
     margin: 0 auto;
     .credit{
         height: 430px;
-        padding: 1.5rem 3rem;
+        background-image: url('../assets/imgs/credit-back.svg');
+        background-size: cover;
 
         .left{
             width: 70%;
+            padding: 2rem 1rem 2rem 5rem;
 
             h1{
                 font-size: 70px;
@@ -93,15 +95,15 @@ export default {
             width: 30%;
             .case-image{
                 display: block;
-                margin: 2rem auto;
-                width: 320px;
+                margin: 5rem auto;
+                width: 370px;
                 height: auto;
                 transition: width 0.35s;
             }
         }
     }
     .tags{
-        padding: 1.5rem 1rem 1.5rem 3rem;
+        padding: 2rem 1rem 2rem 3rem;
         .tag{
             width: 100%;
             height: 90px;
@@ -164,22 +166,17 @@ export default {
         .tags{
             padding: 1.5rem 1rem 1.5rem 3rem;
             .tag{
-                width: 100%;
                 height: 110px;
                 .left{
                     width: 35%;
                     .tag-image{
                         width: 50px;
-                        height: auto;
-                        margin: .8rem auto;
                     }
                 }
                 .right{
                     width: 65%;
                     .tag-count{
                         font-size: 20px;
-                        color: $orange;
-                        margin: .5rem 0;
                     }
                 }
             }

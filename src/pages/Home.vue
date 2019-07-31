@@ -2,7 +2,7 @@
 <div>
     <credits></credits>
     <v-container grid-list-md class="home">
-        <v-layout class="bid-cases" row wrap mt-3>
+        <v-layout class="bid-cases" row wrap>
             <v-flex xs12 md12 lg12 mb-5 class="text-xs-center">
                 <v-btn flat outline color="#fff" :class="{'active-btn': active === 1}" class="filter-btn" @click="filterCases(1)">official cases</v-btn>
                 <v-btn flat outline color="#fff" :class="{'active-btn': active === 2}" class="filter-btn" @click="filterCases(2)">new cases</v-btn>
@@ -10,7 +10,7 @@
             </v-flex>
             <v-flex xs12  class="text-xs-center">
                 <div class="case pointer" v-for="(item, i) in allCases" :key="i" @click="openCase(item)">
-                    <v-img :src="require('@/assets/imgs/case.png')" class="case-image"></v-img>
+                    <v-img :src="require('@/assets/imgs/newcase.svg')" class="case-image"></v-img>
                     <h3 class="capitalize t-c">{{item.name}}</h3>
                     <h3 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h3>
                 </div>
@@ -92,16 +92,27 @@ export default {
         .case{
             width: 280px;
             min-height: 340px;
-            background-image: url('../assets/imgs/case-back-dark.png');
+            background-image: url('../assets/imgs/case-back-dark.svg');
             background-size: cover;
             margin: 2rem; 
             display: inline-block;
-            transition: background-image .35s;
+            position: relative;
+            &:before {
+                content: '';
+                position: absolute;
+                display: none;
+                top: 1px;
+                left: 1px;
+                right: 1px;
+                bottom: 1px;
+                z-index: -1px;
+                opacity: .45;
+                background: linear-gradient(to bottom, $red, $orange);
+            }
 
             &:hover{
-                background-image: url('../assets/imgs/case-back-light.png');
-                .case-image{
-                    width: 220px;
+                &:before{
+                    display: inline-block !important;
                 }
             }
             .price{
@@ -111,8 +122,8 @@ export default {
             .case-image{
                 display: block;
                 margin: 2rem auto;
-                width: 200px;
-                height: 200px;
+                width: 280px;
+                height: auto;
                 transition: width 0.35s;
             }
         }

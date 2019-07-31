@@ -37,16 +37,30 @@ export default {
   width: 270px;
   min-height: 340px;
   padding: 0px;
-  background-image: url('../assets/imgs/case-back-dark.png');
+  background-image: url('../assets/imgs/case-back-dark.svg');
   background-size: cover;
   margin: 2rem; 
   display: inline-block;
   transition: background-image .35s;
   position: relative;
   overflow-y: auto;
+  &:before {
+    content: '';
+    position: absolute;
+    display: none;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+    z-index: -1px;
+    opacity: .45;
+    background: linear-gradient(to bottom, $red, $orange);
+  }
 
   &:hover{
-    background-image: url('../assets/imgs/case-back-light.png');
+    &:before{
+      display: block;
+    }
   }
   .price {
     padding: 20px 10px;

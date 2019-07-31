@@ -3,8 +3,8 @@
         <v-layout row wrap>
             <v-flex xs12>
                 <div class="case pointer" v-for="item in cases" :key="item._id" @click="browseCase(item)">
-                    <v-img contain :src="require('@/assets/imgs/case.png')" class="case-image"></v-img>
-                    <h3 class="case-name t-c">{{item.name}}</h3>
+                    <v-img contain :src="require('@/assets/imgs/newcase.svg')" class="case-image"></v-img>
+                    <h3 class="case-namecapitalize t-c">{{item.name}}</h3>
                     <h3 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h3>
                 </div>
             </v-flex>
@@ -80,16 +80,28 @@ export default {
     .case{
         width: 280px;
         min-height: 340px;
-        background-image: url('../assets/imgs/case-back-dark.png');
+        background-image: url('../assets/imgs/case-back-dark.svg');
         background-size: cover;
         margin: 2rem 2rem 2rem 0; 
         display: inline-block;
         transition: background-image .35s;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            display: none;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            z-index: -1px;
+            opacity: .45;
+            background: linear-gradient(to bottom, $red, $orange);
+        }
 
         &:hover{
-            background-image: url('../assets/imgs/case-back-light.png');
-            .case-image{
-                width: 220px;
+            &:before{
+                display: block;
             }
         }
         .price{
@@ -99,8 +111,8 @@ export default {
         .case-image{
             display: block;
             margin: 2rem auto;
-            width: 200px;
-            height: 200px;
+            width: 280px;
+            height: auto;
             transition: width 0.35s;
         }
     }

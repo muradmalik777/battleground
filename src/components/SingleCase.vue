@@ -51,12 +51,12 @@
               <v-card-text>
                 <v-layout row>
                     <v-flex xs4 class="image-side text-xs-left">
-                        <v-img class="case-image" contain :src="require('@/assets/imgs/case.png')"></v-img>
+                        <v-img class="case-image" contain :src="require('@/assets/imgs/newcase.svg')"></v-img>
                     </v-flex>
                     <v-flex xs8>
                         <h2 class="m-b uppercase">Confirm Order</h2>
-                        <h4>Case Name: {{this.oneCase.name}}</h4>
-                        <h4>Case Name: {{this.oneCase.price}}</h4>
+                        <h4 class="capitalie">Case Name: {{this.oneCase.name}}</h4>
+                        <h4>Case Price: {{this.oneCase.price}}</h4>
                         <h4>Case Hash # {{this.clientHash}}</h4>
 
                     </v-flex>
@@ -366,16 +366,30 @@ export default {
   width: 270px;
   min-height: 340px;
   padding: 0px;
-  background-image: url('../assets/imgs/case-back-dark.png');
+  background-image: url('../assets/imgs/case-back-dark.svg');
   background-size: cover;
   margin: 2rem; 
   display: inline-block;
   transition: background-image .35s;
   position: relative;
   overflow-y: auto;
+  &:before {
+    content: '';
+    position: absolute;
+    display: none;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+    z-index: -1px;
+    opacity: .45;
+    background: linear-gradient(to bottom, $red, $orange);
+  }
 
   &:hover{
-    background-image: url('../assets/imgs/case-back-light.png');
+    &:before{
+      display: block;
+    }
   }
   .price {
     padding: 20px 10px;

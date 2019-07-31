@@ -1,6 +1,6 @@
 <template>
     <v-container class="topbar">
-        <v-layout justify-center row wrap class="live-drops spacing m-0">
+        <v-layout justify-center row wrap class="live-drops spacing">
             <v-flex xs12>
                 <carousel :autoplay="true" :loop="true" :rewind="false" :dots="false" :nav="false" :autoWidth="true">
                     <div v-for="image in 25" :key="image" class="drop-box">
@@ -13,7 +13,7 @@
         </v-layout>
         <v-layout justify-center row wrap class="navbar">
             <v-flex xs3 class="text-xs-left">
-                <router-link to="/"><v-img contain :src="require('@/assets/imgs/icon.svg')" class="nav-logo pointer"></v-img></router-link>
+                <router-link to="/"><v-img contain :src="require('@/assets/imgs/logo.png')" class="nav-logo pointer"></v-img></router-link>
             </v-flex>
             <v-flex xs6 class="text-xs-center">
                 <v-btn flat class="nav-link" to="/">
@@ -133,17 +133,30 @@ export default {
 
     .drop-box{
         width: 180px;
-        height: 135px;
+        height: 125px;
         float: left;
-        cursor: pointer;
-        background-image: url('../assets/imgs/drops-back.png');
+        background-image: url('../assets/imgs/drops-back.svg');
         background-size: cover;
-        margin: 0;
-        transition: background-color 0.35s;
+        margin: 1rem 1rem 1rem 0;
         position: relative;
-        padding: 0;
+        transition: background-image .35s;
+        &:before {
+            content: '';
+            position: absolute;
+            display: none;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            z-index: -1;
+            background: linear-gradient(to bottom, $red, $orange);
+        }
+
 
         &:hover{
+            &:before {
+                display: block;
+            }
             .drop-image{
                 opacity: 0.4;
             }
@@ -156,7 +169,7 @@ export default {
             width: 65px;
             height: 65px;
             display: block;
-            margin: .85rem auto;
+            margin: 1rem auto;
         }
         .open-btn{
             height: 35px;
@@ -165,24 +178,25 @@ export default {
             border-radius: 50px;
             font-size: 12px;
             position: absolute;
-            top: calc(55% - 40px);
+            top: calc(55% - 30px);
             left: 16%;
             display: none;
+            transition: display .35s;
         }
     }
     .navbar{
         background: $dark3;
-        padding: 2rem 100px;
+        padding: 1.3rem 100px;
     }
     .nav-logo{
-        width: 50px;
+        width: 150px;
         height: auto;
         margin: 0;
-        margin-top: .5rem;
     }
     .user-name{
-        color: $red !important;
+        color: $orange !important;
         text-transform: capitalize;
+        font-weight: 600;
     }
     .nav-link{
         color: white;
@@ -190,9 +204,10 @@ export default {
         font-size: 16px;
         height: 50px;
         padding: 0;
-        margin: .4rem 0 0 2rem;
+        margin: 1rem 0 0 2rem;
+        font-weight: 600;
         &:hover{
-            color: $red;
+            color: $orange;
             &::before{
                 display: none;
             }
@@ -216,9 +231,9 @@ export default {
     }
 
     .nav-link.v-btn--active{
-        color: $red;
+        color: $orange;
         font-size: 16px;
-        border-bottom: 2px solid $red;
+        border-bottom: 2px solid $orange;
         &::before{
             display: none;
         }
