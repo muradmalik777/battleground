@@ -6,13 +6,18 @@ $green-dull: #4caf50;
 $green-bright: #00cf20;
 $orange-dull: #ee964b;
 
+// $dark3: #303656; old dark3
 
 $dark1: #1F2034;
 $dark2: #1E233A;
-$dark3: #303656;
+$dark3: #252A44;
 $darkest: #191B2A;
 $blue1: #48C5EE;
 $blue2: rgb(72, 125, 238);
 $white: #ffffff;
 $red: #D14155;
-$green: #00b81c;
+$green: #00C74D;
+$dark-green: rgb(0, 143, 43);
+$orange: #FF8E43;
+$gradient: linear-gradient(to right, $red, $red 20%, $orange);
+$green-gradient: linear-gradient(to right, $dark-green, $dark-green 20%, $green);

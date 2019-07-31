@@ -1,5 +1,5 @@
 <template>
-    <div class="faq spacing">
+    <div class="faq spacing m-t-2">
        <div class="section">
            <h1 class="capitalize">support</h1>
            <p class="text m-t"> If you don't find the answer to your problem below. you can send us an email at <span>support@hypercase.com</span></p>

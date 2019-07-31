@@ -103,8 +103,9 @@ export default {
     background: $dark3;
 
     .confirm-btn{
-        background: $red !important;
+        background-image: $gradient !important;
         color: $white !important;
+        border-radius: 50px;
         height: 50px;
         width: 130px;
         font-weight: 600;
@@ -118,21 +119,34 @@ export default {
         margin-top: 2rem;
     }
     .custom-btn{
-        color: $green !important;
+        color: $red !important;
         float: right !important;
         height: 50px;
         margin-top: 2rem;
+        font-weight: 600;
+        font-size: 16px;
     }
     .amount-btn{
-        background: $green !important;
+        background: $green-gradient !important;
         color: $dark2 !important;
         font-size: 18px;
+        border-radius: 50px;
+        height: 40px;
     }
     .active-btn{
-        background: $red !important;
+        background-image: $gradient !important;
         color: $white !important;
         font-weight: 600;
         font-size: 18px;
+    }
+    .v-text-field{
+        margin-bottom: 0;
+        input{
+            padding: 1.5rem 0;
+            font-size: 14px;
+            color: $white;
+            margin: .5rem;
+        }
     }
 }
 </style>

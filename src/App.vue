@@ -29,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 .app{
   padding: 0;
-  background-image: url('assets/imgs/back.png');
+  background-image: url('assets/imgs/back2.png');
   background-size: cover;
   padding-bottom: 100px;
   background-color: #1F2034;

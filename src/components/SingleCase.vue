@@ -1,5 +1,5 @@
 <template>
-    <div class="spacing" v-if="oneCase != null">
+    <div class="spacing m-t-2" v-if="oneCase != null">
         <div>
             <div class="name-wrapper">
                 <h2 class="uppercase heading">{{oneCase.name}}</h2>
@@ -236,13 +236,13 @@ export default {
     margin-right: 1rem !important;
     border-radius: 50px;
     width: 140px;
-    height: 45px;
+    height: 50px;
   }
   .hash-btn {
-    background: $red !important;
+    background-image: $green-gradient !important;
   }
   .buy-btn {
-    background: $green !important;
+    background-image: $gradient !important;
   }
 }
 .skin-image {
@@ -322,14 +322,14 @@ export default {
     margin: 2rem auto;
 
     .open-btn{
-      background: $red !important;
+      background-image: $gradient !important;
     }
     .btn{
       color: $white !important;
       margin-right: 1rem !important;
       border-radius: 50px;
       width: 140px;
-      height: 45px;
+      height: 50px;
     }
   }
 }

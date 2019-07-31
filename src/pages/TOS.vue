@@ -1,5 +1,5 @@
 <template>
-    <div class="tos spacing">
+    <div class="tos spacing m-t-2">
         <h1 class="m-b">Terms of Service</h1>
         <div class="para-padding m-b-4">
             <p>No individual under the age of eighteen (18) may use HypeCase, regardless of any consent from a parent or guardian to use HypeCase.</p>

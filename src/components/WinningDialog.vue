@@ -89,14 +89,14 @@ export default {
     float: right !important;
     margin-right: 1rem !important;
     border-radius: 50px;
-    height: 45px;
+    height: 50px;
     min-width: 120px;
   }
   .sell-btn {
-    background: $red !important;
+    background-image: $gradient !important;
   }
   .verify-btn {
-    background: $green !important;
+    background-image: $green-gradient !important;
   }
   .later-btn {
     color: $white !important;

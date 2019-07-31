@@ -1,6 +1,6 @@
 <template>
-    <v-container class="topbar spacing" fluid>
-        <v-layout justify-center row wrap class="live-drops" mb-2>
+    <v-container class="topbar">
+        <v-layout justify-center row wrap class="live-drops spacing m-0">
             <v-flex xs12>
                 <carousel :autoplay="true" :loop="true" :rewind="false" :dots="false" :nav="false" :autoWidth="true">
                     <div v-for="image in 25" :key="image" class="drop-box">
@@ -61,7 +61,7 @@
                         </v-list>
                     </div>
                 </div>
-                <v-btn flat outline color="#fff" class="login-btn" :to="'/login'" v-else>login</v-btn>
+                <v-btn outline color="#fff" class="login-btn" :to="'/login'" v-else>login</v-btn>
             </v-flex>
         </v-layout>
     </v-container>
@@ -129,17 +129,19 @@ export default {
     max-width: 100%;
     max-height: 300px;
     margin: 0 auto;
+    padding: 0;
 
     .drop-box{
-        width: 210px;
-        height: 170px;
+        width: 180px;
+        height: 135px;
         float: left;
         cursor: pointer;
         background-image: url('../assets/imgs/drops-back.png');
         background-size: cover;
-        margin-right: 1rem;
+        margin: 0;
         transition: background-color 0.35s;
         position: relative;
+        padding: 0;
 
         &:hover{
             .drop-image{
@@ -151,27 +153,32 @@ export default {
         }
 
         .drop-image{
-            width: 85px;
-            height: 85px;
+            width: 65px;
+            height: 65px;
             display: block;
             margin: .85rem auto;
         }
         .open-btn{
             height: 35px;
             color: $white !important;
-            background: $red !important;
+            background-image: $gradient !important;
             border-radius: 50px;
+            font-size: 12px;
             position: absolute;
-            top: calc(55% - 45px);
-            left: 23%;
+            top: calc(55% - 40px);
+            left: 16%;
             display: none;
         }
     }
-
+    .navbar{
+        background: $dark3;
+        padding: 2rem 100px;
+    }
     .nav-logo{
         width: 50px;
         height: auto;
         margin: 0;
+        margin-top: .5rem;
     }
     .user-name{
         color: $red !important;
@@ -183,7 +190,7 @@ export default {
         font-size: 16px;
         height: 50px;
         padding: 0;
-        margin: 1rem 0 0 2rem;
+        margin: .4rem 0 0 2rem;
         &:hover{
             color: $red;
             &::before{
@@ -193,19 +200,16 @@ export default {
     }
     .login-btn{
         width: 145px;
-        height: 53px;
+        height: 50px;
         margin: 0;
-        &:hover{
-            border-color: $red;
-            &::before{
-                display: none;
-            }
-        }
+        font-size: 16px;
+        background-image: $gradient !important;
+        border-radius: 50px;
+        border: none;
     }
     .login-btn.v-btn--active{
-        color: $red;
-        font-size: 16px;
-        border: 2px solid #D1415570;
+        border: 2px solid $red;
+        background-image: none !important;
         &::before{
             display: none;
         }
@@ -221,6 +225,7 @@ export default {
     }
     .menu-box{
         position: relative;
+        z-index: 100 !important;
 
         .menu{
             position: absolute;
@@ -235,7 +240,7 @@ export default {
 
             .user-menu{
                 &:hover{
-                    background: $red;
+                    background-image: $gradient;
                 }
                 div{
                     text-align: left !important;
@@ -246,7 +251,7 @@ export default {
         }
     }
     .v-list__tile--active{
-        background: $red !important;
+        background-image: $gradient !important;
         color: $white !important;
         &:hover{
             color: $white !important;
@@ -264,7 +269,7 @@ export default {
     .nav-link{
         padding: 0;
         font-size: 14px;
-        margin: 8px !important;
+        margin: 5px !important;
     }
 }
 @media only screen and (min-width: 1441px) and (max-width: 1920px) {

@@ -1,5 +1,5 @@
 <template>
-    <v-container grid-list-xs fluid class="spacing">
+    <v-container grid-list-xs class="winnings">
         <v-layout mb-5 row wrap class="section-container">
             <v-flex xs12>
                 <h2 class="uppercase m-b">Unsold Items</h2>
@@ -114,6 +114,11 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/scss/variables.scss';
 
+.winnings{
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
 .section-container {
     text-align: left !important;
     

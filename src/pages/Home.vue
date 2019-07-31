@@ -1,6 +1,8 @@
 <template>
+<div>
+    <credits></credits>
     <v-container grid-list-md class="home">
-        <v-layout class="bid-cases" row wrap>
+        <v-layout class="bid-cases" row wrap mt-3>
             <v-flex xs12 md12 lg12 mb-5 class="text-xs-center">
                 <v-btn flat outline color="#fff" :class="{'active-btn': active === 1}" class="filter-btn" @click="filterCases(1)">official cases</v-btn>
                 <v-btn flat outline color="#fff" :class="{'active-btn': active === 2}" class="filter-btn" @click="filterCases(2)">new cases</v-btn>
@@ -9,8 +11,8 @@
             <v-flex xs12  class="text-xs-center">
                 <div class="case pointer" v-for="(item, i) in allCases" :key="i" @click="openCase(item)">
                     <v-img :src="require('@/assets/imgs/case.png')" class="case-image"></v-img>
-                    <h4 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h4>
                     <h3 class="capitalize t-c">{{item.name}}</h3>
+                    <h3 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h3>
                 </div>
             </v-flex>
             <v-flex xs12 class="text-xs-center m-t-3">
@@ -18,12 +20,17 @@
             </v-flex>
         </v-layout>
     </v-container>
+</div>
 </template>
 <script>
 import Api from '../services/Api.js';
+import FreeCredits from '@/components/FreeCredits'
 
 export default {
-    name: 'home',
+    name: 'Home',
+    components: {
+        'credits': FreeCredits
+    },
     data: function() {
         return {
             allCases: [],
@@ -65,11 +72,11 @@ export default {
     
     .bid-cases{
         .filter-btn{
-            width: 230px;
-            height: 60px;
-            font-size: 18px;
+            width: 200px;
+            height: 50px;
+            font-size: 16px;
             border-radius: 50px;
-            border: 2px solid $white;
+            border: 1px solid $red;
             &:hover{
                 border-color: $red;
                 &::before{
@@ -78,13 +85,13 @@ export default {
             }
         }
         .active-btn{
-            background-color: $red !important;
+            background-image: $gradient !important;
             border: 2px solid $red;
             font-weight: 500;
         }
         .case{
-            width: 200px;
-            min-height: 250px;
+            width: 280px;
+            min-height: 340px;
             background-image: url('../assets/imgs/case-back-dark.png');
             background-size: cover;
             margin: 2rem; 
@@ -94,15 +101,18 @@ export default {
             &:hover{
                 background-image: url('../assets/imgs/case-back-light.png');
                 .case-image{
-                    width: 160px;
+                    width: 220px;
                 }
+            }
+            .price{
+                color: $orange;
             }
 
             .case-image{
                 display: block;
                 margin: 2rem auto;
-                width: 130px;
-                height: 130px;
+                width: 200px;
+                height: 200px;
                 transition: width 0.35s;
             }
         }

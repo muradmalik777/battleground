@@ -43,7 +43,7 @@
                         required
                         ></v-text-field>
                         <v-btn @click="submit" dark :loading="loading" color="#fff" right class="m-t signup-btn">Sign Up</v-btn>
-                        <p class="c-white already">Already have an account?<v-btn flat class="login-btn capitalize" color="#00cf20" :to="'/login'">Login</v-btn></p>
+                        <p class="c-white already">Already have an account?<v-btn flat class="login-btn capitalize" :to="'/login'">Login</v-btn></p>
                     </v-form>
                 </v-card>
             </v-flex>
@@ -110,12 +110,13 @@ export default {
         margin-bottom: 2rem;
         height: 55px;
         width: 150px;
-        background: $red !important;
+        background-image: $gradient !important;
         text-transform: capitalize;
     }
     .login-btn{
         font-size: 18px;
         margin-bottom: .7rem;
+        color: $red;
     }
     .already{
         width: calc(100%-200px);

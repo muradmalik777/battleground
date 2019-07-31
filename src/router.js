@@ -61,7 +61,8 @@ export default new Router({
             children: [
                 { path: 'cases', component: ProfileWinnings },
                 { path: 'trades', component: ProfileTrades },
-                { path: 'transactions', component: Transactions }
+                { path: 'transactions', component: Transactions },
+                { path: 'withdrawl', component: Transactions }
             ]
         },
         { path: '/payment/success', component: Success },
