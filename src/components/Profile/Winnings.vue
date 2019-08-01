@@ -93,8 +93,10 @@ export default {
                 this.$store.commit('addUser', response.user)
                 this.getWinnings()
                 this.soldLoading = false
+                this.showMessage("Item Sold Successfully")
             }).catch(()=>{
                 this.soldLoading = false
+                this.showMessage("Error Selling Item")
             })
         },
         withdrawItem: function(item){
