@@ -124,9 +124,6 @@ export default {
         margin-top: 2rem;
         font-weight: 600;
         font-size: 16px;
-        &:hover{
-            color: $white !important;
-        }
     }
     .close-btn{
         color: #ffffff !important;
@@ -134,9 +131,6 @@ export default {
         float: left !important;
         border-radius: 50px;
         margin-top: 2rem;
-        &:hover{
-            color: $red !important;
-        }
     }
     .custom-btn{
         color: $red !important;
@@ -146,9 +140,6 @@ export default {
         margin-top: 2rem;
         font-weight: 600;
         font-size: 16px;
-        &:hover{
-            color: $white !important;
-        }
     }
     .amount-btn{
         background: $green-gradient !important;
