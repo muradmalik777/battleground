@@ -47,19 +47,19 @@ export default {
   &:before {
     content: '';
     position: absolute;
-    display: none;
+    opacity: 0;
     top: 1px;
     left: 1px;
     right: 1px;
     bottom: 1px;
     z-index: -1px;
-    opacity: .45;
     background: linear-gradient(to bottom, $red, $orange);
+    transition: opacity 0.35s;
   }
 
   &:hover{
     &:before{
-      display: block;
+      opacity: 0.45;
     }
   }
   .price {

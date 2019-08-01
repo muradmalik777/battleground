@@ -102,19 +102,19 @@ export default {
             &:before {
                 content: '';
                 position: absolute;
-                display: none;
+                opacity: 0;
                 top: 1px;
                 left: 1px;
                 right: 1px;
                 bottom: 1px;
                 z-index: -1px;
-                opacity: .45;
                 background: linear-gradient(to bottom, $red, $orange);
+                transition: opacity 0.35s; 
             }
 
             &:hover{
                 &:before{
-                    display: inline-block !important;
+                    opacity: .45 !important;
                 }
                 .open-btn{
                     display: block;
@@ -141,7 +141,7 @@ export default {
                 text-transform: capitalize;
                 display: none;
                 position: absolute;
-                top: calc(50% - 50px);
+                top: calc(55% - 50px);
                 left: 20%;
             }
         }
