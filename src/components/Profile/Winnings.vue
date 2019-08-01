@@ -134,23 +134,24 @@ export default {
         background-size: 200px;
         width: 200px;
         min-height: 200px;
-        transition: background-image .35s;
+        box-shadow: 0px 2px 12px $black;
         position: relative;
+        margin: 0 4rem 2rem 0;
         &:before {
             content: '';
             position: absolute;
-            display: none;
             top: 1px;
             left: 1px;
             right: 1px;
             bottom: 1px;
             z-index: -1px;
-            opacity: .45;
+            opacity: 0;
             background: linear-gradient(to bottom, $red, $orange);
+            transition: opacity 0.35s;
         }
         &:hover{
             &:before{
-                display: block;
+                opacity: .45;
             }
             .winning-img{
                 opacity: .35;
@@ -202,24 +203,25 @@ export default {
         background-size: 200px;
         width: 200px;
         min-height: 200px;
-        transition: background-image .35s;
         position: relative;
+        box-shadow: 0px 2px 12px $black;
+        margin: 0 4rem 2rem 0;
         &:before {
             content: '';
             position: absolute;
-            display: none;
             top: 1px;
             left: 1px;
             right: 1px;
             bottom: 1px;
             z-index: -1px;
-            opacity: .45;
+            opacity: 0;
             background: linear-gradient(to bottom, $red, $orange);
+            transition: opacity 0.35s;
         }
         
         &:hover{
             &:before{
-                display: block;
+                opacity: 0.45;
             }
         }
         p{

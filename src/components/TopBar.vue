@@ -137,6 +137,7 @@ export default {
         margin: 1rem 4rem 1rem 0;
         position: relative;
         transition: background-image .35s;
+        box-shadow: 2px 2px 12px $black;
         &:before {
             content: '';
             position: absolute;
@@ -217,16 +218,15 @@ export default {
         height: 50px;
         padding: 1rem 1.5rem !important;
         margin: 1rem 0 0 2rem;
-        font-weight: 600;
         background: $gradient !important;
         border-radius: 50px;
+        font-weight: 600;
+        text-transform: capitalize;
         &:before{
             display: none !important;
         }
         &:hover{
-            &:before{
-                display: none !important;
-            }
+            box-shadow: 2px 2px 15px $black;
         }
     }
     .nav-link{

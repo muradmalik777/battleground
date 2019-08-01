@@ -78,6 +78,8 @@ export default {
             font-size: 16px;
             border-radius: 50px;
             border: 1px solid $red;
+            background: $dark2 !important;
+            box-shadow: 2px 2px 10px $black;
             &:hover{
                 border: none !important;
                 background: $gradient !important;
@@ -89,7 +91,6 @@ export default {
         .active-btn{
             background-image: $gradient !important;
             border: none !important;
-            font-weight: 500;
         }
         .case{
             width: 280px;
@@ -99,22 +100,23 @@ export default {
             margin: 2rem; 
             display: inline-block;
             position: relative;
+            box-shadow: 0px 2px 12px $black;
             &:before {
                 content: '';
                 position: absolute;
-                display: none;
+                opacity: 0;
                 top: 1px;
                 left: 1px;
                 right: 1px;
                 bottom: 1px;
                 z-index: -1px;
-                opacity: .45;
                 background: linear-gradient(to bottom, $red, $orange);
+                transition: opacity 0.35s; 
             }
 
             &:hover{
                 &:before{
-                    display: inline-block !important;
+                    opacity: .45 !important;
                 }
                 .open-btn{
                     display: block;
@@ -137,11 +139,11 @@ export default {
                 background: $gradient !important;
                 font-size: 16px;
                 border-radius: 50px;
-                border: 2px solid $red;
+                border: none;
                 text-transform: capitalize;
                 display: none;
                 position: absolute;
-                top: calc(50% - 50px);
+                top: calc(55% - 50px);
                 left: 20%;
             }
         }
@@ -150,8 +152,10 @@ export default {
             height: 50px;
             font-size: 16px;
             border-radius: 50px;
-            border: 2px solid $red;
+            border: 1px solid $red;
+            box-shadow: 2px 2px 10px $black;
             text-transform: capitalize;
+            background: $dark2 !important;
             &:hover{
                 background: $gradient !important;
                 border: none !important;

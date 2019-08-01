@@ -82,26 +82,26 @@ export default {
         min-height: 340px;
         background-image: url('../assets/imgs/case-back-dark.svg');
         background-size: cover;
-        margin: 2rem 2rem 2rem 0; 
+        margin: 2rem 4rem 2rem 0; 
         display: inline-block;
-        transition: background-image .35s;
+        box-shadow: 0px 2px 12px $black;
         position: relative;
         &:before {
             content: '';
             position: absolute;
-            display: none;
+            opacity: 0;
             top: 1px;
             left: 1px;
             right: 1px;
             bottom: 1px;
             z-index: -1px;
-            opacity: .45;
             background: linear-gradient(to bottom, $red, $orange);
+            transition:  opacity 0.35s;
         }
 
         &:hover{
             &:before{
-                display: block;
+                opacity: .45;
             }
         }
         .price{
