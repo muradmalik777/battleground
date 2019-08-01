@@ -110,8 +110,11 @@ export default {
         margin-bottom: 2rem;
         height: 55px;
         width: 150px;
-        background-image: $gradient !important;
+        background: $gradient !important;
         text-transform: capitalize;
+        &:hover{
+            background: transparent !important;
+        }
     }
     .login-btn{
         font-size: 18px;

@@ -91,15 +91,25 @@ export default {
     border-radius: 50px;
     height: 50px;
     min-width: 120px;
+    font-size: 16px;
   }
   .sell-btn {
-    background-image: $gradient !important;
+    background: $gradient !important;
+    &:hover{
+      background: transparent !important;
+    }
   }
   .verify-btn {
     background-image: $green-gradient !important;
+    &:hover{
+      background: transparent !important;
+    }
   }
   .later-btn {
     color: $white !important;
+    &:hover{
+      border: none !important;
+    }
   }
 }
 </style>

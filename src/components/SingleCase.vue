@@ -222,13 +222,13 @@ export default {
 @import "../assets/scss/variables.scss";
 
 .buy-dialog {
-  background-color: $darkest;
+  background: $darkest;
   padding: 2rem;
   .case-image {
-    width: 150px;
+    width: 200px;
     height: auto;
     display: block;
-    margin: 1rem auto;
+    margin: 0 auto;
   }
   .btn{
     color: $white !important;
@@ -237,12 +237,24 @@ export default {
     border-radius: 50px;
     width: 140px;
     height: 50px;
+    font-size: 16px;
   }
   .hash-btn {
-    background-image: $green-gradient !important;
+    background: $green-gradient !important;
+    &:hover{
+      background: transparent !important;
+    }
   }
   .buy-btn {
-    background-image: $gradient !important;
+    background: $gradient !important;
+    &:hover{
+      background: transparent !important;
+    }
+  }
+  .close-btn {
+    &:hover{
+      border: none;
+    }
   }
 }
 .skin-image {
@@ -323,6 +335,14 @@ export default {
 
     .open-btn{
       background-image: $gradient !important;
+      &:hover{
+        background: transparent !important;
+      }
+    }
+    .spin-btn{
+      &:hover{
+        border: none !important;
+      }
     }
     .btn{
       color: $white !important;
@@ -330,6 +350,7 @@ export default {
       border-radius: 50px;
       width: 140px;
       height: 50px;
+      font-size: 16px;
     }
   }
 }
@@ -364,8 +385,8 @@ export default {
 
 .skin {
   width: 270px;
-  min-height: 340px;
-  padding: 0px;
+  min-height: 370px;
+  padding: .5rem 0 0 0;
   background-image: url('../assets/imgs/case-back-dark.svg');
   background-size: cover;
   margin: 2rem; 
@@ -403,8 +424,8 @@ export default {
   }
   .name {
     width: 100%;
-    padding: 10px;
-    cursor: pointer;
+    padding: .7rem;
+    word-wrap: break-word;
   }
 }
 
