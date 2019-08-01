@@ -202,6 +202,14 @@ export default {
             background-clip: text !important;
             -webkit-text-fill-color: transparent;
         }
+        &:before{
+            display: none;
+        }
+        &:hover{
+            &:before{
+                display: none;
+            }
+        }
     }
     .funds-btn{
         color: white;
@@ -286,9 +294,9 @@ export default {
             top: 100%;
             bottom: 0;
             width: 210px;
-            background-color: $darkest;
+            background-color: $dark4;
             .dropdown{
-                background-color: $darkest;
+                background-color: $dark4;
                 padding: 0;
             }
 
