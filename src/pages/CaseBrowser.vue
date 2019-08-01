@@ -82,9 +82,9 @@ export default {
         min-height: 340px;
         background-image: url('../assets/imgs/case-back-dark.svg');
         background-size: cover;
-        margin: 2rem 2rem 2rem 0; 
+        margin: 2rem 4rem 2rem 0; 
         display: inline-block;
-        transition: background-image .35s;
+        box-shadow: 0px 2px 12px $black;
         position: relative;
         &:before {
             content: '';

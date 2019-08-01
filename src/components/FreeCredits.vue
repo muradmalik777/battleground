@@ -89,6 +89,9 @@ export default {
                 background-image: $gradient !important;
                 border-radius: 50px;
                 border: none;
+                &:hover{
+                    box-shadow: 2px 2px 15px $black;
+                }
             }
         }
         .right{

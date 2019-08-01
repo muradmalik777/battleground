@@ -41,9 +41,9 @@ export default {
   background-size: cover;
   margin: 2rem; 
   display: inline-block;
-  transition: background-image .35s;
   position: relative;
   overflow-y: auto;
+  box-shadow: 0px 2px 12px $black;
   &:before {
     content: '';
     position: absolute;

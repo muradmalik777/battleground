@@ -281,6 +281,7 @@ export default {
     width: 100%;
     height: 163px;
     background: $dark3;
+    box-shadow: 0px 2px 12px $black;
     li {
       list-style: none;
       display: inline-block;
@@ -336,7 +337,10 @@ export default {
     .open-btn{
       background-image: $gradient !important;
       &:hover{
-        background: transparent !important;
+        box-shadow: 0px 2px 12px $black;
+        &:before{
+          display: none;
+        }
       }
     }
     .spin-btn{
@@ -391,25 +395,25 @@ export default {
   background-size: cover;
   margin: 2rem; 
   display: inline-block;
-  transition: background-image .35s;
+  box-shadow: 0px 2px 12px $black;
   position: relative;
   overflow-y: auto;
   &:before {
     content: '';
     position: absolute;
-    display: none;
     top: 1px;
     left: 1px;
     right: 1px;
     bottom: 1px;
     z-index: -1px;
-    opacity: .45;
+    opacity: 0;
+    transition: opacity 0.35s;
     background: linear-gradient(to bottom, $red, $orange);
   }
 
   &:hover{
     &:before{
-      display: block;
+      opacity: .45;
     }
   }
   .price {

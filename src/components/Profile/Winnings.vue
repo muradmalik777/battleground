@@ -134,8 +134,9 @@ export default {
         background-size: 200px;
         width: 200px;
         min-height: 200px;
-        transition: background-image .35s;
+        box-shadow: 0px 2px 12px $black;
         position: relative;
+        margin: 0 4rem 2rem 0;
         &:before {
             content: '';
             position: absolute;
@@ -203,6 +204,8 @@ export default {
         width: 200px;
         min-height: 200px;
         position: relative;
+        box-shadow: 0px 2px 12px $black;
+        margin: 0 4rem 2rem 0;
         &:before {
             content: '';
             position: absolute;

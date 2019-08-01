@@ -78,6 +78,8 @@ export default {
             font-size: 16px;
             border-radius: 50px;
             border: 1px solid $red;
+            background: $dark2 !important;
+            box-shadow: 2px 2px 10px $black;
             &:hover{
                 border: none !important;
                 background: $gradient !important;
@@ -89,7 +91,6 @@ export default {
         .active-btn{
             background-image: $gradient !important;
             border: none !important;
-            font-weight: 500;
         }
         .case{
             width: 280px;
@@ -99,6 +100,7 @@ export default {
             margin: 2rem; 
             display: inline-block;
             position: relative;
+            box-shadow: 0px 2px 12px $black;
             &:before {
                 content: '';
                 position: absolute;
@@ -137,7 +139,7 @@ export default {
                 background: $gradient !important;
                 font-size: 16px;
                 border-radius: 50px;
-                border: 2px solid $red;
+                border: none;
                 text-transform: capitalize;
                 display: none;
                 position: absolute;
@@ -150,8 +152,10 @@ export default {
             height: 50px;
             font-size: 16px;
             border-radius: 50px;
-            border: 2px solid $red;
+            border: 1px solid $red;
+            box-shadow: 2px 2px 10px $black;
             text-transform: capitalize;
+            background: $dark2 !important;
             &:hover{
                 background: $gradient !important;
                 border: none !important;
