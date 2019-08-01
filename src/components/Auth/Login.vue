@@ -86,8 +86,12 @@ export default {
         margin-bottom: 2rem;
         height: 55px;
         width: 150px;
-        background-image: $gradient !important;
+        font-size: 16px !important;
+        background: $gradient !important;
         text-transform: capitalize;
+        &:hover{
+            background: transparent !important;
+        }
     }
     .signup-btn{
         height: 53px;

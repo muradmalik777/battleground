@@ -9,10 +9,11 @@
                 <v-btn flat outline color="#fff" :class="{'active-btn': active === 3}" class="filter-btn" @click="filterCases(3)">trending cases</v-btn>
             </v-flex>
             <v-flex xs12  class="text-xs-center">
-                <div class="case pointer" v-for="(item, i) in allCases" :key="i" @click="openCase(item)">
+                <div class="case" v-for="(item, i) in allCases" :key="i">
                     <v-img :src="require('@/assets/imgs/newcase.svg')" class="case-image"></v-img>
                     <h3 class="capitalize t-c">{{item.name}}</h3>
                     <h3 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h3>
+                    <v-btn flat outline color="#fff" @click="openCase(item)" class="open-btn">Open</v-btn>
                 </div>
             </v-flex>
             <v-flex xs12 class="text-xs-center m-t-3">
@@ -78,7 +79,8 @@ export default {
             border-radius: 50px;
             border: 1px solid $red;
             &:hover{
-                border-color: $red;
+                border: none !important;
+                background: $gradient !important;
                 &::before{
                     display: none;
                 }
@@ -86,7 +88,7 @@ export default {
         }
         .active-btn{
             background-image: $gradient !important;
-            border: 2px solid $red;
+            border: none !important;
             font-weight: 500;
         }
         .case{
@@ -114,6 +116,9 @@ export default {
                 &:before{
                     display: inline-block !important;
                 }
+                .open-btn{
+                    display: block;
+                }
             }
             .price{
                 color: $orange;
@@ -126,16 +131,30 @@ export default {
                 height: auto;
                 transition: width 0.35s;
             }
+            .open-btn{
+                min-width: 150px;
+                height: 50px;
+                background: $gradient !important;
+                font-size: 16px;
+                border-radius: 50px;
+                border: 2px solid $red;
+                text-transform: capitalize;
+                display: none;
+                position: absolute;
+                top: calc(50% - 50px);
+                left: 20%;
+            }
         }
         .loading-btn{
-            width: 230px;
-            height: 60px;
-            font-size: 18px;
+            width: 200px;
+            height: 50px;
+            font-size: 16px;
             border-radius: 50px;
             border: 2px solid $red;
             text-transform: capitalize;
             &:hover{
-                background-color: $red !important;
+                background: $gradient !important;
+                border: none !important;
                 color: $white !important;
             }
         }

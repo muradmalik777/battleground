@@ -118,8 +118,11 @@ export default {
             vertical-align: middle;
         }
     }
+    &:hover{
+        background: $gradient;
+    }
     &.active {
-        background-image: $gradient;
+        background: $gradient;
     }
 }
 </style>

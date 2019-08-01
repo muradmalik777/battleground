@@ -35,8 +35,8 @@ export default {
 
 .skin {
   width: 270px;
-  min-height: 340px;
-  padding: 0px;
+  min-height: 370px;
+  padding: .5rem 0 0 0;
   background-image: url('../assets/imgs/case-back-dark.svg');
   background-size: cover;
   margin: 2rem; 
@@ -74,8 +74,8 @@ export default {
   }
   .name {
     width: 100%;
-    padding: 10px;
-    cursor: pointer;
+    padding: .7rem;
+    word-wrap: break-word;
   }
 }
 </style>

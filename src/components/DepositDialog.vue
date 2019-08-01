@@ -38,6 +38,7 @@
                             <v-btn class="confirm-btn" flat @click="confirmDeposit" :loading="loading">Confirm</v-btn>
                             <v-btn class="close-btn" flat @click="closeDialog">Close</v-btn>
                             <v-btn class="custom-btn" flat @click="custom = !custom">Custom Value</v-btn>
+                            <v-btn class="bitcoin-btn" flat @click="confirmDeposit" :loading="loading">Pay With Bitcoin</v-btn>
                         </v-flex>
                     </v-card-actions>
                 </v-form>
@@ -100,10 +101,10 @@ export default {
 
 .v-card.deposit-funds{
     padding: 20px;
-    background: $dark3;
+    background: $darkest;
 
     .confirm-btn{
-        background-image: $gradient !important;
+        background: $gradient !important;
         color: $white !important;
         border-radius: 50px;
         height: 50px;
@@ -111,20 +112,43 @@ export default {
         font-weight: 600;
         float: left !important;
         margin: 2rem 1rem 0 1rem;
+        &:hover{
+            background: transparent !important;
+        }
+    }
+    .bitcoin-btn{
+        color: $orange !important;
+        float: right !important;
+        border-radius: 50px;
+        height: 50px;
+        margin-top: 2rem;
+        font-weight: 600;
+        font-size: 16px;
+        &:hover{
+            color: $white !important;
+        }
     }
     .close-btn{
         color: #ffffff !important;
         height: 50px;
         float: left !important;
+        border-radius: 50px;
         margin-top: 2rem;
+        &:hover{
+            color: $red !important;
+        }
     }
     .custom-btn{
         color: $red !important;
         float: right !important;
+        border-radius: 50px;
         height: 50px;
         margin-top: 2rem;
         font-weight: 600;
         font-size: 16px;
+        &:hover{
+            color: $white !important;
+        }
     }
     .amount-btn{
         background: $green-gradient !important;
@@ -132,12 +156,19 @@ export default {
         font-size: 18px;
         border-radius: 50px;
         height: 40px;
+        &:hover{
+            background: transparent !important;
+            color: $white !important;
+        }
     }
     .active-btn{
-        background-image: $gradient !important;
+        background: $gradient !important;
         color: $white !important;
         font-weight: 600;
         font-size: 18px;
+        &:hover{
+            background: $gradient !important;
+        }
     }
     .v-text-field{
         margin-bottom: 0;

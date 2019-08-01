@@ -35,16 +35,13 @@
             </v-flex>
             <v-flex xs3 class="text-xs-right">
                 <div v-if="$store.state.userData" class="menu-box">
-                    <v-btn flat @click="openDialog" class="nav-link">Add Funds</v-btn>
-                    <v-btn flat @click="drawer = !drawer" class="nav-link user-name">{{$store.state.userData.user_name}}</v-btn>
+                    <v-btn flat @click="openDialog" class="funds-btn">Add Funds</v-btn>
+                    <v-btn flat @click="drawer = !drawer" class="user-name">{{$store.state.userData.user_name}}</v-btn>
                     <deposits :dialog="showDepositDialog" @close="closeDialog"></deposits>
                     <div v-if="drawer" class="menu">
                         <v-list class="dropdown">
                             <v-list-tile class="user-menu pointer">
                                 <v-list-tile-title class="c-green-bright pointer">${{parseFloat($store.state.userData.balance).toFixed(2)}}</v-list-tile-title>
-                            </v-list-tile>
-                            <v-list-tile @click="openDialog" class="user-menu pointer">
-                                <v-list-tile-title>Add Funds</v-list-tile-title>
                             </v-list-tile>
                             <v-list-tile @click="drawer = false" to="/profile" class="user-menu pointer">
                                 <v-list-tile-title>Profile</v-list-tile-title>
@@ -137,7 +134,7 @@ export default {
         float: left;
         background-image: url('../assets/imgs/drops-back.svg');
         background-size: cover;
-        margin: 1rem 1rem 1rem 0;
+        margin: 1rem 4rem 1rem 0;
         position: relative;
         transition: background-image .35s;
         &:before {
@@ -194,48 +191,90 @@ export default {
         margin: 0;
     }
     .user-name{
-        color: $orange !important;
-        text-transform: capitalize;
+        text-transform: uppercase;
         font-weight: 600;
+        height: 50px;
+        padding: 0;
+        margin: 1rem 0 0 2rem;
+        font-size: 16px;
+        .v-btn__content{
+            background: $gradient !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+    .funds-btn{
+        color: white;
+        font-size: 16px;
+        height: 50px;
+        padding: 1rem 1.5rem !important;
+        margin: 1rem 0 0 2rem;
+        font-weight: 600;
+        background: $gradient !important;
+        border-radius: 50px;
+        &:before{
+            display: none !important;
+        }
+        &:hover{
+            &:before{
+                display: none !important;
+            }
+        }
     }
     .nav-link{
         color: white;
-        text-transform: uppercase;
         font-size: 16px;
         height: 50px;
         padding: 0;
         margin: 1rem 0 0 2rem;
         font-weight: 600;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            display: none;
+            width: 100%;
+            height: 2px;
+            top: 82px;
+            background: linear-gradient(to right, $red, $orange);
+            opacity: 1 !important;
+        }
         &:hover{
-            color: $orange;
             &::before{
-                display: none;
+                display: block !important;
             }
         }
     }
     .login-btn{
         width: 145px;
         height: 50px;
-        margin: 0;
+        margin: 1rem 0 0 2rem;
         font-size: 16px;
-        background-image: $gradient !important;
+        background: $gradient !important;
         border-radius: 50px;
         border: none;
-    }
-    .login-btn.v-btn--active{
-        border: 2px solid $red;
-        background-image: none !important;
-        &::before{
-            display: none;
+        &:hover{
+            background: transparent !important;
         }
     }
 
     .nav-link.v-btn--active{
         color: $orange;
         font-size: 16px;
-        border-bottom: 2px solid $orange;
-        &::before{
-            display: none;
+        .v-btn__content{
+            background: $gradient !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 2px;
+            top: 82px;
+            background: linear-gradient(to right, $red, $orange);
+            opacity: 1 !important;
         }
     }
     .menu-box{
@@ -247,9 +286,9 @@ export default {
             top: 100%;
             bottom: 0;
             width: 210px;
-            background-color: $dark3;
+            background-color: $darkest;
             .dropdown{
-                background-color: $dark3;
+                background-color: $darkest;
                 padding: 0;
             }
 

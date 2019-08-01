@@ -1,17 +1,17 @@
 <template>
-    <v-container grid-list-xl class="verify-winning spacing">
+    <v-container grid-list-xl class="verify-winning spacing" mt-4>
         <v-layout row wrap justify-center>
             <v-flex xs12 md7 lg5 class="verify-form text-xs-left">
                 <h2 class="uppercase m-b-2">verify your result</h2>
                 <v-form ref="verifyForm">
                     <label>Case</label>
-                    <v-text-field color="#fff" v-model="box.name" background-color="#303656" readonly :rules="dataRules" required></v-text-field>
+                    <v-text-field color="#fff" v-model="box.name" background-color="#252A4472" readonly :rules="dataRules" required></v-text-field>
                     <label>Client Hash</label>
-                    <v-text-field color="#fff" v-model="verify.clientHash" background-color="#303656" :rules="dataRules" required></v-text-field>
+                    <v-text-field color="#fff" v-model="verify.clientHash" background-color="#252A4472" :rules="dataRules" required></v-text-field>
                     <label>Round Secret</label>
-                    <v-textarea color="#fff" background-color="#303656" no-resize :rules="dataRules" v-model="verify.roundSecret"></v-textarea>
+                    <v-textarea color="#fff" background-color="#252A4472" no-resize :rules="dataRules" v-model="verify.roundSecret"></v-textarea>
 
-                    <v-btn :loading="loading" @click="verifyWinning" class="verify" flat>Verify</v-btn>
+                    <v-btn :loading="loading" @click="verifyWinning" class="verify-btn" flat>Verify</v-btn>
                 </v-form>
             </v-flex>
             <v-flex xs12 md5 lg4>
@@ -81,14 +81,17 @@ export default {
   label {
     text-transform: capitalize;
   }
-  .verify {
-    background: $green !important;
-    color: $dark2 !important;
+  .verify-btn {
+    background: $green-gradient !important;
+    color: $white !important;
     width: 120px;
     height: 45px;
     margin: 0;
     margin-top: 1rem;
     float: left !important;
+    &:hover{
+      background: transparent !important;
+    }
   }
   .result {
     margin-left: 50px;
