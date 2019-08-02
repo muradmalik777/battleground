@@ -44,6 +44,7 @@ export default {
   position: relative;
   overflow-y: auto;
   box-shadow: 0px 2px 12px $black;
+  border-radius: 4px;
   &:before {
     content: '';
     position: absolute;

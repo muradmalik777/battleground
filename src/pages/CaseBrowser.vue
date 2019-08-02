@@ -86,6 +86,7 @@ export default {
         display: inline-block;
         box-shadow: 0px 2px 12px $black;
         position: relative;
+        border-radius: 4px;
         &:before {
             content: '';
             position: absolute;

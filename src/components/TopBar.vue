@@ -2,8 +2,8 @@
     <v-container class="topbar">
         <v-layout justify-center row wrap class="live-drops spacing">
             <v-flex xs12>
-                <carousel :autoplay="true" :loop="true" :rewind="false" :dots="false" :nav="false" :autoWidth="true">
-                    <div v-for="image in 25" :key="image" class="drop-box">
+                <carousel :autoplay="true" :dots="false" :nav="false" :autoWidth="true">
+                    <div v-for="image in 20" :key="image" class="drop-box">
                         <v-img :src="dropPicture(image)" class="drop-image m-t-2"></v-img>
                         <h6 class="t-c">Tec-g Red Quartz</h6>
                         <v-btn flat class="open-btn">Open $0.20</v-btn>
@@ -132,28 +132,40 @@ export default {
         width: 180px;
         height: 125px;
         float: left;
-        background-image: url('../assets/imgs/drops-back.svg');
+        background: $darkest;
         background-size: cover;
         margin: 1rem 4rem 1rem 0;
         position: relative;
         transition: background-image .35s;
         box-shadow: 2px 2px 12px $black;
-        &:before {
-            content: '';
+        border-radius: 4px;
+        &:after {
+            content: "";
             position: absolute;
-            display: none;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            z-index: -1;
-            background: linear-gradient(to bottom, $red, $orange);
+            opacity: 0;
+            z-index: -100;
+            top: -3px;
+            left: -3px;
+            height: 132px;
+            width: 187px;
+            border-radius: 4px;
+            background: $gradient;
+            -webkit-filter: blur(1px);
+            -moz-filter: blur(1px);
+            -o-filter: blur(1px);
+            -ms-filter: blur(1px);
+            filter: blur(1px);
+            -webkit-transition: all 0.35s;
+            transition: all 0.35s;
         }
 
 
         &:hover{
             &:before {
-                display: block;
+                display: none;
+            }
+            &:after {
+                opacity: 0.8;;
             }
             .drop-image{
                 opacity: 0.4;
