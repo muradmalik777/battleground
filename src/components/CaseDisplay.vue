@@ -49,11 +49,12 @@ export default {
     content: '';
     position: absolute;
     opacity: 0;
-    top: 1px;
-    left: 1px;
-    right: 1px;
-    bottom: 1px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
     z-index: -1px;
+    border-radius: 4px;
     background: linear-gradient(to bottom, $red, $orange);
     transition: opacity 0.35s;
   }
@@ -64,13 +65,13 @@ export default {
     }
   }
   .price {
-    padding: 20px 10px;
+    padding: 1rem .7rem;
   }
   .skin-image {
     display: block;
-    margin: 1rem auto;
-    width: 130px;
-    height: 130px;
+    margin: .2rem auto;
+    width: 170px;
+    height: 170px;
     transition: width 0.35s;
   }
   .name {

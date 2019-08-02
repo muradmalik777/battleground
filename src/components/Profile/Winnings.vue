@@ -140,12 +140,13 @@ export default {
         &:before {
             content: '';
             position: absolute;
-            top: 1px;
-            left: 1px;
-            right: 1px;
-            bottom: 1px;
-            z-index: -1px;
             opacity: 0;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            z-index: -1px;
+            border-radius: 4px;
             background: linear-gradient(to bottom, $red, $orange);
             transition: opacity 0.35s;
         }
@@ -209,12 +210,13 @@ export default {
         &:before {
             content: '';
             position: absolute;
-            top: 1px;
-            left: 1px;
-            right: 1px;
-            bottom: 1px;
-            z-index: -1px;
             opacity: 0;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            z-index: -1px;
+            border-radius: 4px;
             background: linear-gradient(to bottom, $red, $orange);
             transition: opacity 0.35s;
         }
