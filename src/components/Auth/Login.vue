@@ -89,8 +89,9 @@ export default {
         font-size: 16px !important;
         background: $gradient !important;
         text-transform: capitalize;
+        border-radius: 50px;
         &:hover{
-            background: transparent !important;
+            box-shadow: 2px 2px 15px $black;
         }
     }
     .signup-btn{

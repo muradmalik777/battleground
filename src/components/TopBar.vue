@@ -195,7 +195,7 @@ export default {
         }
     }
     .navbar{
-        background: $dark3;
+        background: $darkest;
         padding: 1.3rem 100px;
     }
     .nav-logo{
@@ -273,8 +273,11 @@ export default {
         background: $gradient !important;
         border-radius: 50px;
         border: none;
+        &:before{
+            display: none;
+        }
         &:hover{
-            background: transparent !important;
+            box-shadow: 2px 2px 15px $black;
         }
     }
 

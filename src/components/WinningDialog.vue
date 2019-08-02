@@ -96,19 +96,21 @@ export default {
   .sell-btn {
     background: $gradient !important;
     &:hover{
-      background: transparent !important;
+      box-shadow: 2px 2px 15px $black;
     }
   }
   .verify-btn {
     background-image: $green-gradient !important;
     &:hover{
-      background: transparent !important;
+      box-shadow: 2px 2px 15px $black;
     }
   }
   .later-btn {
     color: $white !important;
     &:hover{
-      border: none !important;
+      &:before{
+        display: block;
+      }
     }
   }
 }

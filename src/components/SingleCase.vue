@@ -242,18 +242,20 @@ export default {
   .hash-btn {
     background: $green-gradient !important;
     &:hover{
-      background: transparent !important;
+      box-shadow: 2px 2px 15px $black;
     }
   }
   .buy-btn {
     background: $gradient !important;
     &:hover{
-      background: transparent !important;
+      box-shadow: 2px 2px 15px $black;
     }
   }
   .close-btn {
     &:hover{
-      border: none;
+      &:before{
+        display: block;
+      }
     }
   }
 }
@@ -345,7 +347,9 @@ export default {
     }
     .spin-btn{
       &:hover{
-        border: none !important;
+        &:before{
+          display: block;
+        }
       }
     }
     .btn{
