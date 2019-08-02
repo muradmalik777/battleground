@@ -90,7 +90,7 @@ export default {
     margin-top: 1rem;
     float: left !important;
     &:hover{
-      background: transparent !important;
+      box-shadow: 2px 2px 15px $black;
     }
   }
   .result {

@@ -113,7 +113,7 @@ export default {
         float: left !important;
         margin: 2rem 1rem 0 1rem;
         &:hover{
-            background: transparent !important;
+            box-shadow: 2px 2px 15px $black;
         }
     }
     .bitcoin-btn{
@@ -148,8 +148,7 @@ export default {
         border-radius: 50px;
         height: 40px;
         &:hover{
-            background: transparent !important;
-            color: $white !important;
+            box-shadow: 2px 2px 15px $black;
         }
     }
     .active-btn{
@@ -159,6 +158,7 @@ export default {
         font-size: 18px;
         &:hover{
             background: $gradient !important;
+            box-shadow: 2px 2px 15px $black;
         }
     }
     .v-text-field{

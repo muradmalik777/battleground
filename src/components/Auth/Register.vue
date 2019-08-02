@@ -112,8 +112,9 @@ export default {
         width: 150px;
         background: $gradient !important;
         text-transform: capitalize;
+        border-radius: 50px;
         &:hover{
-            background: transparent !important;
+            box-shadow: 2px 2px 15px $black;
         }
     }
     .login-btn{
