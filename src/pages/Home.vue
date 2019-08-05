@@ -9,7 +9,7 @@
                 <v-btn flat outline color="#fff" :class="{'active-btn': active === 3}" class="filter-btn" @click="filterCases(3)">trending cases</v-btn>
             </v-flex>
             <v-flex xs12  class="text-xs-center">
-                <div class="case" v-for="(item, i) in allCases" :key="i">
+                <div class="case" v-for="(item, i) in allCases" :key="i" @mouseenter="playHoverSound">
                     <v-img :src="require('@/assets/imgs/newcase.svg')" class="case-image"></v-img>
                     <h3 class="capitalize t-c">{{item.name}}</h3>
                     <h3 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h3>

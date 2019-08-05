@@ -1,6 +1,6 @@
 <template>
     <v-container class="register">
-        <v-layout row justify-center>
+        <v-layout row justify-center mt-5>
             <v-flex xs12 md5 lg4>
                 <v-card class="register-card">
                     <h2 class="m-b-2">User Registration</h2>

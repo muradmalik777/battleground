@@ -159,6 +159,7 @@ export default {
             this.$store.commit("addUser", response.user);
             this.purchaseLoading = false;
             this.showDialog = false;
+            this.playOpeningSound()
             this.$store.commit('refreshWinningItem', response.winning)
             this.spinnerItems[124] = response.winning.item;
             var spin = document.getElementById("buy");

@@ -36,6 +36,14 @@ Vue.mixin({
     },
     endLoader: function () {
       this.$store.commit('startLoader', false)
+    },
+    playHoverSound: function () {
+      var audio = new Audio(require('../audio/tick1.wav'))
+      audio.play()
+    },
+    playOpeningSound: function () {
+      var audio = new Audio(require('../audio/tick2.wav'))
+      audio.play()
     }
   },
   filters: {

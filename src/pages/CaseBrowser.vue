@@ -1,22 +1,16 @@
 <template>
-    <v-container class="case-browser spacing m-t-2">
-        <v-layout row wrap>
+    <v-container class="case-browser spacing">
+        <v-layout row wrap mt-5>
             <v-flex xs12>
-                <div class="case pointer" v-for="item in cases" :key="item._id" @click="browseCase(item)">
+                <h2>Browse from thousands of Cases</h2>
+                <div class="case pointer" v-for="item in cases" :key="item._id" @click="browseCase(item)" @mouseenter="playHoverSound">
                     <v-img contain :src="require('@/assets/imgs/newcase.svg')" class="case-image"></v-img>
                     <h3 class="case-namecapitalize t-c">{{item.name}}</h3>
                     <h3 class="t-c capitalize price">${{parseFloat(item.price).toFixed(2)}}</h3>
                 </div>
             </v-flex>
-            <v-flex xs12 class="text-xs-center m-t-3" v-if="totalCases && totalCases > 12">
-                <v-pagination
-                v-model="currentPage"
-                :length="Math.ceil(totalCases/12)"
-                :total-visible="10"
-                @input="getAllCases"
-                @next="getAllCases"
-                @previous="getAllCases"
-                ></v-pagination>
+            <v-flex xs12 class="text-xs-center m-t-3" v-if="totalCases && totalCases > 20">
+                <v-btn flat outline color="#fff" :loading="loading" class="loading-btn">load more</v-btn>
             </v-flex>
         </v-layout>
     </v-container>
@@ -116,6 +110,21 @@ export default {
             width: 280px;
             height: auto;
             transition: width 0.35s;
+        }
+    }
+    .loading-btn{
+        width: 200px;
+        height: 50px;
+        font-size: 16px;
+        border-radius: 50px;
+        border: 1px solid $red;
+        box-shadow: 2px 2px 10px $black;
+        text-transform: capitalize;
+        background: $dark2 !important;
+        &:hover{
+            background: $gradient !important;
+            border: none !important;
+            color: $white !important;
         }
     }
 }
