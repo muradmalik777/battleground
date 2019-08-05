@@ -1,6 +1,6 @@
 <template>
     <v-container class="login">
-        <v-layout row justify-center align-center>
+        <v-layout row justify-center align-center mt-5>
             <v-flex xs12 md5 lg4>
                 <v-card class="login-card">
                     <h2 class="m-b-2">User Login</h2>
